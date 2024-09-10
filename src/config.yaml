@@ -1,6 +1,6 @@
 site:
-  name: GearShift
-  site: 'https://gearshift.es'
+  name: AutoVisita
+  site: 'https://autovisita.es'
   base: '/'
   trailingSlash: true
 
@@ -9,26 +9,26 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: GearShift
-    template: '%s — GearShift'
-  description: 'Automate your business and save time with custom tools, data analytics and consulting services. We deliver powerful software solutions that streamline workflows and provide actionable insights, helping your business grow efficiently.'
+    default: AutoVisita
+    template: '%s — AutoVisita'
+  description: 'Automatiza las visitas a tus viviendas en venta o alquiler con AutoVisita. Ahorra tiempo y dinero con nuestro sistema de visitas automáticas.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: GearShift
+    site_name: AutoVisita
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/og_image.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@gearshift'
-    site: '@gearshift'
+    handle: '@autovisita'
+    site: '@autovisita'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: es
   textDirection: ltr
 
 apps:
