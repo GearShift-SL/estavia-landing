@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  astro:
+    restart: always
+    image: ${DOCKER_REGISTRY_URL}/gearshift-landing:latest
+    ports:
+      - '4321:4321'
+    env_file:
+      - .env
+
+  watchtower:
+    restart: always
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/${USER}/.docker/config.json:/config.json
+    # Make watchtower check for updates every 12 hours
+    command: --interval 43200

@@ -1,0 +1,74 @@
+site:
+  name: GearShift
+  site: 'https://gearshift.es'
+  base: '/'
+  trailingSlash: true
+
+  googleSiteVerificationId: null
+
+# Default SEO metadata
+metadata:
+  title:
+    default: GearShift
+    template: '%s — GearShift'
+  description: 'Automate your business and save time with custom tools, data analytics and consulting services. We deliver powerful software solutions that streamline workflows and provide actionable insights, helping your business grow efficiently.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: GearShift
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@gearshift'
+    site: '@gearshift'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: G-N7R1EVZMBE # Should be null if googleTagManager is enabled
+    googleTagManager:
+      id: null # Should be null if googleAnalytics is enabled
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

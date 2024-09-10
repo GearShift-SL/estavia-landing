@@ -1,0 +1,40 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+import Features2 from '~/components/widgets/Features2.astro'
+import ContactForm from '~/components/forms/ContactForm.tsx'
+
+const metadata = {
+  title: 'Contact'
+}
+---
+
+<Layout metadata={metadata} hasInitialBg>
+  <ContactForm client:idle />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title='We are here to help!'
+    items={[
+      {
+        title: 'General support',
+        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing your account or general questions about the website's functionality.`
+      },
+      {
+        title: 'Contact sales',
+        description:
+          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific feature, etc.'
+      },
+      {
+        title: 'Technical support',
+        description:
+          'Chat with us when facing issues like calendars not syncing, setup difficulties, or other technical challenges related to using Syncal.'
+      }
+      // {
+      //   title: 'Phone',
+      //   description: '+1 (111) 111-111',
+      //   icon: 'tabler:headset',
+      // },
+    ]}
+  />
+</Layout>

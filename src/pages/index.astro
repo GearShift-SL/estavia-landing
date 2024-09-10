@@ -1,0 +1,525 @@
+---
+import Layout from '~/layouts/PageLayout.astro'
+import Hero from '~/components/widgets/Hero.astro'
+import CallToAction from '~/components/widgets/CallToAction.astro'
+import Content from '~/components/widgets/Content.astro'
+import FAQs from '~/components/widgets/FAQs.astro'
+import Testimonials from '~/components/widgets/Testimonials.astro'
+import HeroText from '~/components/widgets/HeroText.astro'
+
+// Import getpermalink
+import { getPermalink } from '~/utils/permalinks'
+import { Icon } from 'astro-icon/components'
+import FeaturesContent from '~/components/widgets/FeaturesContent.astro'
+
+import 'aos/dist/aos.css' // AOS styles
+
+const metadata = {
+  title: 'Home'
+}
+---
+
+<Layout metadata={metadata} hasInitialBg>
+  <div class=''>
+    <!-- 1. Hero block -->
+    <Hero
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Get Started Today',
+          href: getPermalink('/inquiry'),
+          icon: 'tabler:rocket'
+        },
+        { text: 'Learn more', href: '#services' }
+      ]}
+    >
+      <Fragment slot='title'>
+        <span class='text-accent dark:text-white highlight'
+          >Automate, Optimize, and Innovate
+        </span><br />Your Business
+        <br />
+        <!-- <span class='hidden sm:inline'>with Powerful Software Solutions</span> -->
+      </Fragment>
+
+      <Fragment slot='subtitle'>
+        Save valuable time and make data-driven decisions with our <span
+          class='font-semibold'>cutting-edge software solutions.</span
+        >
+      </Fragment>
+
+      <!-- <Fragment slot='image'>
+        <div class='w-full flex justify-center'>
+          <img
+            src='images/business_startup.webp'
+            alt='Hero image'
+            class='object-cover w-2/3 md:w-1/2 lg:w-1/3'
+          />
+        </div>
+      </Fragment> -->
+
+      <Fragment slot='footer'>
+        <!-- Trusted by... -->
+        <div class='text-center mt-10' data-aos='fade-up'>
+          <p class='text-lg font-semibold text-gray-700 dark:text-gray-300'>
+            Trusted by 10+ companies
+          </p>
+        </div>
+
+        <!-- List of logos -->
+        <div
+          class='mt-5 w-full flex flex-wrap items-center justify-center gap-x-12 gap-y-6 lg:mt-10 lg:gap-x-16 lg:gap-y-8'
+          data-aos='fade-up'
+        >
+          <Icon
+            name='logos/correos'
+            class='text-4xl text-[#002453] dark:text-blue-100'
+          />
+          <Icon name='logos/tesla' class='text-xl' />
+          <Icon
+            name='logos/placeholder'
+            class='text-3xl text-[#272727] dark:text-gray-300'
+          />
+          <Icon
+            name='logos/syncal'
+            class='text-3xl text-[#272727] dark:text-gray-300'
+          />
+          <Icon
+            name='logos/autovisita'
+            class='text-3xl text-[#272727] dark:text-gray-300'
+          />
+          <Icon
+            name='logos/fisy'
+            class='text-3xl text-[#272727] dark:text-gray-300'
+          />
+        </div>
+      </Fragment>
+    </Hero>
+  </div>
+
+  <!-- Separator -->
+  <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
+
+  <!-- 2. Problem Agitation -->
+  <Content
+    dataAos='fade-up'
+    items={[
+      {
+        title: 'Lost Time',
+        description:
+          'Manual processes eat into valuable time that could be spent on strategic initiatives.',
+        icon: 'tabler:clock'
+      },
+      {
+        title: 'High Costs',
+        description:
+          'Inefficient systems and outdated software drain resources and increase operational costs.',
+        icon: 'tabler:currency-dollar'
+      },
+      {
+        title: 'Missed Opportunities',
+        description:
+          'A lack of automation can result in missed opportunities for growth and innovation.',
+        icon: 'tabler:arrows-transfer-down'
+      }
+    ]}
+    iconClass='w-10 h-10 p-2 rounded-full border-2 text-primary dark:text-slate-200 border-primary dark:border-blue-700'
+  >
+    <Fragment slot='title'>
+      Are You Still Relying on Outdated Processes?
+    </Fragment>
+
+    <Fragment slot='subtitle'>
+      Many businesses still waste countless hours on <span class='font-semibold'
+        >manual tasks</span
+      > and
+      <span class='font-semibold'>inefficient workflows</span>. These
+      inefficiencies slow down growth and prevent businesses from reaching their
+      full potential.
+    </Fragment>
+
+    <Fragment slot='image'>
+      <img
+        src='images/outdated-proceses.webp'
+        alt='Hero image'
+        class='rounded-md h-full w-full object-contain'
+      />
+    </Fragment>
+  </Content>
+
+  <!-- Separator -->
+  <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
+
+  <!-- 3. Transformation -->
+  <Content
+    dataAos='fade-up'
+    items={[
+      {
+        title: 'Increased Productivity',
+        description:
+          ' Free up your team’s time and focus on what truly matters.',
+        icon: 'tabler:chart-arrows-vertical'
+      },
+      {
+        title: 'Scalable Solutions',
+        description:
+          'Grow your business confidently with flexible software that scales with you.',
+        icon: 'tabler:chart-bar'
+      },
+      {
+        title: 'Cost Savings',
+        description:
+          'Reduce operational costs by automating repetitive tasks and optimizing workflows.',
+        icon: 'tabler:currency-dollar'
+      },
+      {
+        title: 'Data-Driven Decisions',
+        description:
+          'Make informed decisions with real-time data and actionable insights.',
+        icon: 'tabler:report-search'
+      }
+    ]}
+    isReversed
+    iconClass='w-10 h-10 p-2 rounded-full border-2 text-primary dark:text-slate-200 border-primary dark:border-blue-700'
+  >
+    <Fragment slot='title'> Transform Your Business </Fragment>
+
+    <Fragment slot='subtitle'>
+      By choosing our services, businesses can unlock new levels of <span
+        class='font-semibold'>efficiency, save time, and drive growth</span
+      > through automation.
+    </Fragment>
+
+    <Fragment slot='image'>
+      <div class='w-full flex justify-center'>
+        <img
+          src='images/business_startup_iso_banner.webp'
+          alt='Hero image'
+          class='rounded-md h-96 object-contain'
+        />
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Separator -->
+  <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
+
+  <!-- 4. Social Proof -->
+  <Testimonials
+    dataAos='fade-up'
+    title='What Our Clients Are Saying'
+    testimonials={[
+      {
+        title: "We're doing in minutes what used to take hours.",
+        testimonial:
+          'We used to spend hours on manual data entry and contacting leads. Now the leads book with us automatically, and we can focus on providing a better service.',
+        name: 'Jose Garcia',
+        job: 'CEO of Emissary',
+        brandLink: 'https://www.emissary.es/',
+        image:
+          '<img src="images/jose-garcia-emissary.jpg" alt="Jose Garcia" class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full object-cover" />'
+      },
+      {
+        title: 'Efficient launch',
+        testimonial:
+          'GearShift’s software consulting services are top-notch. They helped us build a custom solution that perfectly fits our needs and has been a game-changer for our business.',
+        name: 'Gary Yang',
+        job: 'Head of Product at Placeholder',
+        image:
+          '<img src="images/gary-yang.jpeg" alt="Gary Yang" class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full object-cover" />'
+      },
+      {
+        title: 'Excellent Support',
+        testimonial:
+          'The GearShift team is always there to help. Their support is fast, friendly, and knowledgeable, making it easy to get the help we need when we need it.',
+        name: 'Alba Villegas',
+        job: 'Legal and Forensic Clinical Psychologist',
+        image:
+          '<img src="images/alba-villegas.jpeg" alt="Alba Villegas" class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full object-cover" />'
+      }
+    ]}
+  />
+
+  <!-- Separator -->
+  <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
+
+  <!-- 5. Features -->
+  <FeaturesContent
+    dataAos='fade-up'
+    id='services'
+    sections={[
+      {
+        title: 'Process Automation',
+        subtitle:
+          'Save time and eliminate repetitive tasks with automated workflows.',
+        icon: 'tabler:settings-automation',
+        points: [
+          'Streamline routine tasks like scheduling, invoicing, and data entry.',
+          'Minimize mistakes and ensure consistency.',
+          'Free up your team for strategic activities.',
+          'Improve efficiency and reduce operational costs.'
+        ],
+        image:
+          "<img src='images/devops_banner.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>"
+      },
+      {
+        title: 'Full Stack Development',
+        subtitle:
+          'Custom software solutions tailored to your business, from front-end to back-end.',
+        icon: 'tabler:device-laptop',
+        points: [
+          'Build fully integrated applications, from UI to infrastructure.',
+          'Use modern, scalable technologies that grow with you.',
+          'Ensure seamless integration with existing systems.',
+          'Tailor software to meet your specific business needs.'
+        ],
+        image:
+          "<img src='images/development_iso_banner.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>",
+        isReversed: true
+      },
+      {
+        title: 'Data Analytics',
+        subtitle:
+          'Transform your data into actionable insights with powerful dashboards.',
+        icon: 'tabler:device-desktop-analytics',
+        points: [
+          'Make informed decisions with real-time data.',
+          'Spot trends to anticipate challenges and opportunities.',
+          'Get clear visuals that highlight key metrics.',
+          'Optimize operations and drive business growth.'
+        ],
+        image:
+          "<img src='images/data_analysis.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>"
+      },
+      {
+        title: 'Consulting',
+        subtitle:
+          'Expert advice and custom development to optimize your tech stack.',
+        icon: 'tabler:users',
+        points: [
+          'Identify the right software solutions for your business.',
+          'Extend or build new systems that fit your needs.',
+          'Streamline workflows and improve efficiency.',
+          'Implement future-ready tech that adapts to your growth.'
+        ],
+        image:
+          "<img src='images/consulting_isometric_banner.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>",
+        isReversed: true
+      }
+    ]}
+  >
+    <Fragment slot='title'>Why Automate Your Processes with GearShift?</Fragment
+    >
+    <Fragment slot='subtitle'>
+      GearShift offers a range of software development and consulting services
+      to help businesses automate processes, improve efficiency, and drive
+      growth.
+    </Fragment>
+  </FeaturesContent>
+
+  <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
+
+  <!-- 6. About Us -->
+  <HeroText id='about' dataAos='fade-up'>
+    <Fragment slot='title'>About Us</Fragment>
+    <Fragment slot='subtitle'>
+      Our mission is to save you time and help you grow by providing the best
+      tools, custom solutions, and actionable insights.
+    </Fragment>
+    <Fragment slot='content'>
+      <div class='flex items-center justify-center mb-8' data-aos='fade-up'>
+        <img
+          src='https://avatars.githubusercontent.com/u/25914304?v=4'
+          alt='About us'
+          class='shadow-lg object-cover rounded-full h-32 w-32 border border-gray-300 dark:border-gray-700'
+        />
+      </div>
+      <p data-aos='fade-up'>
+        Gearshift was founded by Daniel, an ex-Tesla quality engineer, who
+        recognized a need for businesses to streamline their processes and make
+        better decisions through automation and data. <span class='font-bold'>
+          We believe that technology should be a tool for empowerment, not a
+          source of frustration.
+        </span>
+      </p>
+      <br />
+      <p data-aos='fade-up'>
+        What started as a small project in a co-working space has evolved into a
+        company trusted by businesses across multiple industries, from car
+        manufacturers, to real estate. We're not just developers — we're
+        problem-solvers who work closely with our clients to understand their
+        needs and deliver solutions that make an impact.
+      </p>
+      <br />
+      <p data-aos='fade-up'>
+        At GearShift, we are committed to providing exceptional service and
+        support to our clients. Our team is always available to help you with
+        any questions or issues you may have, ensuring that you get the help you
+        need when you need it. Whether you are looking to automate processes,
+        build custom software, or optimize your tech stack, GearShift is here to
+        help you achieve your goals.
+      </p>
+    </Fragment>
+  </HeroText>
+  <!-- Pricing is hidden in gearshift.es -->
+  <!-- 
+  <Pricing
+    id='pricing'
+    title='Our prices'
+    subtitle='Only pay for what you need'
+    prices={[
+      {
+        title: 'pay as you go',
+        subtitle: 'Optimal choice if you are just starting out',
+        price: 2,
+        crossed_price: 3,
+        period: 'per sync task per month',
+        items: [
+          {
+            description: 'Only pay for the sync tasks you need'
+          },
+          {
+            description: 'Flexible usage based on your needs'
+          },
+          {
+            description: 'Basic support'
+          },
+          {
+            description: 'No long-term commitment'
+          }
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '/sign-up'
+        }
+      },
+      {
+        title: 'standard',
+        subtitle: 'Optimal choice for small teams',
+        price: 5,
+        crossed_price: 7,
+        period: 'Per Month',
+        items: [
+          {
+            description: 'Unlimited sync tasks'
+          },
+          {
+            description: 'Automated daily syncs'
+          },
+          {
+            description: 'Priority support'
+          },
+          {
+            description: 'Advanced privacy controls'
+          }
+        ],
+        callToAction: {
+          text: 'Get started',
+          href: '/sign-up'
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular'
+      },
+      {
+        title: 'enterprise',
+        subtitle: 'Optimal choice for companies',
+
+        items: [
+          {
+            description: 'Unlimited sync tasks'
+          },
+          {
+            description: 'Unlimited accounts'
+          },
+          {
+            description: 'Personalized setup and support'
+          },
+          {
+            description: 'Custom features and integrations'
+          }
+        ],
+        callToAction: {
+          text: 'Contact us',
+          href: '/contact'
+        }
+      }
+    ]}
+  /> -->
+
+  <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
+
+  <FAQs
+    dataAos='fade-up'
+    title='Frequently Asked Questions'
+    id='faq'
+    items={[
+      {
+        title:
+          'What’s the difference between your SaaS tools and custom software development?',
+        description:
+          'Our SaaS tools are ready-made solutions that cater to a wide range of users, both B2B and B2C, and are available to the public. If a client requires a customized version of one of our SaaS tools, we can work with them to implement a tailored solution that meets their specific needs.'
+      },
+      {
+        title: 'How do your automation consulting services work?',
+        description:
+          'We start by auditing your current business processes to identify inefficiencies and areas for automation. Depending on your needs, we can recommend existing tools or develop custom software to streamline your operations, making your business more efficient and future-ready.'
+      },
+      {
+        title: 'How do your software consulting services work?',
+        description:
+          'We work closely with your team to understand the end goal of the project, your business requirements, and any constraints you may have. Our team of experts will then develop a custom software solution that meets your needs, ensuring that it is scalable, secure, and user-friendly.'
+      },
+      {
+        title:
+          'Do you handle the full development process for custom software?',
+        description:
+          'Yes, our team provides end-to-end full-stack development services. From front-end design to back-end architecture, we handle everything to create a solution that’s fully integrated with your existing systems and tailored to your business requirements.'
+      },
+      {
+        title: 'How do your data analytics services benefit my business?',
+        description:
+          'We collect and aggregate your business data, transforming it into intuitive dashboards that provide actionable insights. This enables you to make informed decisions, identify trends, and improve operational performance, all based on real-time data.'
+      },
+      {
+        title: 'How long does it take to implement your software solutions?',
+        description:
+          "Implementation time varies depending on the complexity of the project. SaaS tools can be accessed immediately, while custom software and consulting projects are developed based on your unique requirements. We'll work with you to establish a clear timeline from the outset."
+      },
+      {
+        title: 'How secure is my data with your services?',
+        description:
+          'We take data security seriously. All of our software solutions, including SaaS tools and custom developments, use advanced encryption methods, follow industry best practices, and comply with data protection regulations to ensure that your information is safe.'
+      }
+    ]}
+  />
+
+  <CallToAction
+    dataAos='fade-up'
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get In Touch',
+        href: getPermalink('/inquiry'),
+        icon: 'tabler:rocket'
+      }
+    ]}
+  >
+    <Fragment slot='title'>
+      Ready to Automate and Scale Your Business?
+    </Fragment>
+
+    <Fragment slot='subtitle'>
+      Tell us about your needs, and we'll create the perfect solution for you.
+      Whether it's a digital tool, custom software, or data analytics, our team
+      is here to help you succeed.
+    </Fragment>
+  </CallToAction>
+
+  <script>
+    // Put this script in the pages that use AOS
+    import { aosInit } from '~/scripts/aos'
+    // runs on initial page load
+    aosInit()
+    // runs on view transitions navigation
+    document.addEventListener('astro:after-swap', aosInit)
+  </script>
+</Layout>
