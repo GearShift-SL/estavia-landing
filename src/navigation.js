@@ -4,11 +4,11 @@ export const headerData = {
   links: [
     {
       text: 'Características',
-      href: '/#caracteristicas',
+      href: '/#features',
     },
     {
       text: 'FAQ',
-      href: '/#caracteristicas',
+      href: '/#faq',
     },
     {
       text: 'Blog',
