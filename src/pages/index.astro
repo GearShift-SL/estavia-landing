@@ -145,43 +145,31 @@ const metadata = {
       dataAos='fade-up'
       items={[
         {
-          title: 'Llamadas interminables',
+          title: 'Tiempo Malgastado en Llamadas',
           description:
-            'Pasas horas llamando a potenciales clientes, muchos de los cuales ni siquiera responden.',
-          icon: 'tabler:clock'
+            'Pasas horas llamando a potenciales clientes, muchos no responden, y repites la misma información una y otra vez.',
+          icon: 'tabler:phone-off'
         },
         {
-          title: 'Agendas caóticas',
+          title: 'Desorganización y Caos',
           description:
-            'Tienes citas dispersas por toda la ciudad, haciendo ineficiente tu ruta diaria.',
-          icon: 'tabler:calendar-sad'
+            'Agendas caóticas con citas dispersas por la ciudad y un control manual abrumador de interesados y seguimientos.',
+          icon: 'tabler:trending-down'
         },
         {
-          title: 'Conversaciones repetitivas',
+          title: 'Ineficiencia en Rutas',
           description:
-            'Repites la misma información sobre condiciones de alquiler una y otra vez, incluso a quienes no llegan a visitar.',
-          icon: 'tabler:speakerphone'
+            'Rutas diarias ineficientes debido a visitas mal programadas, resultando en tiempo y recursos desperdiciados.',
+          icon: 'tabler:map-pin-off'
         },
         {
-          title: 'Pérdida de seguimiento',
+          title: 'Oportunidades Perdidas',
           description:
-            'Cuando un interesado te devuelve la llamada, ya has olvidado qué propiedad le interesaba.',
-          icon: 'tabler:clipboard-off'
-        },
-        {
-          title: 'Gestión manual abrumadora',
-          description:
-            'Llevas un control manual de interesados, citas y seguimientos que consume gran parte de tu día.',
-          icon: 'tabler:list-letters'
-        },
-        {
-          title: 'Oportunidades perdidas',
-          description:
-            'Pierdes potenciales clientes porque no puedes responder a todas las consultas a tiempo.',
-          icon: 'tabler:currency-dollar'
+            'Pierdes potenciales clientes por no poder responder a tiempo todas las consultas, reduciendo tus posibilidades de cierre.',
+          icon: 'tabler:businessplan'
         }
       ]}
-      iconClass='w-10 h-10 p-2 rounded-full border-2 text-primary dark:text-slate-200 border-primary dark:border-blue-700'
+      iconClass='w-10 h-10 p-2 rounded-full border-2 text-red-500 dark:text-red-200 border-red-500 dark:border-red-700'
     >
       <Fragment slot='title'> ¿Te suenan estos problemas? </Fragment>
 
@@ -208,41 +196,50 @@ const metadata = {
     <!-- 3. Transformation -->
     <Content
       dataAos='fade-up'
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Pruébalo gratis',
+          href: getPermalink('/inquiry'),
+          icon: 'tabler:rocket'
+        },
+        { text: 'Descubre cómo funciona', href: '#features' }
+      ]}
       items={[
         {
-          title: 'Increased Productivity',
+          title: 'Reservas Automáticas',
           description:
-            ' Free up your team’s time and focus on what truly matters.',
-          icon: 'tabler:chart-arrows-vertical'
+            'Envía enlaces de reserva automáticamente y permite que los interesados agenden visitas cuando les convenga, con toda la información del inmueble incluida.',
+          icon: 'tabler:calendar-plus'
         },
         {
-          title: 'Scalable Solutions',
+          title: 'Optimización de Visitas',
           description:
-            'Grow your business confidently with flexible software that scales with you.',
-          icon: 'tabler:chart-bar'
+            'Organiza las visitas de forma eficiente, agrupándolas por zona y horario, y mantén un registro claro de cada interesado y propiedad.',
+          icon: 'tabler:route'
         },
         {
-          title: 'Cost Savings',
+          title: 'Recordatorios Inteligentes',
           description:
-            'Reduce operational costs by automating repetitive tasks and optimizing workflows.',
-          icon: 'tabler:currency-dollar'
+            'Envía recordatorios automáticos para reducir significativamente las ausencias, maximizando tu tiempo y oportunidades.',
+          icon: 'tabler:bell'
         },
         {
-          title: 'Data-Driven Decisions',
+          title: 'Información Centralizada',
           description:
-            'Make informed decisions with real-time data and actionable insights.',
-          icon: 'tabler:report-search'
+            'Accede instantáneamente a todos los datos relevantes de cada interesado, facilitando respuestas rápidas y personalizadas.',
+          icon: 'tabler:table'
         }
       ]}
       isReversed
       iconClass='w-10 h-10 p-2 rounded-full border-2 text-primary dark:text-slate-200 border-primary dark:border-blue-700'
     >
-      <Fragment slot='title'> Transform Your Business </Fragment>
+      <Fragment slot='title'>
+        AutoVisita: Tu Asistente Virtual Inmobiliario
+      </Fragment>
 
       <Fragment slot='subtitle'>
-        By choosing our services, businesses can unlock new levels of <span
-          class='font-semibold'>efficiency, save time, and drive growth</span
-        > through automation.
+        Automatiza, optimiza y potencia tu gestión de visitas inmobiliarias
       </Fragment>
 
       <Fragment slot='image'>
@@ -262,7 +259,7 @@ const metadata = {
     <!-- 4. Social Proof -->
     <Testimonials
       dataAos='fade-up'
-      title='What Our Clients Are Saying'
+      title='Lo que dicen nuestros clientes'
       testimonials={[
         {
           title: "We're doing in minutes what used to take hours.",
@@ -301,7 +298,7 @@ const metadata = {
     <!-- 5. Features -->
     <FeaturesContent
       dataAos='fade-up'
-      id='services'
+      id='features'
       sections={[
         {
           title: 'Process Automation',

@@ -286,7 +286,8 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
   columns?: number
   isReversed?: boolean
   isAfterContent?: boolean
-  callToAction?: CallToAction
+  // callToAction?: CallToAction
+  actions?: Array<CallToAction> | string
   iconClass?: string
 }
 
