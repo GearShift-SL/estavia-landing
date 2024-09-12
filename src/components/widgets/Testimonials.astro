@@ -11,6 +11,8 @@ const {
   tagline = '',
   testimonials = [],
   callToAction,
+  lgCols = 3, // Number of columns for large screens
+  smCols = 2, // Number of columns for small screens
 
   id,
   isDark = false,
@@ -33,7 +35,10 @@ const {
     dataAos={dataAos}
   />
 
-  <div class='grid sm:grid-cols-2 lg:grid-cols-3 gap-6' data-aos={dataAos}>
+  <div
+    class=`grid sm:grid-cols-${smCols} lg:grid-cols-${lgCols} gap-6`
+    data-aos={dataAos}
+  >
     {
       testimonials &&
         testimonials.map(

@@ -240,6 +240,8 @@ export interface Pricing extends Omit<Headline, 'classes'>, Widget {
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
   testimonials?: Array<Testimonial>
   callToAction?: CallToAction
+  lgCols?: number
+  smCols?: number
 }
 
 export interface Brands extends Omit<Headline, 'classes'>, Widget {
