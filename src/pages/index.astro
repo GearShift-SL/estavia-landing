@@ -277,7 +277,7 @@ const metadata = {
           testimonial:
             'Estamos atendiendo todas las solicitudes sin esfuerzo. Nuestros clientes están encantados de poder reservar cuando quieran y nosotros de no perder oportunidades. Ahora alquilamos un piso en la mitad de tiempo.',
           name: 'Ana',
-          job: 'Operaciones en RENTAKE'
+          job: 'Directora de Operaciones en RENTAKE'
         }
       ]}
     />
@@ -291,72 +291,81 @@ const metadata = {
       id='features'
       sections={[
         {
-          title: 'Process Automation',
-          subtitle:
-            'Save time and eliminate repetitive tasks with automated workflows.',
-          icon: 'tabler:settings-automation',
+          icon: 'tabler:circle-1-filled',
+          title: 'Configuración Sencilla',
+          subtitle: 'Empieza a automatizar tus visitas en minutos',
           points: [
-            'Streamline routine tasks like scheduling, invoicing, and data entry.',
-            'Minimize mistakes and ensure consistency.',
-            'Free up your team for strategic activities.',
-            'Improve efficiency and reduce operational costs.'
+            'Crea tus listados de propiedades en AutoVisita',
+            'Establece tu horario de disponibilidad para cada propiedad',
+            'Elige entre visitas simultáneas o secuenciales',
+            'Define la duración de las visitas',
+            'Optimiza tu tiempo evitando períodos de inactividad'
           ],
           image:
-            "<img src='images/devops_banner.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>"
+            "<img src='src/assets/images/features-1.webp' alt='Hero image'class='rounded-md h-[520px] w-full object-contain'/>"
         },
         {
-          title: 'Full Stack Development',
-          subtitle:
-            'Custom software solutions tailored to your business, from front-end to back-end.',
-          icon: 'tabler:device-laptop',
+          icon: 'tabler:circle-2-filled',
+          title: 'Gestión Automática de Leads',
+          subtitle: 'Convierte leads en visitas sin esfuerzo',
           points: [
-            'Build fully integrated applications, from UI to infrastructure.',
-            'Use modern, scalable technologies that grow with you.',
-            'Ensure seamless integration with existing systems.',
-            'Tailor software to meet your specific business needs.'
+            'Recibe leads directamente de plataformas como Idealista',
+            'AutoVisita envía mensajes personalizados automáticamente',
+            'Los leads reciben información detallada de la propiedad',
+            'Incluye un enlace para solicitar una visita',
+            'Reduce el tiempo de respuesta y aumenta las conversiones'
           ],
           image:
-            "<img src='images/development_iso_banner.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>",
+            "<img src='src/assets/images/features-2.webp' alt='Hero image'class='rounded-md h-[520px] w-full object-contain'/>",
           isReversed: true
         },
         {
-          title: 'Data Analytics',
-          subtitle:
-            'Transform your data into actionable insights with powerful dashboards.',
-          icon: 'tabler:device-desktop-analytics',
+          icon: 'tabler:circle-3-filled',
+          title: 'Confirmaciones y Recordatorios',
+          subtitle: 'Minimiza las cancelaciones y los plantones',
           points: [
-            'Make informed decisions with real-time data.',
-            'Spot trends to anticipate challenges and opportunities.',
-            'Get clear visuals that highlight key metrics.',
-            'Optimize operations and drive business growth.'
+            'Envío automático de solicitudes de confirmación',
+            'Reduce significativamente los "no-shows" o plantones',
+            'Notifica nuevas disponibilidades a otros leads interesados',
+            'Rellena espacios vacíos automáticamente',
+            'Maximiza la eficiencia de tu agenda'
           ],
           image:
-            "<img src='images/data_analysis.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>"
+            "<img src='src/assets/images/features-3.webp' alt='Hero image'class='rounded-md h-[520px] w-full object-contain'/>"
         },
         {
-          title: 'Consulting',
-          subtitle:
-            'Expert advice and custom development to optimize your tech stack.',
-          icon: 'tabler:users',
+          icon: 'tabler:circle-4-filled',
+          title: 'Simplifica tu Día a Día',
+          subtitle: 'Céntrate en lo que mejor sabes hacer: vender',
           points: [
-            'Identify the right software solutions for your business.',
-            'Extend or build new systems that fit your needs.',
-            'Streamline workflows and improve efficiency.',
-            'Implement future-ready tech that adapts to your growth.'
+            'Consulta tus visitas programadas al inicio del día',
+            'Acude a las propiedades según tu agenda optimizada',
+            'Realiza las visitas sin preocuparte por la logística',
+            'Aumenta tu productividad y cierra más contratos',
+            'Mejora la satisfacción de tus clientes con un servicio eficiente'
           ],
           image:
-            "<img src='images/consulting_isometric_banner.webp' alt='Hero image'class='rounded-md h-full w-full object-contain'/>",
+            "<img src='src/assets/images/features-4.webp' alt='Hero image'class='rounded-md h-[550px] w-full object-contain'/>",
           isReversed: true
+        },
+        {
+          icon: 'tabler:circle-5-filled',
+          title: 'Próximamente: Chat Integrado',
+          subtitle: 'Comunicación directa y organizada con tus leads',
+          points: [
+            'Chat con leads directamente desde la página de la propiedad',
+            'Mantén todas las conversaciones organizadas por listado',
+            'Los leads siempre saben con quién están hablando',
+            'Acceso rápido al historial de conversaciones',
+            'Mejora la experiencia del cliente y aumenta las conversiones'
+          ]
         }
       ]}
     >
-      <Fragment slot='title'
-        >Why Automate Your Processes with GearShift?</Fragment
-      >
+      <Fragment slot='title'>¿Cómo funciona AutoVisita?</Fragment>
       <Fragment slot='subtitle'>
-        GearShift offers a range of software development and consulting services
-        to help businesses automate processes, improve efficiency, and drive
-        growth.
+        Descubre cómo nuestra plataforma te ayuda a automatizar y optimizar tu
+        gestión de visitas inmobiliarias.
       </Fragment>
     </FeaturesContent>
 
