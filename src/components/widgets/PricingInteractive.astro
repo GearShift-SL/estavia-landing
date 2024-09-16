@@ -1,0 +1,41 @@
+---
+// import { Icon } from 'astro-icon/components'
+// import Button from '~/components/ui/Button.astro'
+import Headline from '~/components/ui/Headline.astro'
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro'
+// import type { Pricing as Props } from '~/types'
+import PricingCard from './PricingInteractive'
+
+const {
+  title = '',
+  subtitle = '',
+  tagline = '',
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+  dataAos = 'fade-up'
+} = Astro.props
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-8xl mx-auto ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <Headline
+    dataAos={dataAos}
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      container: 'mb-3 md:mb-3'
+    }}
+  />
+
+  <div class='flex items-stretch justify-center'>
+    <PricingCard client:load={true} />
+  </div>
+</WidgetWrapper>

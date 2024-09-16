@@ -1,0 +1,638 @@
+import React, { useState } from 'react'
+
+const PricingCard = () => {
+  const monthlyPlans = [
+    { id: 'basic_monthly', name: '10K pageviews / month', price: 39 },
+    { id: 'pro_monthly', name: '100K pageviews / month', price: 79 },
+    { id: 'business_monthly', name: '200K pageviews / month', price: 149 },
+    { id: 'enterprise_monthly', name: '500K pageviews / month', price: 299 },
+    {
+      id: 'custom_monthly',
+      name: '1M+ pageviews / month',
+      price: 'Personalizado'
+    }
+  ]
+
+  const defaultMonthlyPlanId = monthlyPlans[0].id
+
+  const yearlyPlans = [
+    { id: 'basic_yearly', name: '10K pageviews / month', price: 32 },
+    { id: 'pro_yearly', name: '100K pageviews / month', price: 65 },
+    { id: 'business_yearly', name: '200K pageviews / month', price: 125 },
+    { id: 'enterprise_yearly', name: '500K pageviews / month', price: 250 },
+    {
+      id: 'custom_yearly',
+      name: '1M+ pageviews / month',
+      price: 'Personalizado'
+    }
+  ]
+
+  const defaultYearlyPlanId = yearlyPlans[0].id
+
+  const currency = {
+    symbol: '€',
+    position: 'right'
+  }
+
+  const features = [
+    'Unlimited Blog Sites',
+    'Unlimited Custom Domains',
+    'Advanced Analytics',
+    'Excellent SEO',
+    'Collect Emails',
+    'Free SSL',
+    'Comments',
+    'Localization',
+    'Programmatic SEO'
+  ]
+
+  const [isYearly, setIsYearly] = useState(false)
+  const [selectedPlanId, setSelectedPlanId] = useState(defaultMonthlyPlanId)
+  const [plans, setPlans] = useState(monthlyPlans)
+
+  const [shownPrice, setShownPrice] = useState(
+    monthlyPlans.find((t) => t.id === defaultMonthlyPlanId)?.price
+  )
+
+  const handlePlanChange = (planId) => {
+    // Update the selected plan id
+    setSelectedPlanId(planId)
+
+    // Set the price to be shown
+    setShownPrice(plans.find((t) => t.id === planId)?.price)
+  }
+
+  const handleIsYearlyChange = () => {
+    const newIsYearly = !isYearly
+    setIsYearly(newIsYearly)
+
+    if (newIsYearly) {
+      // Set the plans
+      setPlans(yearlyPlans)
+
+      // Set the default plan
+      setSelectedPlanId(defaultYearlyPlanId)
+
+      // Set the shown price
+      setShownPrice(
+        yearlyPlans.find((t) => t.id === defaultYearlyPlanId)?.price
+      )
+    } else {
+      // Set the plans
+      setPlans(monthlyPlans)
+
+      // Set the default plan
+      setSelectedPlanId(defaultMonthlyPlanId)
+
+      // Set the shown price
+      setShownPrice(
+        monthlyPlans.find((t) => t.id === defaultMonthlyPlanId)?.price
+      )
+    }
+  }
+
+  return (
+    <div className='max-w-3xl mx-auto p-4'>
+      {/* Yearly Toggle */}
+      <div className='flex justify-center items-center gap-4 mb-4'>
+        <span className={`font-semibold ${!isYearly ? 'text-blue-600' : ''}`}>
+          Mensual
+        </span>
+        <button
+          onClick={() => handleIsYearlyChange()}
+          className={`w-14 h-7 flex items-center rounded-full p-1 ${isYearly ? 'bg-blue-600' : 'bg-gray-300'}`}
+        >
+          <div
+            className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out ${isYearly ? 'translate-x-7' : ''}`}
+          ></div>
+        </button>
+        <span className={`font-semibold ${isYearly ? 'text-blue-600' : ''}`}>
+          Anual
+        </span>
+      </div>
+
+      {/* Toggle tagline */}
+      <p className='text-center mb-6 mt-4 text-muted text-md'>
+        <span className='font-semibold'> Ahorra 2 meses</span> al pagar
+        anualmente.
+      </p>
+
+      {/* Selected price */}
+      <div className='text-center mb-1'>
+        <span className='text-6xl font-bold'>
+          {/* If the price is a string don't add te currency symbol */}
+          {currency.position === 'left' &&
+            typeof plans.find((t) => t.id === selectedPlanId)?.price ===
+              'number' &&
+            currency.symbol}
+          {shownPrice}
+          {currency.position === 'right' &&
+            typeof plans.find((t) => t.id === selectedPlanId)?.price ===
+              'number' &&
+            currency.symbol}
+        </span>
+        <span className='text-xl'>
+          {currency.position === 'right' &&
+            typeof plans.find((t) => t.id === selectedPlanId)?.price ===
+              'number' &&
+            ' / mes'}
+        </span>
+      </div>
+      {isYearly && typeof shownPrice === 'number' && (
+        <div className='text-center text-muted mb-6'>
+          <span>
+            Pagando {currency.position === 'left' && currency.symbol}
+            {shownPrice * 12}
+            {currency.position === 'right' && currency.symbol} una vez al año.
+          </span>
+        </div>
+      )}
+
+      {/* Interactive pricing table */}
+      <div className='relative mx-auto mt-8 max-w-sm md:mt-12 md:max-w-4xl'>
+        {/* Cool backgrouond */}
+        <div className='absolute -inset-4'>
+          <div className='mx-auto h-full w-full opacity-30 blur-lg filter bg-conic-gradient'></div>
+        </div>
+
+        {/* Main component */}
+        <div className='relative overflow-hidden rounded-2xl border border-gray-200 bg-white'>
+          <div className='p-6 md:px-10 md:py-9'>
+            <div className='grid grid-cols-1 items-center gap-y-9 md:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-y-0'>
+              <div className='space-y-9 md:col-span-7 xl:pr-2'>
+                <div role='radiogroup'>
+                  <div className='-space-y-px rounded-md bg-white' role='none'>
+                    {plans &&
+                      plans.map((plan, index) => (
+                        <div
+                          className={`z-10 border-gray-200 relative space-x-3 flex cursor-pointer border p-4 focus:outline-none  ${selectedPlanId === plan.id ? 'bg-blue-100' : 'hover:bg-gray-50'} ${index === 0 ? 'rounded-tl-md rounded-tr-md' : ''} ${index === plans.length - 1 ? 'rounded-bl-md rounded-br-md' : ''}`}
+                          role='radio'
+                          aria-checked={selectedPlanId === plan.id}
+                          onClick={() => handlePlanChange(plan.id)}
+                        >
+                          {/* Radio button */}
+                          <div>
+                            <span
+                              className={`mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full border ${selectedPlanId === plan.id ? 'border-transparent bg-gray-900' : 'border-gray-300 bg-white'}`}
+                            >
+                              <span className='h-1.5 w-1.5 rounded-full bg-white'></span>
+                            </span>
+                          </div>
+
+                          {/* Plan name */}
+                          <div className='flex flex-grow flex-row justify-between space-x-3'>
+                            <span
+                              className={`text-md block font-medium ${selectedPlanId === plan.id ? 'text-black' : 'text-gray-600'}`}
+                              id='headlessui-label-:R39lb4tkp9:'
+                            >
+                              {plan.name}
+                            </span>
+
+                            {/* Plan price */}
+                            <div>
+                              <p
+                                className='text-md'
+                                id='headlessui-description-:R59lb4tkp9:'
+                              >
+                                <span className='text-indigo-900 font-medium'>
+                                  {/* If the price is a string don't add te currency symbol */}
+                                  {currency.position === 'left' &&
+                                    typeof plan.price === 'number' &&
+                                    currency.symbol}
+                                  {plan.price}
+                                  {currency.position === 'right' &&
+                                    typeof plan.price === 'number' &&
+                                    currency.symbol}
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Separator */}
+              <div className='col-span-1'>
+                <div className='hidden md:block'>
+                  <svg
+                    className='mx-auto h-auto w-4 text-gray-300'
+                    viewBox='0 0 16 172'
+                    fill='none'
+                    stroke='currentColor'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 11)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 46)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 81)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 116)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 151)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 18)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 53)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 88)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 123)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 158)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 25)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 60)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 95)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 130)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 165)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 32)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 67)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 102)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 137)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 172)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 39)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 74)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 109)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 144)'
+                    ></line>
+                  </svg>
+                </div>
+                <div className='block md:hidden'>
+                  <svg
+                    viewBox='0 0 172 16'
+                    fill='none'
+                    stroke='currentColor'
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='mx-auto h-4 w-auto text-gray-300'
+                  >
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 11 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 46 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 81 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 116 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 151 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 18 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 53 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 88 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 123 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 158 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 25 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 60 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 95 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 130 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 165 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 32 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 67 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 102 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 137 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 172 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 39 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 74 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 109 1)'
+                    ></line>
+                    <line
+                      y1='-0.5'
+                      x2='18.0278'
+                      y2='-0.5'
+                      transform='matrix(-0.5547 0.83205 0.83205 0.5547 144 1)'
+                    ></line>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Feature list */}
+              <ul className='space-y-3 text-base font-medium text-gray-900 md:col-span-5 xl:pl-2'>
+                {features.map((feature, index) => (
+                  <li key={index} className='flex items-center'>
+                    <svg
+                      className='w-5 h-5 mr-2 text-green-500'
+                      fill='none'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                    >
+                      <path d='M5 13l4 4L19 7'></path>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <form
+              method='post'
+              action='/pricing'
+              data-splitbee-event='Change Plan'
+              className='mt-8 flex justify-center'
+            >
+              <input type='hidden' name='new_plan_id' value='764007' />
+              <button
+                type='button'
+                className='relative inline-flex items-center justify-center rounded-xl border border-transparent bg-gray-900 px-8 py-3.5 text-base font-bold text-white transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2'
+              >
+                Start your free trial
+              </button>
+            </form>
+            <p className='mt-2 text-center text-sm font-medium text-gray-800'>
+              Try for free for 7 days
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* My take */}
+      <div className='bg-white shadow-lg rounded-lg overflow-hidden'>
+        <div className='p-6'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+            <div>
+              {plans.map((plan) => (
+                <div
+                  key={plan.name}
+                  className='flex items-center space-x-2 mb-2'
+                >
+                  <input
+                    type='radio'
+                    id={plan.name}
+                    name='pricingTier'
+                    value={plan.name.split(' ')[0]}
+                    checked={selectedPlanId === plan.id}
+                    onChange={() => handlePlanChange(plan.id)}
+                    className='form-radio h-4 w-4 text-blue-600'
+                  />
+                  <label
+                    htmlFor={plan.name}
+                    className='flex justify-between w-full'
+                  >
+                    <span>{plan.name}</span>
+                    <span>
+                      {currency.position === 'left' && currency.symbol}
+                      {plan.price}
+                      {currency.position === 'right' && currency.symbol}
+                    </span>
+                  </label>
+                </div>
+              ))}
+            </div>
+            <div>
+              <ul className='space-y-2'>
+                {features.map((feature, index) => (
+                  <li key={index} className='flex items-center'>
+                    <svg
+                      className='w-4 h-4 mr-2 text-green-500'
+                      fill='none'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      viewBox='0 0 24 24'
+                      stroke='currentColor'
+                    >
+                      <path d='M5 13l4 4L19 7'></path>
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        {/* TODO: Change the button for the one used by AstroWind */}
+        <div className='px-6 py-4 w-full text-center'>
+          <button className='bg-blue-600 text-white rounded-md py-2 px-4 hover:bg-blue-700 transition duration-300'>
+            Empieza tu prueba gratuita
+          </button>
+          <p className='text-center mt-4'>Pruébalo gratis durante 7 días</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default PricingCard
