@@ -14,6 +14,7 @@ import FeaturesContent from '~/components/widgets/FeaturesContent.astro'
 
 import 'aos/dist/aos.css' // AOS styles
 import SocialProofPeople from '~/components/widgets/SocialProofPeople.astro'
+import PricingInteractive from '~/components/widgets/PricingInteractive.astro'
 
 const metadata = {
   title: 'Home'
@@ -177,8 +178,7 @@ const metadata = {
         Muchas inmobiliarias todavía realizan este trabajo de <span
           class='font-semibold'>manera manual</span
         > e
-        <span class='font-semibold'>ineficiente</span>. No solo gastando tiempo
-        valioso, sino también perdiendo oportunidades de visitas.
+        <span class='font-semibold'>ineficiente</span>.
       </Fragment>
 
       <Fragment slot='image'>
@@ -373,7 +373,7 @@ const metadata = {
 
     <!-- 6. About Us -->
     <HeroText id='about' dataAos='fade-up'>
-      <Fragment slot='title'>About Us</Fragment>
+      <Fragment slot='title'>Sobre Nosotros</Fragment>
       <Fragment slot='subtitle'>
         Nuestra misión es ahorrar tiempo en la gestión inmobiliaria y ayudar a
         agencias y promotoras ofreciéndo las mejores herramientas y soluciones
@@ -408,90 +408,15 @@ const metadata = {
         </p>
       </Fragment>
     </HeroText>
-    <!-- Pricing is hidden in gearshift.es -->
-    <!-- 
-  <Pricing
-    id='pricing'
-    title='Our prices'
-    subtitle='Only pay for what you need'
-    prices={[
-      {
-        title: 'pay as you go',
-        subtitle: 'Optimal choice if you are just starting out',
-        price: 2,
-        crossed_price: 3,
-        period: 'per sync task per month',
-        items: [
-          {
-            description: 'Only pay for the sync tasks you need'
-          },
-          {
-            description: 'Flexible usage based on your needs'
-          },
-          {
-            description: 'Basic support'
-          },
-          {
-            description: 'No long-term commitment'
-          }
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '/sign-up'
-        }
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 5,
-        crossed_price: 7,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Unlimited sync tasks'
-          },
-          {
-            description: 'Automated daily syncs'
-          },
-          {
-            description: 'Priority support'
-          },
-          {
-            description: 'Advanced privacy controls'
-          }
-        ],
-        callToAction: {
-          text: 'Get started',
-          href: '/sign-up'
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular'
-      },
-      {
-        title: 'enterprise',
-        subtitle: 'Optimal choice for companies',
 
-        items: [
-          {
-            description: 'Unlimited sync tasks'
-          },
-          {
-            description: 'Unlimited accounts'
-          },
-          {
-            description: 'Personalized setup and support'
-          },
-          {
-            description: 'Custom features and integrations'
-          }
-        ],
-        callToAction: {
-          text: 'Contact us',
-          href: '/contact'
-        }
-      }
-    ]}
-  /> -->
+    <!-- Pricing -->
+
+    <PricingInteractive
+      dataAos='fade-up'
+      id='pricing'
+      title='Empieza a ahorrar tiempo hoy'
+      subtitle='Pruébalo gratis durante 7 días'
+    />
 
     <hr class='mx-20 border-t border-gray-200 dark:border-gray-700' />
 

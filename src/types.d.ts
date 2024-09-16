@@ -146,11 +146,15 @@ export interface Price {
   title?: string
   subtitle?: string
   description?: string
-  price?: number | string
-  crossed_price?: number | string
-  period?: string
-  items?: Array<Item>
+
+  oneOffPrice?: number | string
+  monthlyPrice?: number | string
+  annualMonthlyPrice?: number | string
+
+  items?: Array<string>
+
   callToAction?: CallToAction
+
   hasRibbon?: boolean
   ribbonTitle?: string
 }
@@ -235,6 +239,8 @@ export interface Stats extends Omit<Headline, 'classes'>, Widget {
 
 export interface Pricing extends Omit<Headline, 'classes'>, Widget {
   prices?: Array<Price>
+  hasAnualToggle?: boolean
+  currency?: string
 }
 
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
