@@ -1,57 +1,22 @@
 import React, { useState } from 'react'
 
-const PricingCard = () => {
-  const plans = [
-    {
-      id: 'basic',
-      name: '2 anuncios / mes',
-      monthlyPrice: 39,
-      yearlyPrice: 32
-    },
-    {
-      id: 'pro',
-      name: '10 anuncios / mes',
-      monthlyPrice: 79,
-      yearlyPrice: 65
-    },
-    {
-      id: 'business',
-      name: '50 anuncios / mes',
-      monthlyPrice: 149,
-      yearlyPrice: 125
-    },
-    {
-      id: 'enterprise',
-      name: '100 anuncios / mes',
-      monthlyPrice: 299,
-      yearlyPrice: 250
-    },
-    {
-      id: 'custom',
-      name: '100+ anuncios / mes',
-      monthlyPrice: 'Personalizado',
-      yearlyPrice: 'Personalizado'
-    }
-  ]
-
-  const defaultPlanId = plans[0].id
-
-  const currency = {
-    symbol: '€',
-    position: 'right'
+interface Props {
+  plans: {
+    id: string
+    name: string
+    monthlyPrice: number | string
+    yearlyPrice: number | string
+  }[]
+  currency: {
+    symbol: string
+    position: 'left' | 'right'
   }
+  features: string[]
+  defaultPlanId?: string
+}
 
-  const features = [
-    'Unlimited Blog Sites',
-    'Unlimited Custom Domains',
-    'Advanced Analytics',
-    'Excellent SEO',
-    'Collect Emails',
-    'Free SSL',
-    'Comments',
-    'Localization',
-    'Programmatic SEO'
-  ]
+const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
+  defaultPlanId = defaultPlanId || plans[0].id
 
   const [isYearly, setIsYearly] = useState(false)
   const [selectedPlanId, setSelectedPlanId] = useState(defaultPlanId)
@@ -569,7 +534,7 @@ const PricingCard = () => {
             >
               <input type='hidden' name='new_plan_id' value='764007' />
               {selectedPlanId === 'custom' ? (
-                <a href='/contact' target='blank' className='btn-primary'>
+                <a href='/contact/' target='blank' className='btn-primary'>
                   Contáctanos ✉️
                 </a>
               ) : (
