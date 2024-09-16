@@ -4,7 +4,7 @@ export const headerData = {
   links: [
     {
       text: '¿Cómo funciona?',
-      href: '/#features',
+      href: '/#transformation',
     },
     {
       text: 'FAQ',
