@@ -8,7 +8,7 @@ import Testimonials from '~/components/widgets/Testimonials.astro'
 import HeroText from '~/components/widgets/HeroText.astro'
 
 // Import getpermalink
-import { getPermalink } from '~/utils/permalinks'
+// import { getPermalink } from '~/utils/permalinks'
 // import { Icon } from 'astro-icon/components'
 import FeaturesContent from '~/components/widgets/FeaturesContent.astro'
 
@@ -423,45 +423,49 @@ const metadata = {
 
     <FAQs
       dataAos='fade-up'
-      title='Frequently Asked Questions'
+      title='Preguntas Frecuentes'
       id='faq'
       items={[
         {
           title:
-            'What’s the difference between your SaaS tools and custom software development?',
+            '¿Cómo se integra AutoVisita con mi sistema de gestión actual?',
           description:
-            'Our SaaS tools are ready-made solutions that cater to a wide range of users, both B2B and B2C, and are available to the public. If a client requires a customized version of one of our SaaS tools, we can work with them to implement a tailored solution that meets their specific needs.'
-        },
-        {
-          title: 'How do your automation consulting services work?',
-          description:
-            'We start by auditing your current business processes to identify inefficiencies and areas for automation. Depending on your needs, we can recommend existing tools or develop custom software to streamline your operations, making your business more efficient and future-ready.'
-        },
-        {
-          title: 'How do your software consulting services work?',
-          description:
-            'We work closely with your team to understand the end goal of the project, your business requirements, and any constraints you may have. Our team of experts will then develop a custom software solution that meets your needs, ensuring that it is scalable, secure, and user-friendly.'
+            'No podría ser más sencillo. Una vez te registres te daremos un correo personalizado para que lo introduzcas en plataformas como idealista o fotocasa. A partir de ahí, cada vez que recibas un nuevo interesado, AutoVisita se encargará de enviarle un mensaje personalizado con un enlace para que pueda reservar una visita en el momento que más le convenga.'
         },
         {
           title:
-            'Do you handle the full development process for custom software?',
+            '¿Puedo personalizar los horarios de disponibilidad para las visitas?',
           description:
-            'Yes, our team provides end-to-end full-stack development services. From front-end design to back-end architecture, we handle everything to create a solution that’s fully integrated with your existing systems and tailored to your business requirements.'
+            'Sí, AutoVisita te permite personalizar completamente tus horarios de disponibilidad. Puedes establecer horas específicas para cada día de la semana, bloquear fechas para vacaciones o eventos especiales, y incluso definir diferentes horarios para distintas propiedades o tipos de visitas.'
         },
         {
-          title: 'How do your data analytics services benefit my business?',
+          title:
+            '¿Cómo maneja AutoVisita la protección de datos de los clientes?',
           description:
-            'We collect and aggregate your business data, transforming it into intuitive dashboards that provide actionable insights. This enables you to make informed decisions, identify trends, and improve operational performance, all based on real-time data.'
+            'En AutoVisita, la seguridad y privacidad de los datos son nuestra prioridad. Cumplimos con todas las normativas de protección de datos, incluyendo el RGPD. Utilizamos encriptación de extremo a extremo para todas las comunicaciones y almacenamos los datos en servidores seguros dentro de la UE. Además, ofrecemos opciones de configuración para que puedas gestionar el consentimiento y las preferencias de privacidad de tus clientes.'
         },
         {
-          title: 'How long does it take to implement your software solutions?',
+          title:
+            '¿Qué pasa si un cliente quiere cambiar o cancelar una visita?',
           description:
-            "Implementation time varies depending on the complexity of the project. SaaS tools can be accessed immediately, while custom software and consulting projects are developed based on your unique requirements. We'll work with you to establish a clear timeline from the outset."
+            'AutoVisita facilita los cambios y cancelaciones de visitas. Los clientes pueden modificar su reserva a través del mismo enlace que utilizaron para agendar inicialmente. Si cancelan, el horario se libera automáticamente en tu agenda. Además, puedes configurar notificaciones para ser informado de cualquier cambio y establecer políticas de cancelación personalizadas.'
         },
         {
-          title: 'How secure is my data with your services?',
+          title:
+            '¿Ofrece AutoVisita análisis y reportes sobre las visitas y conversiones?',
           description:
-            'We take data security seriously. All of our software solutions, including SaaS tools and custom developments, use advanced encryption methods, follow industry best practices, and comply with data protection regulations to ensure that your information is safe.'
+            'Sí, AutoVisita incluye un robusto sistema de análisis y reportes. Puedes ver estadísticas sobre el número de visitas programadas, tasas de conversión, propiedades más populares, y mucho más. Ofrecemos dashboards personalizables y la opción de generar informes periódicos que se envían directamente a tu correo electrónico.'
+        },
+        {
+          title:
+            '¿Puedo probar AutoVisita antes de comprometerme a una suscripción?',
+          description:
+            'Por supuesto. Ofrecemos una prueba gratuita de 7 días de AutoVisita con todas las funcionalidades incluidas. Durante este período, tendrás acceso completo a la plataforma y podrás evaluar cómo se adapta a las necesidades de tu agencia. Además, nuestro equipo de soporte estará disponible para ayudarte a configurar todo y responder a cualquier pregunta que puedas tener.'
+        },
+        {
+          title: '¿Seguiré recibiendo emails de las plataformas?',
+          description:
+            '¡Claro! Puedes elegir entre seguir recibiendo las notificaciones de plataformas como Idealista o no.'
         }
       ]}
     />
@@ -471,20 +475,19 @@ const metadata = {
       actions={[
         {
           variant: 'primary',
-          text: 'Get In Touch',
-          href: getPermalink('/inquiry'),
+          text: 'Pruébalo gratis',
+          href: '/#pricing',
           icon: 'tabler:rocket'
         }
       ]}
     >
       <Fragment slot='title'>
-        Ready to Automate and Scale Your Business?
+        ¿Listo para empezar a ahorrar tiempo y aumentar tus ventas?
       </Fragment>
 
       <Fragment slot='subtitle'>
-        Tell us about your needs, and we'll create the perfect solution for you.
-        Whether it's a digital tool, custom software, or data analytics, our
-        team is here to help you succeed.
+        Prueba AutoVisita gratis durante 7 días y descubre cómo puede
+        transformar tu gestión de visitas inmobiliarias.
       </Fragment>
     </CallToAction>
 
