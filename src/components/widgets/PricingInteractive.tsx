@@ -4,31 +4,31 @@ const PricingCard = () => {
   const plans = [
     {
       id: 'basic',
-      name: '10 anuncios / mes',
+      name: '2 anuncios / mes',
       monthlyPrice: 39,
       yearlyPrice: 32
     },
     {
       id: 'pro',
-      name: '100K pageviews / month',
+      name: '10 anuncios / mes',
       monthlyPrice: 79,
       yearlyPrice: 65
     },
     {
       id: 'business',
-      name: '200K pageviews / month',
+      name: '50 anuncios / mes',
       monthlyPrice: 149,
       yearlyPrice: 125
     },
     {
       id: 'enterprise',
-      name: '500K pageviews / month',
+      name: '100 anuncios / mes',
       monthlyPrice: 299,
       yearlyPrice: 250
     },
     {
       id: 'custom',
-      name: '1M+ pageviews / month',
+      name: '100+ anuncios / mes',
       monthlyPrice: 'Personalizado',
       yearlyPrice: 'Personalizado'
     }
@@ -568,10 +568,15 @@ const PricingCard = () => {
               className='mt-8 flex justify-center'
             >
               <input type='hidden' name='new_plan_id' value='764007' />
-
-              <button type='button' className='btn-primary'>
-                Pruébalo gratis 🚀
-              </button>
+              {selectedPlanId === 'custom' ? (
+                <a href='/contact' target='blank' className='btn-primary'>
+                  Contáctanos ✉️
+                </a>
+              ) : (
+                <button type='button' className='btn-primary'>
+                  Pruébalo gratis 🚀
+                </button>
+              )}
             </form>
             <p className='mt-2 text-center text-sm font-medium text-gray-800'>
               Pruébalo gratis durante 7 días
