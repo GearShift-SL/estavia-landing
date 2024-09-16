@@ -4,7 +4,7 @@ const PricingCard = () => {
   const plans = [
     {
       id: 'basic',
-      name: '10K pageviews / month',
+      name: '10 anuncios / mes',
       monthlyPrice: 39,
       yearlyPrice: 32
     },
@@ -568,83 +568,15 @@ const PricingCard = () => {
               className='mt-8 flex justify-center'
             >
               <input type='hidden' name='new_plan_id' value='764007' />
-              <button
-                type='button'
-                className='relative inline-flex items-center justify-center rounded-xl border border-transparent bg-gray-900 px-8 py-3.5 text-base font-bold text-white transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2'
-              >
-                Start your free trial
+
+              <button type='button' className='btn-primary'>
+                Pruébalo gratis 🚀
               </button>
             </form>
             <p className='mt-2 text-center text-sm font-medium text-gray-800'>
-              Try for free for 7 days
+              Pruébalo gratis durante 7 días
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* My take */}
-      <div className='bg-white shadow-lg rounded-lg overflow-hidden'>
-        <div className='p-6'>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            <div>
-              {plans.map((plan) => (
-                <div
-                  key={plan.name}
-                  className='flex items-center space-x-2 mb-2'
-                >
-                  <input
-                    type='radio'
-                    id={plan.name}
-                    name='pricingTier'
-                    value={plan.name.split(' ')[0]}
-                    checked={selectedPlanId === plan.id}
-                    onChange={() => handlePlanChange(plan.id)}
-                    className='form-radio h-4 w-4 text-blue-600'
-                  />
-                  <label
-                    htmlFor={plan.name}
-                    className='flex justify-between w-full'
-                  >
-                    <span>{plan.name}</span>
-                    <span>
-                      {currency.position === 'left' && currency.symbol}
-                      {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                      {currency.position === 'right' && currency.symbol}
-                    </span>
-                  </label>
-                </div>
-              ))}
-            </div>
-            <div>
-              <ul className='space-y-2'>
-                {features.map((feature, index) => (
-                  <li key={index} className='flex items-center'>
-                    <svg
-                      className='w-4 h-4 mr-2 text-green-500'
-                      fill='none'
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth='2'
-                      viewBox='0 0 24 24'
-                      stroke='currentColor'
-                    >
-                      <path d='M5 13l4 4L19 7'></path>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        {/* TODO: Change the button for the one used by AstroWind */}
-        <div className='px-6 py-4 w-full text-center'>
-          <button className='bg-blue-600 text-white rounded-md py-2 px-4 hover:bg-blue-700 transition duration-300'>
-            Empieza tu prueba gratuita
-          </button>
-          <p className='text-center mt-4'>Pruébalo gratis durante 7 días</p>
         </div>
       </div>
     </div>
