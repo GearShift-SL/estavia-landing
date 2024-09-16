@@ -14,6 +14,10 @@ export const headerData = {
       text: 'Blog',
       href: getBlogPermalink(),
     },
+    {
+      text: 'Precios',
+      href: '/#pricing',
+    }
   ],
   actions: [{
     text: 'Pruébalo gratis', variant: "primary",
