@@ -3,7 +3,7 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Características',
+      text: '¿Cómo funciona?',
       href: '/#features',
     },
     {
@@ -22,7 +22,7 @@ export const headerData = {
   actions: [{
     text: 'Pruébalo gratis', variant: "primary",
     icon: 'tabler:rocket',
-    href: getPermalink("/inquiry"),
+    href: '/#pricing',
     // target: '_blank'
   }],
 };
