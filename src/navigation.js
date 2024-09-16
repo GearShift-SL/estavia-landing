@@ -32,15 +32,15 @@ export const footerData = {
     {
       title: 'Soporte',
       links: [
-        { text: 'Contacto', href: getPermalink('/contact') },
+        { text: 'Contacto', href: getPermalink('/contact/') },
         { text: 'Blog', href: getBlogPermalink() },
-        { text: 'Guías', href: getPermalink('/category/guides') },
+        { text: 'Guías', href: getPermalink('/category/guides/') },
       ],
     },
     {
       title: 'Compañía',
       links: [
-        { text: 'Servicios', href: '/#services' },
+        { text: 'Cómo funciona autovisita', href: '/#features' },
         { text: 'Sobre nosotros', href: '/#about' },
 
       ],
