@@ -75,7 +75,7 @@ const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
       <div className='text-center mb-1'>
         {/* Crossed price */}
         <div className='flex flex-row justify-center items-baseline'>
-          {isYearly && (
+          {isYearly && typeof getPrice(selectedPlanId, false) === 'number' && (
             <div className='relative mr-6'>
               <div className='flex items-center justify-center text-center text-gray-400 text-6xl font-bold'>
                 <span>
