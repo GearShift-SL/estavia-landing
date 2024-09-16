@@ -1,33 +1,40 @@
 import React, { useState } from 'react'
 
 const PricingCard = () => {
-  const monthlyPlans = [
-    { id: 'basic_monthly', name: '10K pageviews / month', price: 39 },
-    { id: 'pro_monthly', name: '100K pageviews / month', price: 79 },
-    { id: 'business_monthly', name: '200K pageviews / month', price: 149 },
-    { id: 'enterprise_monthly', name: '500K pageviews / month', price: 299 },
+  const plans = [
     {
-      id: 'custom_monthly',
+      id: 'basic',
+      name: '10K pageviews / month',
+      monthlyPrice: 39,
+      yearlyPrice: 32
+    },
+    {
+      id: 'pro',
+      name: '100K pageviews / month',
+      monthlyPrice: 79,
+      yearlyPrice: 65
+    },
+    {
+      id: 'business',
+      name: '200K pageviews / month',
+      monthlyPrice: 149,
+      yearlyPrice: 125
+    },
+    {
+      id: 'enterprise',
+      name: '500K pageviews / month',
+      monthlyPrice: 299,
+      yearlyPrice: 250
+    },
+    {
+      id: 'custom',
       name: '1M+ pageviews / month',
-      price: 'Personalizado'
+      monthlyPrice: 'Personalizado',
+      yearlyPrice: 'Personalizado'
     }
   ]
 
-  const defaultMonthlyPlanId = monthlyPlans[0].id
-
-  const yearlyPlans = [
-    { id: 'basic_yearly', name: '10K pageviews / month', price: 32 },
-    { id: 'pro_yearly', name: '100K pageviews / month', price: 65 },
-    { id: 'business_yearly', name: '200K pageviews / month', price: 125 },
-    { id: 'enterprise_yearly', name: '500K pageviews / month', price: 250 },
-    {
-      id: 'custom_yearly',
-      name: '1M+ pageviews / month',
-      price: 'Personalizado'
-    }
-  ]
-
-  const defaultYearlyPlanId = yearlyPlans[0].id
+  const defaultPlanId = plans[0].id
 
   const currency = {
     symbol: '€',
@@ -47,48 +54,31 @@ const PricingCard = () => {
   ]
 
   const [isYearly, setIsYearly] = useState(false)
-  const [selectedPlanId, setSelectedPlanId] = useState(defaultMonthlyPlanId)
-  const [plans, setPlans] = useState(monthlyPlans)
-
+  const [selectedPlanId, setSelectedPlanId] = useState(defaultPlanId)
   const [shownPrice, setShownPrice] = useState(
-    monthlyPlans.find((t) => t.id === defaultMonthlyPlanId)?.price
+    plans.find((t) => t.id === defaultPlanId)?.monthlyPrice
   )
 
-  const handlePlanChange = (planId) => {
+  const getPrice = (planId: string, isYearly: boolean) => {
+    const plan = plans.find((t) => t.id === planId)
+    if (!plan) {
+      return ''
+    } else {
+      return isYearly ? plan.yearlyPrice : plan.monthlyPrice
+    }
+  }
+
+  const handlePlanChange = (planId: string) => {
     // Update the selected plan id
     setSelectedPlanId(planId)
 
-    // Set the price to be shown
-    setShownPrice(plans.find((t) => t.id === planId)?.price)
+    setShownPrice(getPrice(planId, isYearly))
   }
 
   const handleIsYearlyChange = () => {
     const newIsYearly = !isYearly
     setIsYearly(newIsYearly)
-
-    if (newIsYearly) {
-      // Set the plans
-      setPlans(yearlyPlans)
-
-      // Set the default plan
-      setSelectedPlanId(defaultYearlyPlanId)
-
-      // Set the shown price
-      setShownPrice(
-        yearlyPlans.find((t) => t.id === defaultYearlyPlanId)?.price
-      )
-    } else {
-      // Set the plans
-      setPlans(monthlyPlans)
-
-      // Set the default plan
-      setSelectedPlanId(defaultMonthlyPlanId)
-
-      // Set the shown price
-      setShownPrice(
-        monthlyPlans.find((t) => t.id === defaultMonthlyPlanId)?.price
-      )
-    }
+    setShownPrice(getPrice(selectedPlanId, newIsYearly))
   }
 
   return (
@@ -114,36 +104,61 @@ const PricingCard = () => {
       {/* Toggle tagline */}
       <p className='text-center mb-6 mt-4 text-muted text-md'>
         <span className='font-semibold'> Ahorra 2 meses</span> al pagar
-        anualmente.
+        anualmente
       </p>
 
-      {/* Selected price */}
       <div className='text-center mb-1'>
-        <span className='text-6xl font-bold'>
-          {/* If the price is a string don't add te currency symbol */}
-          {currency.position === 'left' &&
-            typeof plans.find((t) => t.id === selectedPlanId)?.price ===
-              'number' &&
-            currency.symbol}
-          {shownPrice}
-          {currency.position === 'right' &&
-            typeof plans.find((t) => t.id === selectedPlanId)?.price ===
-              'number' &&
-            currency.symbol}
-        </span>
-        <span className='text-xl'>
-          {currency.position === 'right' &&
-            typeof plans.find((t) => t.id === selectedPlanId)?.price ===
-              'number' &&
-            ' / mes'}
-        </span>
+        {/* Crossed price */}
+        <div className='flex flex-row justify-center items-baseline'>
+          {isYearly && (
+            <div className='relative mr-6'>
+              <div className='flex items-center justify-center text-center text-gray-400 text-6xl font-bold'>
+                <span>
+                  {currency.position === 'left' &&
+                    typeof shownPrice === 'number' &&
+                    currency.symbol}
+                  {getPrice(selectedPlanId, false)}
+                  {currency.position === 'right' &&
+                    typeof shownPrice === 'number' &&
+                    currency.symbol}
+                </span>
+              </div>
+
+              <div
+                className='absolute inset-0 pointer-events-none'
+                style={{
+                  background:
+                    'linear-gradient(to bottom right, transparent, transparent 48%, var(--aw-color-primary) 48%, var(--aw-color-primary) 52%, transparent 52%, transparent)'
+                }}
+              />
+            </div>
+          )}
+
+          {/* Main price */}
+          <span className='text-6xl font-bold'>
+            {/* If the price is a string don't add te currency symbol */}
+            {currency.position === 'left' &&
+              typeof shownPrice === 'number' &&
+              currency.symbol}
+            {shownPrice}
+            {currency.position === 'right' &&
+              typeof shownPrice === 'number' &&
+              currency.symbol}
+          </span>
+          <span className='text-xl'>
+            {currency.position === 'right' &&
+              typeof plans.find((t) => t.id === selectedPlanId)
+                ?.monthlyPrice === 'number' &&
+              ' / mes'}
+          </span>
+        </div>
       </div>
       {isYearly && typeof shownPrice === 'number' && (
         <div className='text-center text-muted mb-6'>
           <span>
-            Pagando {currency.position === 'left' && currency.symbol}
+            Una cuota anual de {currency.position === 'left' && currency.symbol}
             {shownPrice * 12}
-            {currency.position === 'right' && currency.symbol} una vez al año.
+            {currency.position === 'right' && currency.symbol}
           </span>
         </div>
       )}
@@ -195,13 +210,14 @@ const PricingCard = () => {
                                 id='headlessui-description-:R59lb4tkp9:'
                               >
                                 <span className='text-indigo-900 font-medium'>
-                                  {/* If the price is a string don't add te currency symbol */}
                                   {currency.position === 'left' &&
-                                    typeof plan.price === 'number' &&
+                                    typeof getPrice(plan.id, isYearly) ===
+                                      'number' &&
                                     currency.symbol}
-                                  {plan.price}
+                                  {getPrice(plan.id, isYearly)}
                                   {currency.position === 'right' &&
-                                    typeof plan.price === 'number' &&
+                                    typeof getPrice(plan.id, isYearly) ===
+                                      'number' &&
                                     currency.symbol}
                                 </span>
                               </p>
@@ -592,7 +608,7 @@ const PricingCard = () => {
                     <span>{plan.name}</span>
                     <span>
                       {currency.position === 'left' && currency.symbol}
-                      {plan.price}
+                      {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                       {currency.position === 'right' && currency.symbol}
                     </span>
                   </label>
