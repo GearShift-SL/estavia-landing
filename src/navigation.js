@@ -51,7 +51,7 @@ export const footerData = {
     { text: 'Política de privacidad', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/autovisita' },
+    // { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/autovisita' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
