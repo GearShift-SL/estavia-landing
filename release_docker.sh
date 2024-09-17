@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Variables
+DOCKER_REGISTRY="dockerregistry.hlab.es"
+DOCKER_IMAGE_NAME="autovisita-landing"
+
 # Color codes
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -23,7 +27,7 @@ if [ -z "$VERSION" ]; then
 fi
 
 # Set the Docker image name and tags
-IMAGE_NAME="dockerregistry.hlab.es/gearshift-landing"
+IMAGE_NAME="${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}"
 VERSION_TAG="${IMAGE_NAME}:${VERSION}"
 LATEST_TAG="${IMAGE_NAME}:latest"
 
