@@ -23,17 +23,17 @@ A los efectos de la presente Política de Privacidad
 
 - **Compañía** (referida como «la Compañía», «Nosotros», «Nos» o «Nuestro» en este Acuerdo) se refiere a GearShift, S.L., una compañía con sede en España registrada con CIF B19849777.
 
-- Servicio\*\* se refiere a cualquier producto creado y mantenido por la Compañía.
+- **Servicio** se refiere a cualquier producto creado y mantenido por la Compañía.
 
-- Usted\*\* (denominado «Usted» o «Su» en el presente Acuerdo) se refiere a la persona física que accede o utiliza los Servicios, o a la empresa u otra entidad jurídica en nombre de la cual dicha persona física accede o utiliza los Servicios, según corresponda.
+- **Usted** (denominado «Usted» o «Su» en el presente Acuerdo) se refiere a la persona física que accede o utiliza los Servicios, o a la empresa u otra entidad jurídica en nombre de la cual dicha persona física accede o utiliza los Servicios, según corresponda.
 
-- Dispositivo\*\* significa cualquier dispositivo que pueda acceder a los Servicios, como un ordenador, un smartphone, una tableta digital, etc.
+- **Dispositivo** significa cualquier dispositivo que pueda acceder a los Servicios, como un ordenador, un smartphone, una tableta digital, etc.
 
 - **Cuenta** significa una cuenta única creada para que Usted acceda a Nuestro Servicio o a partes de Nuestro Servicio.
 
-- Cookies\*\* son pequeños archivos que un sitio web o una aplicación web coloca en su ordenador, dispositivo móvil o cualquier otro dispositivo y que contienen información sobre su autenticación o su historial de navegación en ese sitio web, entre otros muchos usos.
+- **Cookies** son pequeños archivos que un sitio web o una aplicación web coloca en su ordenador, dispositivo móvil o cualquier otro dispositivo y que contienen información sobre su autenticación o su historial de navegación en ese sitio web, entre otros muchos usos.
 
-- Datos personales\*\* es cualquier información relacionada con un individuo identificado o identificable.
+- **Datos personales** es cualquier información relacionada con un individuo identificado o identificable.
 
 - **Datos de Uso** se refiere a los datos recogidos automáticamente, ya sean generados por el uso del Servicio o de la propia infraestructura del Servicio (por ejemplo, la duración de la visita a una página).
 
