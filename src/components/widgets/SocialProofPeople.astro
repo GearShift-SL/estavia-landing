@@ -3,6 +3,8 @@ type SocialProofPeopleImage = {
   src: string
   alt: string
 }
+// import { Image } from 'astro:assets'
+import Image from '~/components/common/Image.astro'
 
 export interface Props {
   id?: string
@@ -25,7 +27,7 @@ const {
     {
       images &&
         images.map((image) => (
-          <img
+          <Image
             alt={image.alt}
             src={image.src}
             class='inline-block h-10 w-10 rounded-full ring-2 ring-gray-100'

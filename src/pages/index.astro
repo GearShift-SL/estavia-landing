@@ -15,6 +15,7 @@ import FeaturesContent from '~/components/widgets/FeaturesContent.astro'
 import 'aos/dist/aos.css' // AOS styles
 import SocialProofPeople from '~/components/widgets/SocialProofPeople.astro'
 import PricingInteractive from '~/components/widgets/PricingInteractive.astro'
+import Image from '~/components/common/Image.astro'
 
 const metadata = {
   title: 'Inicio'
@@ -52,43 +53,43 @@ const metadata = {
         <SocialProofPeople
           images={[
             {
-              src: 'src/assets/images/social-proof-people/1.jpg',
+              src: '~/assets/images/social-proof-people/1.jpg',
               alt: 'Ana'
             },
             {
-              src: 'src/assets/images/social-proof-people/2.jpg',
+              src: '~/assets/images/social-proof-people/2.jpg',
               alt: 'Carlos'
             },
             {
-              src: 'src/assets/images/social-proof-people/3.jpg',
+              src: '~/assets/images/social-proof-people/3.jpg',
               alt: 'Zayra'
             },
             {
-              src: 'src/assets/images/social-proof-people/4.jpg',
+              src: '~/assets/images/social-proof-people/4.jpg',
               alt: 'Julia'
             },
             {
-              src: 'src/assets/images/social-proof-people/5.jpg',
+              src: '~/assets/images/social-proof-people/5.jpg',
               alt: 'Roberto'
             },
             {
-              src: 'src/assets/images/social-proof-people/6.jpg',
+              src: '~/assets/images/social-proof-people/6.jpg',
               alt: 'Alex'
             },
             {
-              src: 'src/assets/images/social-proof-people/7.jpg',
+              src: '~/assets/images/social-proof-people/7.jpg',
               alt: 'Maria'
             },
             {
-              src: 'src/assets/images/social-proof-people/8.jpg',
+              src: '~/assets/images/social-proof-people/8.jpg',
               alt: 'Carlota'
             },
             {
-              src: 'src/assets/images/social-proof-people/9.jpg',
+              src: '~/assets/images/social-proof-people/9.jpg',
               alt: 'Juan'
             },
             {
-              src: 'src/assets/images/social-proof-people/10.jpg',
+              src: '~/assets/images/social-proof-people/10.jpg',
               alt: 'Antonio'
             }
           ]}
@@ -111,8 +112,8 @@ const metadata = {
       <!-- Image -->
       <Fragment slot='image'>
         <div class='w-full flex justify-center'>
-          <img
-            src='src/assets/images/hero-image.webp'
+          <Image
+            src='~/assets/images/hero-image.webp'
             alt='Hero image'
             class='object-cover bg-white dark:p-10 rounded-lg'
           />
@@ -183,8 +184,8 @@ const metadata = {
       </Fragment>
 
       <Fragment slot='image'>
-        <img
-          src='src/assets/images/problem-agitation.webp'
+        <Image
+          src='~/assets/images/problem-agitation.webp'
           alt='Hero image'
           class='rounded-lg h-full w-full object-cover'
         />
@@ -246,8 +247,8 @@ const metadata = {
 
       <Fragment slot='image'>
         <div class='w-full flex justify-center'>
-          <img
-            src='src/assets/images/transformation.webp'
+          <Image
+            src='~/assets/images/transformation.webp'
             alt='Hero image'
             class='rounded-md h-full object-contain'
           />
@@ -272,7 +273,7 @@ const metadata = {
           job: 'CEO of Emissary',
           brandLink: 'https://www.emissary.es/',
           image:
-            '<img src="images/jose-garcia-emissary.jpg" alt="Jose Garcia" class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full object-cover" />'
+            '<Image src="images/jose-garcia-emissary.jpg" alt="Jose Garcia" width="10" height="10" class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 min-w-full min-h-full object-cover" />'
         },
         {
           title: 'Muy contenta',
@@ -303,8 +304,10 @@ const metadata = {
             'Define la duración de las visitas',
             'Optimiza tu tiempo evitando períodos de inactividad'
           ],
-          image:
-            "<img src='src/assets/images/features-1.webp' alt='Hero image'class='rounded-md h-[520px] w-full object-contain'/>"
+          image: {
+            src: '~/assets/images/features-1.webp',
+            alt: 'Facil configuracion'
+          }
         },
         {
           icon: 'tabler:circle-2-filled',
@@ -317,8 +320,10 @@ const metadata = {
             'Incluye un enlace para solicitar una visita',
             'Reduce el tiempo de respuesta y aumenta las conversiones'
           ],
-          image:
-            "<img src='src/assets/images/features-2.webp' alt='Hero image'class='rounded-md h-[520px] w-full object-contain'/>",
+          image: {
+            src: '~/assets/images/features-2.webp',
+            alt: 'Gestion facil'
+          },
           isReversed: true
         },
         {
@@ -332,8 +337,10 @@ const metadata = {
             'Rellena espacios vacíos automáticamente',
             'Maximiza la eficiencia de tu agenda'
           ],
-          image:
-            "<img src='src/assets/images/features-3.webp' alt='Hero image'class='rounded-md h-[520px] w-full object-contain'/>"
+          image: {
+            src: '~/assets/images/features-3.webp',
+            alt: 'Optimización de visitas'
+          }
         },
         {
           icon: 'tabler:circle-4-filled',
@@ -346,8 +353,10 @@ const metadata = {
             'Aumenta tu productividad y cierra más contratos',
             'Mejora la satisfacción de tus clientes con un servicio eficiente'
           ],
-          image:
-            "<img src='src/assets/images/features-4.webp' alt='Hero image'class='rounded-md h-[550px] w-full object-contain'/>",
+          image: {
+            src: '~/assets/images/features-4.webp',
+            alt: 'Simplifica tu día a día en la inmobiliaria'
+          },
           isReversed: true
         }
         // {
@@ -383,9 +392,11 @@ const metadata = {
       </Fragment>
       <Fragment slot='content'>
         <div class='flex items-center justify-center mb-8' data-aos='fade-up'>
-          <img
-            src='https://avatars.githubusercontent.com/u/25914304?v=4'
-            alt='About us'
+          <Image
+            src='~/assets/images/daniel-garcia.jpeg'
+            alt='Daniel Garcia'
+            width={128}
+            height={128}
             class='shadow-lg object-cover rounded-full h-32 w-32 border border-gray-300 dark:border-gray-700'
           />
         </div>

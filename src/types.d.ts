@@ -305,7 +305,7 @@ export interface FeatureSection extends Omit<Headline, 'classes'>, Widget {
   icon?: string
   points?: Array<string>
   isReversed?: boolean
-  image?: string | unknown
+  image?: ImageMetadata | string
   iconClass?: string
   callToAction?: CallToAction
   columns?: number
@@ -315,7 +315,7 @@ export interface FeaturesContent extends Omit<Headline, 'classes'>, Widget {
   content?: string
   isAfterContent?: boolean
   callToAction?: CallToAction
-  sections?: Array<Section>
+  sections?: Array<FeatureSection>
 }
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
