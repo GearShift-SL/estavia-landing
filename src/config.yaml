@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: AutoVisita
     images:
-      - url: '~/assets/images/og_image.png'
+      - url: '~/assets/images/og_image.webp'
         width: 1200
         height: 628
     type: website
