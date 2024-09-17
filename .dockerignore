@@ -4,6 +4,9 @@ node_modules
 # Ignore the dist directory
 dist
 
+# Ignore the template pages
+templatePages
+
 # Ignore temporary files
 .DS_Store
 .env
