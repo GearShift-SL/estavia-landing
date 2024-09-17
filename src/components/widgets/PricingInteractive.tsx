@@ -20,7 +20,7 @@ const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
 
   const [isYearly, setIsYearly] = useState(true);
   const [selectedPlanId, setSelectedPlanId] = useState(defaultPlanId);
-  const [shownPrice, setShownPrice] = useState(plans.find((t) => t.id === defaultPlanId)?.monthlyPrice);
+  const [shownPrice, setShownPrice] = useState(plans.find((t) => t.id === defaultPlanId)?.yearlyPrice);
 
   const getPrice = (planId: string, isYearly: boolean) => {
     const plan = plans.find((t) => t.id === planId);
