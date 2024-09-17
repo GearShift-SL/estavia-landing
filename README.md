@@ -11,7 +11,7 @@ Just clone this repo and follow the setup instructions below.
 ### 2. Assets
 
 1. Replace the favicons in `src/assets/favicons` with your own.
-2. Replace the `src/assets/og_image.png` with whatever OG image you want. The size of this image should be 1200 x 628.
+2. Replace the `src/assets/og_image.webp` with whatever OG image you want. The size of this image should be 1200 x 628.
 3. The logo should be placed in `src/assets/icons/logos/logo.svg`.
 
 #### Note on Blog cover images and assets
