@@ -146,15 +146,11 @@ export interface Price {
   title?: string;
   subtitle?: string;
   description?: string;
-
   oneOffPrice?: number | string;
   monthlyPrice?: number | string;
   annualMonthlyPrice?: number | string;
-
   items?: Array<string>;
-
   callToAction?: CallToAction;
-
   hasRibbon?: boolean;
   ribbonTitle?: string;
 }
