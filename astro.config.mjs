@@ -41,7 +41,6 @@ export default defineConfig({
     config: './src/config.yaml'
   }), react()],
   image: {
-    service: squooshImageService(),
     domains: ['cdn.pixabay.com']
   },
   markdown: {
