@@ -4,25 +4,25 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 /* ---------------------------------- DATA ---------------------------------- */
-const APIENDPOINT = '/api/signup'
+const APIENDPOINT = '/api/signup/'
 const SUCCESSMESSAGE = {
-  title: 'Thank You!',
+  title: '¡Gracias!',
   description:
-    "We're working on expanding our servers!We've added you to the waitlist. We will soon send you an email with more information."
+    'Te hemos añadido a nuestra lista de espera. Serás de los primeros en recibir noticias cuando publiquemos la primera versión de AutoVisita y tendrás acceso al descuento.'
 }
 
 /* ----------------------------------- Zod ---------------------------------- */
 const SignupFormSchema = z.object({
-  first_name: z.string().min(1, 'Please input your first name.'),
-  last_name: z.string().min(1, 'Please input your last name.'),
+  first_name: z.string().min(1, 'Por favor introduce tu nombre.'),
+  last_name: z.string().min(1, 'Introduce tus apellidos.'),
   email: z
     .string()
-    .min(1, 'Please input an email address.')
-    .email('Please input a valid email address.'),
-  password: z.string().min(1, 'Please input a password.'),
-  confirm_password: z.string().min(1, 'Please input a password.'),
+    .min(1, 'Introduce una dirección de correo.')
+    .email('Introduce una dirección de correo válida.'),
+  // password: z.string().min(1, 'Por favor introduce una contraseña.'),
+  // confirm_password: z.string().min(1, 'Por favor confirma tu contraseña.'),
   terms: z.boolean().refine((value) => value === true, {
-    message: 'Please accept the terms and conditions.'
+    message: 'Debes aceptar los términos y condiciones.'
   })
 })
 
@@ -48,8 +48,6 @@ const SignupForm = () => {
   const onSubmit = async (data: SignupFormValues) => {
     setIsSubmitting(true)
 
-    console.log(data)
-
     // Ping out API endpoint
     const response = await fetch(APIENDPOINT, {
       method: 'POST',
@@ -63,7 +61,7 @@ const SignupForm = () => {
       setIsSuccess(true)
       reset()
     } else {
-      setError('Something went wrong. Please try again.')
+      setError('Algo ha salido mal. Por favor, inténtalo de nuevo.')
     }
 
     setIsSubmitting(false)
@@ -112,7 +110,7 @@ const SignupForm = () => {
         <div className='w-full bg-white rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
           <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
             <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
-              Create an account
+              Únete a la lista de espera
             </h1>
 
             <form
@@ -125,12 +123,12 @@ const SignupForm = () => {
                   htmlFor='first_name'
                   className={`block mb-2 text-sm font-medium ${errors.first_name ? 'text-red-400' : 'text-gray-900 dark:text-white'}`}
                 >
-                  First Name
+                  Nombre
                 </label>
                 <input
                   required
                   {...register('first_name', { required: true })}
-                  placeholder='John'
+                  placeholder='Juan'
                   className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                     errors.first_name ? 'border-red-400' : ''
                   }`}
@@ -148,12 +146,12 @@ const SignupForm = () => {
                   htmlFor='last_name'
                   className={`block mb-2 text-sm font-medium ${errors.last_name ? 'text-red-400' : 'text-gray-900 dark:text-white'}`}
                 >
-                  Last Name
+                  Apellidos
                 </label>
                 <input
                   required
                   {...register('last_name', { required: true })}
-                  placeholder='Lemons'
+                  placeholder='Limon'
                   className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
                     errors.last_name ? 'border-red-400' : ''
                   }`}
@@ -189,12 +187,12 @@ const SignupForm = () => {
               </div>
 
               {/* Password */}
-              <div>
+              {/* <div>
                 <label
                   htmlFor='password'
                   className={`block mb-2 text-sm font-medium ${errors.password ? 'text-red-400' : 'text-gray-900 dark:text-white'}`}
                 >
-                  Password
+                  Contraseña
                 </label>
                 <input
                   required
@@ -209,15 +207,15 @@ const SignupForm = () => {
                     {errors.password.message}
                   </p>
                 )}
-              </div>
+              </div> */}
 
               {/* Confirm Password */}
-              <div>
+              {/* <div>
                 <label
                   htmlFor='confirm_password'
                   className={`block mb-2 text-sm font-medium ${errors.confirm_password ? 'text-red-400' : 'text-gray-900 dark:text-white'}`}
                 >
-                  Confirm Password
+                  Confirma la contraseña
                 </label>
                 <input
                   required
@@ -232,7 +230,7 @@ const SignupForm = () => {
                     {errors.confirm_password.message}
                   </p>
                 )}
-              </div>
+              </div> */}
 
               {/* Terms */}
               <div className='flex items-start'>
@@ -250,12 +248,12 @@ const SignupForm = () => {
                   <label
                     className={`font-light  ${errors.terms ? 'text-red-400' : 'text-gray-500 dark:text-gray-300'}`}
                   >
-                    I accept the{' '}
+                    Acepto los{' '}
                     <a
                       className='font-medium text-primary-600 hover:underline dark:text-primary-500'
                       href='/terms'
                     >
-                      Terms and Conditions
+                      Términos y condiciones
                     </a>
                   </label>
                   {errors.terms && (
@@ -267,7 +265,7 @@ const SignupForm = () => {
               </div>
               <button
                 type='submit'
-                className={`${isSubmitting && 'opacity-50 cursor-not-allowed'} w-full bg-[var(--aw-color-primary)] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800`}
+                className={`${(isSubmitting || isSuccess || error) && 'opacity-50 cursor-not-allowed'} w-full  text-center btn-primary`}
               >
                 <div className='flex items-center justify-center'>
                   {isSubmitting && (
@@ -288,11 +286,11 @@ const SignupForm = () => {
                       />
                     </svg>
                   )}
-                  Sign up
+                  Enviar
                 </div>
               </button>
 
-              <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
+              {/* <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
                 Already have an account?{' '}
                 <a
                   href='#'
@@ -300,7 +298,7 @@ const SignupForm = () => {
                 >
                   Login here
                 </a>
-              </p>
+              </p> */}
             </form>
           </div>
         </div>

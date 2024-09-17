@@ -1,88 +1,102 @@
-export const prerender = false;
+// This API endpoint:
+// 1. Sends a notification to NTFY if enabled
+// 2. Adds a contact to a list in Brevo if enabled
 
-import type { APIRoute } from "astro";
+// Args:
+// - name: string
+// - email: string
+// - message: string
+
+// Returns:
+// - 200 status if the message was sent successfully
+// - 400 status if an error occurred
+
+export const prerender = false
+
+import type { APIRoute } from 'astro'
+import { createBrevoContact } from '~/utils/brevo'
+import { sendNotification } from '~/utils/ntfy'
+// import { createBrevoContact } from '~/utils/brevo'
 
 export const POST: APIRoute = async ({ request }) => {
-  if (request.headers.get("content-type") === "application/json") {
-    const body = await request.json();
-    const email = body.email;
-    const first_name = body.first_name;
-    const last_name = body.last_name;
-    // const password = body.password;
-    // const confirm_password = body.confirm_password;
-
-    console.log("Email:", email);
-
-    const BREVO_API_URL = "https://api.brevo.com/v3/contacts";
-    const BREVO_API_KEY =
-      import.meta.env.BREVO_API_KEY ?? process.env.BREVO_API_KEY;
-
-    // Just a simple check to make sure the API key is defined in an environment variable
-    if (!BREVO_API_KEY) {
-      console.error("No BREVO_API_KEY defined");
-      return new Response(null, { status: 400 });
-    }
-
-    // The payload that will be sent to Brevo
-    // This payload will create or update the contact and add it to the list with ID 3
-    const payload = {
-      updateEnabled: true,
-      email: email,
-      listIds: [3],
-      attributes: {
-        FIRSTNAME: first_name,
-        LASTNAME: last_name
-      }
-    };
-
-    // Whatever process you want to do in your API endpoint should be inside a try/catch block
-    // In this case we're sending a POST request to Brevo
-    try {
-      // Make a POST request to Brevo
-      const response = await fetch(BREVO_API_URL, {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "api-key": BREVO_API_KEY,
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      // Check if the request was successful
-      if (response.ok) {
-        // Request succeeded
-        console.log("Contact added successfully");
-
-        // Return a 200 status and the response to our frontend
-        return new Response(
-          JSON.stringify({
-            message: "Contact added successfully"
-          }),
-          {
-            status: 200
-          }
-        );
-      } else {
-        // Request failed
-        console.error("Failed to add contact to Brevo");
-        console.log("Response:", response);
-
-        // Return a 400 status to our frontend
-        return new Response(null, { status: 400 });
-      }
-    } catch (error) {
-      // An error occurred while doing our API operation
-      console.error(
-        "An unexpected error occurred while adding contact:",
-        error
-      );
-
-      // Return a 400 status to our frontend
-      return new Response(null, { status: 400 });
-    }
+  if (request.headers.get('content-type') !== 'application/json') {
+    // If the POST request is not a JSON request, return a 400 status to our frontend
+    return new Response(null, { status: 400 })
   }
 
-  // If the POST request is not a JSON request, return a 400 status to our frontend
-  return new Response(null, { status: 400 });
-};
+  // Initialize the success flag
+  let ntfySuccess = false
+  let brevoSuccess = false
+
+  const body = await request.json()
+  const email = body.email
+  const first_name = body.first_name
+  const last_name = body.last_name
+  // const password = body.password;
+  // const confirm_password = body.confirm_password;
+
+  // Debug the body
+  console.debug('Data received:', body)
+
+  try {
+    /* ------------------------ Add contact to Brevo List ----------------------- */
+
+    // Check to make sure the Waitlist ID is defined in an environment variable
+    const BREVO_WAITLIST_LIST_ID =
+      import.meta.env.BREVO_WAITLIST_LIST_ID ??
+      process.env.BREVO_WAITLIST_LIST_ID
+    if (BREVO_WAITLIST_LIST_ID) {
+      // Ensure the list ID is a number
+      const listId = parseInt(BREVO_WAITLIST_LIST_ID, 10)
+
+      // Create a contact in Brevo
+      const contactCreated = await createBrevoContact({
+        email: email,
+        firstName: first_name,
+        lastName: last_name,
+        listIds: [listId],
+        updateEnabled: true
+      })
+
+      if (contactCreated) {
+        console.info('Contact added to Brevo successfully')
+        brevoSuccess = true
+      } else {
+        console.error('Failed to add contact to Brevo')
+      }
+    }
+  } catch (error) {
+    // An error occurred while doing the API operation
+    console.error('An unexpected error occurred while adding contact:', error)
+
+    // Return a 400 status to the frontend
+    return new Response(null, { status: 400 })
+  }
+
+  /* -------------------------------- Send NTFY ------------------------------- */
+  const ntfySent = await sendNotification({
+    topic: 'autovisita-waitlist',
+    body: `Name: ${first_name} ${last_name}\nEmail: ${email}\nContact created in Brevo: ${brevoSuccess}`,
+    title: 'New contact form submission',
+    tags: 'email',
+    actions: `view, View in Brevo, https://app.brevo.com/contact/list`
+  })
+
+  if (ntfySent) {
+    console.info('NTFY notification sent successfully')
+    ntfySuccess = true
+  } else {
+    console.error('Failed to send NTFY notification')
+  }
+
+  /* -------------------------------- Response -------------------------------- */
+  console.debug('NTFY success:', ntfySuccess)
+  console.debug('Brevo success:', brevoSuccess)
+
+  // We only really care about the success of the Brevo operation
+  if (brevoSuccess) {
+    return new Response(null, { status: 200 })
+  } else {
+    return new Response(null, { status: 400 })
+  }
+}

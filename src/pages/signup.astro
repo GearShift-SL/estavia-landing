@@ -1,8 +1,43 @@
 ---
-import SignupForm from "~/components/forms/SignupForm";
-import PageLayout from "~/layouts/PageLayout.astro";
+import SignupForm from '~/components/forms/SignupForm'
+import Hero from '~/components/widgets/Hero.astro'
+import PageLayout from '~/layouts/PageLayout.astro'
+import { getBrevoListDetails } from '~/utils/brevo'
+
+const seatsAvailable = 50
+
+const listIdStr: string = import.meta.env.BREVO_WAITLIST_LIST_ID
+const listId = parseInt(listIdStr, 10)
+const listDetails = await getBrevoListDetails(listId)
+const contactsWaitlisted = listDetails?.totalSubscribers || 0
+const seatsRemaining = seatsAvailable - contactsWaitlisted
 ---
 
 <PageLayout>
-  <SignupForm client:idle />
+  <Hero title='¡Regístrate y recibe un descuento!'>
+    <Fragment slot='subtitle'>
+      AutoVisita está a punto de lanzarse. <br /><br />
+      🎉 Los primeros {seatsAvailable} clientes <span class='font-semibold'
+        >recibirán un descuento del 50%</span
+      > en sus primeros 2 años. 🎉
+
+      <br />
+
+      {
+        contactsWaitlisted > 0 && (
+          <Fragment>
+            <br />
+            <span class='text-lg text-gray-500'>
+              ¡Solo quedan <span class='font-semibold'>{seatsRemaining}</span>{' '}
+              cupos disponibles! 🚀
+            </span>
+          </Fragment>
+        )
+      }
+    </Fragment>
+    <Fragment slot='content'>
+      <SignupForm client:idle />
+    </Fragment>
+  </Hero>
+  <!-- <SignupForm client:idle /> -->
 </PageLayout>
