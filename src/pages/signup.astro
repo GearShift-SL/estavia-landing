@@ -2,15 +2,8 @@
 import SignupForm from '~/components/forms/SignupForm'
 import Hero from '~/components/widgets/Hero.astro'
 import PageLayout from '~/layouts/PageLayout.astro'
-import { getBrevoListDetails } from '~/utils/brevo'
 
 const seatsAvailable = 50
-
-const listIdStr: string = import.meta.env.BREVO_WAITLIST_LIST_ID
-const listId = parseInt(listIdStr, 10)
-const listDetails = await getBrevoListDetails(listId)
-const contactsWaitlisted = listDetails?.totalSubscribers || 0
-const seatsRemaining = seatsAvailable - contactsWaitlisted
 ---
 
 <PageLayout>
@@ -23,21 +16,36 @@ const seatsRemaining = seatsAvailable - contactsWaitlisted
 
       <br />
 
-      {
-        contactsWaitlisted > 0 && (
-          <Fragment>
-            <br />
-            <span class='text-lg text-gray-500'>
-              ¡Solo quedan <span class='font-semibold'>{seatsRemaining}</span>{' '}
-              cupos disponibles! 🚀
-            </span>
-          </Fragment>
-        )
-      }
+      <Fragment>
+        <br />
+        <span class='text-lg text-gray-500'>
+          ¡Solo quedan{' '}
+          <span id='seats-remaining' class='font-semibold'>
+            {seatsAvailable}
+          </span>{' '}
+          cupos disponibles! 🚀
+        </span>
+      </Fragment>
     </Fragment>
     <Fragment slot='content'>
       <SignupForm client:idle />
     </Fragment>
   </Hero>
-  <!-- <SignupForm client:idle /> -->
 </PageLayout>
+
+<script>
+  function updateSeatsRemaining() {
+    fetch('/api/seats-remaining/')
+      .then((response) => response.json())
+      .then((data) => {
+        const seatsRemainingElement = document.getElementById('seats-remaining')
+        if (seatsRemainingElement) {
+          seatsRemainingElement.textContent = data.seatsRemaining.toString()
+        }
+      })
+      .catch((error) => console.error('Error fetching seats remaining:', error))
+  }
+
+  // Run the update function when the page loads
+  document.addEventListener('DOMContentLoaded', updateSeatsRemaining)
+</script>
