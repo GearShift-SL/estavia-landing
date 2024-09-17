@@ -8,27 +8,25 @@ const metadata = {
 }
 ---
 
-<Layout metadata={metadata} hasInitialBg>
+<Layout metadata={metadata}>
   <ContactForm client:idle />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title='We are here to help!'
+    title='¡Estamos aquí para ayudarte!'
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing your account or general questions about the website's functionality.`
+        title: 'Ventas',
+        description: `Si eres una empresa y quieres solicitar una cotización, tienes preguntas sobre personalización, licencias para uso comercial, o deseas información sobre una función específica, ¡envíanos un mensaje!`
       },
       {
-        title: 'Contact sales',
+        title: 'Soporte técnico',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific feature, etc.'
+          'Consulta cualquier problema técnico que tengas, como dificultades de configuración u otros desafíos técnicos relacionados con el uso de AutoVisita.'
       },
       {
-        title: 'Technical support',
+        title: 'Oportunidades de colaboración',
         description:
-          'Chat with us when facing issues like calendars not syncing, setup difficulties, or other technical challenges related to using Syncal.'
+          'Si eres un desarrollador, diseñador, o profesional de marketing y te gustaría colaborar con nosotros, ¡háznoslo saber!'
       }
       // {
       //   title: 'Phone',
