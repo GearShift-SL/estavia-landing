@@ -538,9 +538,9 @@ const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
                   Contáctanos ✉️
                 </a>
               ) : (
-                <button type='button' className='btn-primary'>
+                <a href='/signup/' className='btn-primary'>
                   Pruébalo gratis 🚀
-                </button>
+                </a>
               )}
             </form>
             <p className='mt-2 text-center text-sm font-medium text-gray-800'>

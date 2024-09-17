@@ -22,7 +22,7 @@ export const headerData = {
   actions: [{
     text: 'Pruébalo gratis', variant: "primary",
     icon: 'tabler:rocket',
-    href: '/#pricing',
+    href: '/signup/',
     // target: '_blank'
   }],
 };
