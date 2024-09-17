@@ -2,15 +2,15 @@ version: '3'
 
 services:
   astro:
-    restart: always
-    image: ${DOCKER_REGISTRY_URL}/gearshift-landing:latest
+    restart: unless-stopped
+    image: dockerregistry.hlab.es/autovisita-landing:latest
     ports:
       - '4321:4321'
     env_file:
       - .env
 
   watchtower:
-    restart: always
+    restart: unless-stopped
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
