@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
         title: 'New contact form submission',
         tags: 'email',
         actions: `view, Reply via Email, mailto:${email}`,
-        email: 'daniel@autovisita.es'
+        email: 'hola@autovisita.es'
       })
 
       if (ntfySent) {
