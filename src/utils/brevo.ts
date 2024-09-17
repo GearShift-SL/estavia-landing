@@ -3,7 +3,7 @@ interface BrevoContact {
   firstName?: string
   lastName?: string
   otherAttributes?: Record<string, string>
-  listIds?: string[]
+  listIds?: number[]
   updateEnabled?: boolean
 }
 
@@ -15,15 +15,16 @@ export const createBrevoContact = async ({
   listIds,
   updateEnabled
 }: BrevoContact) => {
+  // Initialize the success flag
   let brevoContactCreated = false
 
   const BREVO_API_URL = 'https://api.brevo.com/v3/contacts'
-  const BREVO_API_KEY =
-    import.meta.env.BREVO_API_KEY ?? process.env.BREVO_API_KEY
 
   // Check to make sure the API key is defined in an environment variable
+  const BREVO_API_KEY =
+    import.meta.env.BREVO_API_KEY ?? process.env.BREVO_API_KEY
   if (!BREVO_API_KEY) {
-    console.warn('env variable BREVO_API_KEY is not defined')
+    console.error('env variable BREVO_API_KEY is not defined')
     return brevoContactCreated
   }
 
@@ -41,7 +42,7 @@ export const createBrevoContact = async ({
       updateEnabled: updateEnabled
     }
 
-    console.log('Payload:', payload)
+    console.debug('Brevo Payload:', payload)
 
     // Make a POST request to Brevo
     const response = await fetch(BREVO_API_URL, {
@@ -59,11 +60,10 @@ export const createBrevoContact = async ({
       // Request succeeded
       brevoContactCreated = true
       console.log('Contact added successfully')
-      console.log(response.body)
+      console.debug(response.body)
     } else {
       // Request failed
-      console.error('Failed to add contact to Brevo')
-      console.error(response.statusText)
+      console.error('Failed to add contact to Brevo', response)
     }
   } catch (error) {
     console.error('Failed to add contact to Brevo:', error)
@@ -237,4 +237,63 @@ export const sendTransactionalTemplateEmail = async ({
   }
 
   return brevoMessageSent
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               GET Brevo List                               */
+/* -------------------------------------------------------------------------- */
+
+interface BrevoListDetails {
+  id: number
+  name: string
+  startDate: string
+  endDate: string
+  totalBlacklisted: number
+  totalSubscribers: number
+  uniqueSubscribers: number
+  folderId: number
+  createdAt: string
+  campaignStats: unknown[]
+  dynamicList: boolean
+}
+
+export const getBrevoListDetails = async (
+  listId: number
+): Promise<BrevoListDetails | null> => {
+  const BREVO_API_URL = `https://api.brevo.com/v3/contacts/lists/${listId}`
+
+  // Check to make sure the API key is defined in an environment variable
+  const BREVO_API_KEY =
+    import.meta.env.BREVO_API_KEY ?? process.env.BREVO_API_KEY
+  if (!BREVO_API_KEY) {
+    console.error('env variable BREVO_API_KEY is not defined')
+    return null
+  }
+
+  try {
+    // Make a GET request to Brevo
+    const response = await fetch(BREVO_API_URL, {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        'api-key': BREVO_API_KEY
+      }
+    })
+
+    // Check if the request was successful
+    if (response.ok) {
+      // Request succeeded
+      const listDetails: BrevoListDetails = await response.json()
+      console.log('List details fetched successfully')
+      console.debug(listDetails)
+      return listDetails
+    } else {
+      // Request failed
+      console.error('Failed to fetch list details from Brevo', response)
+      return null
+    }
+  } catch (error) {
+    console.error('Failed to fetch list details from Brevo:', error)
+    return null
+  }
 }

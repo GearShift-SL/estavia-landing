@@ -4,29 +4,29 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 /* ---------------------------------- DATA ---------------------------------- */
-const APIENDPOINT = '/api/contact'
+const APIENDPOINT = '/api/contact/'
 const SUCCESSMESSAGE = {
-  title: 'Thank You!',
-  description: 'We will come back to you as soon as possible.'
+  title: '¡Gracias!',
+  description: 'Nos pondremos en contacto contigo lo antes posible.'
 }
 
 /* ----------------------------------- Zod ---------------------------------- */
-const SignupFormSchema = z.object({
-  name: z.string().min(1, 'Please input your name.'),
+const ContactFormSchema = z.object({
+  name: z.string().min(1, 'Introduce un nombre.'),
   email: z
     .string()
-    .min(1, 'Please input an email address.')
-    .email('Please input a valid email address.'),
-  message: z.string().min(1, 'Please input a message.'),
+    .min(1, 'Introduce un correo electrónico.')
+    .email('Introce un correo electrónico válido.'),
+  message: z.string().min(1, 'Introduce un mensaje.'),
   terms: z.boolean().refine((value) => value === true, {
-    message: 'Please accept the terms.'
+    message: 'Acepta los términos y condiciones.'
   })
 })
 
-type SignupFormValues = z.infer<typeof SignupFormSchema>
+type ContactFormValues = z.infer<typeof ContactFormSchema>
 
 /* --------------------------------- Component ------------------------------- */
-const SignupForm = () => {
+const ContactForm = () => {
   /* ---------------------------------- Hooks --------------------------------- */
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -37,12 +37,12 @@ const SignupForm = () => {
     handleSubmit,
     reset,
     formState: { errors }
-  } = useForm<SignupFormValues>({
-    resolver: zodResolver(SignupFormSchema)
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(ContactFormSchema)
   })
 
   /* -------------------------------- Functions ------------------------------- */
-  const onSubmit = async (data: SignupFormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true)
 
     console.log(data)
@@ -74,7 +74,7 @@ const SignupForm = () => {
         <div className='w-full bg-white rounded-lg shadow-xl dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700'>
           <div className='p-6 space-y-4 md:space-y-6 sm:p-8'>
             <h1 className='text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white'>
-              Contact form
+              Formulario de contacto
             </h1>
 
             <form
@@ -87,7 +87,7 @@ const SignupForm = () => {
                   htmlFor='first_name'
                   className={`block mb-2 text-sm font-medium ${errors.name ? 'text-red-400' : 'text-gray-900 dark:text-white'}`}
                 >
-                  First Name
+                  Nombre
                 </label>
                 <input
                   required
@@ -133,7 +133,7 @@ const SignupForm = () => {
                   htmlFor='message'
                   className={`block mb-2 text-sm font-medium ${errors.message ? 'text-red-400' : 'text-gray-900 dark:text-white'}`}
                 >
-                  Message
+                  Mensaje
                 </label>
                 <textarea
                   required
@@ -166,12 +166,12 @@ const SignupForm = () => {
                   <label
                     className={`font-light  ${errors.terms ? 'text-red-400' : 'text-gray-500 dark:text-gray-300'}`}
                   >
-                    I accept the{' '}
+                    Acepto los{' '}
                     <a
                       className='font-medium text-primary-600 hover:underline dark:text-primary-500'
                       href='/terms'
                     >
-                      Terms and Conditions
+                      Términos y Condiciones
                     </a>
                   </label>
                   {errors.terms && (
@@ -205,18 +205,18 @@ const SignupForm = () => {
                       />
                     </svg>
                   )}
-                  Send
+                  Enviar
                 </div>
               </button>
 
               <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
-                Our support team ussually responds within 24 to 48 hours. In the
-                meantime, you can check our{' '}
+                Nuestro equipo suele responder en un plazo de 24 a 48 horas.
+                Mientras tanto, puedes consultar nuestras{' '}
                 <a
                   href='/#faq'
                   className='font-medium text-primary-600 hover:underline dark:text-primary-500'
                 >
-                  FAQs
+                  Preguntas Frecuentes
                 </a>{' '}
               </p>
             </form>
@@ -226,9 +226,10 @@ const SignupForm = () => {
                 className='border border-red-500 p-4 mb-4 text-md text-red-800 dark:text-red-400 rounded-lg bg-red-50 dark:bg-gray-800 '
                 role='alert'
               >
-                <span className='font-medium'>Something went wrong!</span>
+                <span className='font-medium'>¡Algo ha ido mal!</span>
                 <br />
-                Try refreshing the page and submitting the form again later.
+                Prueba a refrescar la página y enviar el formulario de nuevo más
+                tarde.
               </div>
             )}
 
@@ -249,4 +250,4 @@ const SignupForm = () => {
   )
 }
 
-export default SignupForm
+export default ContactForm
