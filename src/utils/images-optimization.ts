@@ -12,8 +12,6 @@ type Layout =
   | 'responsive'
   | 'contained'
 
-export interface AttributesProps extends HTMLAttributes<'img'> {}
-
 export interface ImageProps extends Omit<HTMLAttributes<'img'>, 'src'> {
   src?: string | ImageMetadata | null
   width?: string | number | null
@@ -317,7 +315,7 @@ export async function getImagesOptimized(
     ...rest
   }: ImageProps,
   transform: ImagesOptimizer = () => Promise.resolve([])
-): Promise<{ src: string; attributes: AttributesProps }> {
+): Promise<{ src: string; attributes: HTMLAttributes<'img'> }> {
   if (typeof image !== 'string') {
     width ||= Number(image.width) || undefined
     height ||=
