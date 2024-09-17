@@ -18,7 +18,7 @@ interface Props {
 const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
   defaultPlanId = defaultPlanId || plans[0].id;
 
-  const [isYearly, setIsYearly] = useState(false);
+  const [isYearly, setIsYearly] = useState(true);
   const [selectedPlanId, setSelectedPlanId] = useState(defaultPlanId);
   const [shownPrice, setShownPrice] = useState(plans.find((t) => t.id === defaultPlanId)?.monthlyPrice);
 
