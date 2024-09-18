@@ -1,10 +1,10 @@
 ---
 // import { Icon } from 'astro-icon/components'
 // import Button from '~/components/ui/Button.astro'
-import Headline from '~/components/ui/Headline.astro'
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro'
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 // import type { Pricing as Props } from '~/types'
-import PricingCard from './PricingInteractive'
+import PricingCard from './PricingInteractive';
 
 const {
   title = '',
@@ -15,48 +15,48 @@ const {
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-  dataAos = 'fade-up'
-} = Astro.props
+  dataAos = 'fade-up',
+} = Astro.props;
 
 const plans = [
   {
     id: 'basic',
-    name: '2 anuncios / mes',
+    name: '2 inmuebles / mes',
     monthlyPrice: 39,
-    yearlyPrice: 32
+    yearlyPrice: 32,
   },
   {
     id: 'pro',
-    name: '10 anuncios / mes',
+    name: '10 inmuebles / mes',
     monthlyPrice: 79,
-    yearlyPrice: 65
+    yearlyPrice: 65,
   },
   {
     id: 'business',
-    name: '50 anuncios / mes',
+    name: '50 inmuebles / mes',
     monthlyPrice: 149,
-    yearlyPrice: 125
+    yearlyPrice: 125,
   },
   {
     id: 'enterprise',
-    name: '100 anuncios / mes',
+    name: '100 inmuebles / mes',
     monthlyPrice: 299,
-    yearlyPrice: 250
+    yearlyPrice: 250,
   },
   {
     id: 'custom',
-    name: '100+ anuncios / mes',
+    name: '100+ inmuebles / mes',
     monthlyPrice: 'Personalizado',
-    yearlyPrice: 'Personalizado'
-  }
-]
+    yearlyPrice: 'Personalizado',
+  },
+];
 
 // const defaultPlanId = plans[0].id
 
 const currency = {
   symbol: '€',
-  position: 'right' as 'right' | 'left'
-}
+  position: 'right' as 'right' | 'left',
+};
 
 const features = [
   'Gestión de Reservas Automática',
@@ -67,32 +67,22 @@ const features = [
   'Panel de Control Intuitivo',
   'Análisis de Rendimiento',
   'Personalización de Horarios',
-  'Gestión Multi-Propiedades'
-]
+  'Gestión Multi-Propiedades',
+];
 ---
 
-<WidgetWrapper
-  id={id}
-  isDark={isDark}
-  containerClass={`max-w-8xl mx-auto ${classes?.container ?? ''}`}
-  bg={bg}
->
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-8xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline
     dataAos={dataAos}
     title={title}
     subtitle={subtitle}
     tagline={tagline}
     classes={{
-      container: 'mb-3 md:mb-3'
+      container: 'mb-3 md:mb-3',
     }}
   />
 
-  <div class='flex items-stretch justify-center' data-aos={dataAos}>
-    <PricingCard
-      client:load={true}
-      plans={plans}
-      currency={currency}
-      features={features}
-    />
+  <div class="flex items-stretch justify-center" data-aos={dataAos}>
+    <PricingCard client:load={true} plans={plans} currency={currency} features={features} />
   </div>
 </WidgetWrapper>
