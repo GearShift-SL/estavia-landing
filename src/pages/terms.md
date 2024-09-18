@@ -3,7 +3,7 @@ title: 'Terms and Conditions'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: August 27, 2024
+_Última actualización_: 17 de septiembre, 2024
 
 Las presentes Condiciones Generales regulan el uso de Nuestros Servicios. Por favor, dedique unos minutos a leer este documento para asegurarse de que entiende lo que le ofrecemos. Aunque intentamos ser lo más transparentes posible, si algo no está claro, no dude en ponerse en contacto con nosotros.
 
