@@ -34,7 +34,7 @@ export const footerData = {
       links: [
         { text: 'Contacto', href: getPermalink('/contact/') },
         { text: 'Blog', href: getBlogPermalink() },
-        { text: 'Guías', href: getPermalink('/category/guides/') },
+        { text: 'Guías', href: getPermalink('/category/guias/') },
       ],
     },
     {
