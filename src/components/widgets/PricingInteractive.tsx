@@ -115,15 +115,15 @@ const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
       {/* Interactive pricing table */}
       <div className="relative mx-auto mt-8 max-w-sm md:mt-12 md:max-w-4xl">
         {/* Cool backgrouond */}
-        <div className="absolute -inset-4">
-          <div className="mx-auto h-full w-full opacity-30 blur-lg filter bg-conic-gradient"></div>
-        </div>
-
+        <div className="absolute -inset-4 rounded-lg bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 opacity-75 blur"></div>
         {/* Main component */}
         <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white">
           <div className="p-6 md:px-10 md:py-9">
             <div className="grid grid-cols-1 items-center gap-y-9 md:grid-cols-[repeat(13,minmax(0,1fr))] md:gap-y-0">
-              <div className="space-y-9 md:col-span-7 xl:pr-2">
+              <div className="space-y-3 md:col-span-7 xl:pr-2">
+                <div className="flex justify-center text-md text-muted">
+                  <a className="justify-center">Precios por gestión de inmuebles</a>
+                </div>
                 <div role="radiogroup">
                   <div className="-space-y-px rounded-md bg-white" role="none">
                     {plans &&
