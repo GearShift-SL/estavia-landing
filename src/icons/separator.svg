@@ -1,4 +1,4 @@
-<svg className='mx-auto h-auto w-4 text-gray-300' viewBox='0 0 16 172' fill='none' stroke='currentColor'
+<svg class='mx-auto h-auto w-4 text-gray-300' viewBox='0 0 16 172' fill='none' stroke='currentColor'
     xmlns='http://www.w3.org/2000/svg'>
     <line y1='-0.5' x2='18.0278' y2='-0.5' transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 11)'></line>
     <line y1='-0.5' x2='18.0278' y2='-0.5' transform='matrix(-0.83205 -0.5547 -0.5547 0.83205 15 46)'></line>
