@@ -7,7 +7,7 @@ image: ~/assets/images/blog/como-agilizar-el-alquiler-de-una-vivienda/cover.webp
 category: Guias
 tags:
   - guía práctica
-  - alquiler de pisos
+  - automatización
 # metadata:
 #   canonical: https://astrowind.vercel.app/get-started-website-with-astro-tailwind-css
 ---
