@@ -518,7 +518,7 @@ const PricingCard = ({ plans, currency, features, defaultPlanId }: Props) => {
                   Contáctanos ✉️
                 </a>
               ) : (
-                <a href="/signup/" className="btn-primary">
+                <a href="/waitlist/" className="btn-primary">
                   Pruébalo gratis 🚀
                 </a>
               )}
