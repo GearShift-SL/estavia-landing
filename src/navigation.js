@@ -38,13 +38,22 @@ export const footerData = {
       ],
     },
     {
-      title: 'Compañía',
+      title: 'AutoVisita',
       links: [
         { text: 'Cómo funciona autovisita', href: '/#features' },
         { text: 'Sobre nosotros', href: '/#about' },
 
       ],
     },
+    {
+      title: 'Universo GearShift',
+      links: [
+        { text: 'GearShift', href: 'https://gearshift.es/' },
+        { text: 'postify AI', href: 'https://postifyai.com/' },
+        { text: 'SynCal', href: 'https://syncal.app/' },
+        { text: 'AutoVisita', href: 'https://autovisita.es/' },
+      ],
+    }
   ],
   secondaryLinks: [
     { text: 'Términos y condiciones', href: getPermalink('/terms') },
