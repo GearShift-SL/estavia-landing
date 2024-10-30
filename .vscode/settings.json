@@ -1,3 +1,8 @@
 {
-  "svg.preview.background": "editor"
+  "svg.preview.background": "editor",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#01A9F0",
+    "titleBar.activeBackground": "#01A9F0",
+    "titleBar.activeForeground": "#FBF9FD"
+  }
 }
