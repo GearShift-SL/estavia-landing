@@ -1,5 +1,5 @@
 // This API endpoint:
-// 1. Sends a notification to NTFY if enabled
+// 1. Sends a notification to NTFY
 
 // Args:
 // - name: string
@@ -25,9 +25,6 @@ export const POST: APIRoute = async ({ request }) => {
     // Debug the body
     console.debug('Data received:', body);
 
-    // Initialize the success flag
-    let success = false;
-
     try {
       /* -------------------------------- Send NTFY ------------------------------- */
       const ntfySent = await sendNotification({
@@ -41,14 +38,6 @@ export const POST: APIRoute = async ({ request }) => {
 
       if (ntfySent) {
         console.info('NTFY notification sent successfully');
-        success = true;
-      } else {
-        console.error('Failed to send NTFY notification');
-      }
-
-      /* ------------------ Everything was processed successfully ----------------- */
-      if (success) {
-        console.info('Contact form processed successfully');
 
         // Return a 200 status and the response to our frontend
         return new Response(
@@ -60,7 +49,8 @@ export const POST: APIRoute = async ({ request }) => {
           }
         );
       } else {
-        console.error('None of the operations were successful, returning a 400 status');
+        console.error('Failed to send NTFY notification');
+
         return new Response(null, { status: 400 });
       }
     } catch (error) {
