@@ -146,11 +146,9 @@ const currentPath = `/${new URL(Astro.url).pathname}/`;
         </div>
         {
           actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              <button class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto bg-primary text-white rounded-lg">
-                Automatiza tu agencia hoy
-              </button>
-            </span>
+            <button class="bg-primary text-white px-4 py-3 rounded-full font-semibold hover:bg-secondary transition-colors">
+              Solicita una demostración
+            </button>
           ) : (
             ''
           )

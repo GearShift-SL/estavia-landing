@@ -11,9 +11,6 @@ import Header from '~/components/Header.astro';
 <Layout>
   <slot name="header">
     <Header {...headerData} isSticky />
-    <!-- Div with the same height as the header -->
-    <!-- To create separation and toggle the header background -->
-    <div class="h-16 md:h-20"></div>
   </slot>
   <main>
     <div
