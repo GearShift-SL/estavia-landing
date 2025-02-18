@@ -1,9 +1,9 @@
 ---
-import CustomStyles from '~/meta/CustomStyles.astro';
 import Favicons from '~/meta/Favicons.astro';
 import SEOMetaData from '~/meta/SEOMetaData.astro';
 import SiteVerification from '~/meta/SiteVerification.astro';
 import '~/styles/global.css';
+import '@fontsource-variable/inter';
 ---
 
 <!doctype html>
@@ -23,9 +23,6 @@ import '~/styles/global.css';
 
     <!-- Google Site Verification -->
     <SiteVerification />
-
-    <!-- Custom Styles -->
-    <CustomStyles />
   </head>
   <body>
     <slot />
