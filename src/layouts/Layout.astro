@@ -4,6 +4,7 @@ import SEOMetaData from '~/meta/SEOMetaData.astro';
 import SiteVerification from '~/meta/SiteVerification.astro';
 import '~/styles/global.css';
 import '@fontsource-variable/inter';
+import BasicScripts from '~/components/BasicScripts.astro';
 ---
 
 <!doctype html>
@@ -25,5 +26,6 @@ import '@fontsource-variable/inter';
   </head>
   <body>
     <slot />
+    <BasicScripts />
   </body>
 </html>
