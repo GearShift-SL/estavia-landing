@@ -59,10 +59,6 @@
                 "[astro]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
                 },
-                "prettier.semi": true, // Add semicolons
-                "prettier.trailingComma": "none", // Remove trailing commas
-                "prettier.singleQuote": false, // Use double quotes
-                "prettier.printWidth": 80, // Line width
                 // Window colors
                 "workbench.colorCustomizations": {
                     "activityBar.background": "#298dff",
