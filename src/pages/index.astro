@@ -1,4 +1,5 @@
 ---
+import Brands from '~/components/Brands.astro';
 import DemoVideo from '~/components/DemoVideo.astro';
 import Hero from '~/components/Hero.astro';
 import PageLayout from '~/layouts/PageLayout.astro';
@@ -14,6 +15,15 @@ import PageLayout from '~/layouts/PageLayout.astro';
 
   <section>
     <DemoVideo />
+  </section>
+
+  <section>
+    <Brands
+      brands={[
+        { name: 'Emissary', icon: 'logo-emissary' },
+        { name: 'Rentake', icon: 'logo-rentake' },
+      ]}
+    />
   </section>
   <div>
     <div></div>
