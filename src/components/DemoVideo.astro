@@ -1,0 +1,67 @@
+---
+import { YouTube } from '@astro-community/astro-embed-youtube';
+import demoVideo from '../assets/videos/demo.mp4';
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="relative w-full bg-gradient-to-b from-blue-500/10 to-white">
+  <div class="max-w-5xl mx-auto px-4 pt-32 pb-16">
+    <div id="demo-video" class="relative rounded-2xl -mt-50 shadow-xl p-2">
+      <div class="video-container relative">
+        <video
+          src={demoVideo}
+          loop
+          muted
+          playsinline
+          autoplay
+          class="w-full rounded-2xl object-contain bg-transparent preview-video"></video>
+        <button
+          class="play-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+               bg-[#4173DD] hover:bg-autovisita text-white rounded-3xl p-4
+               flex items-center justify-center gap-2 transition-all duration-200
+               shadow-lg hover:shadow-xl hover:cursor-pointer z-10"
+        >
+          <Icon name="tabler:player-play-filled" />
+          <span>
+            <strong>Descubre AutoVisita</strong> en 4 min
+          </span>
+        </button>
+        <div class="youtube-embed absolute inset-0 z-20 hidden">
+          <!-- Close button added -->
+          <button
+            class="close-button absolute top-2 right-2 p-2 rounded
+          hover:cursor-pointer hover:bg-gray-500 hover:text-white transition-colors duration-200"
+          >
+            <span class="font-bold text-2xl">✕</span>
+          </button>
+          <div class="flex items-center justify-center w-full h-full">
+            <div class="w-[720px]">
+              <YouTube id="gIQZVRn5an4" posterQuality="high" class="rounded-3xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Client-side JavaScript
+  const playButton = document.querySelector('.play-button');
+  const previewVideo = document.querySelector('.preview-video');
+  const youtubeEmbed = document.querySelector('.youtube-embed');
+  const closeButton = document.querySelector('.close-button');
+
+  playButton?.addEventListener('click', () => {
+    // Instead of hiding the video, reduce its opacity
+    previewVideo?.classList.add('opacity-25');
+    // Remove the hidden class from the YouTube embed so it appears on top
+    youtubeEmbed?.classList.remove('hidden');
+  });
+
+  closeButton?.addEventListener('click', () => {
+    // Hide the YouTube embed and restore the preview video opacity
+    youtubeEmbed?.classList.add('hidden');
+    previewVideo?.classList.remove('opacity-25');
+  });
+</script>
