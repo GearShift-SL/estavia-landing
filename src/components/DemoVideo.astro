@@ -42,7 +42,12 @@ import { Icon } from 'astro-icon/components';
           <!-- Centered container with youtube video -->
           <div class="flex items-center justify-center w-full h-full">
             <div class="w-[720px]">
-              <YouTube id="gIQZVRn5an4" posterQuality="high" class="rounded-3xl" />
+              <YouTube
+                id="https://www.youtube.com/embed/gIQZVRn5an4"
+                posterQuality="high"
+                params="autoplay=1"
+                class="rounded-3xl"
+              />
             </div>
           </div>
         </div>
@@ -59,15 +64,28 @@ import { Icon } from 'astro-icon/components';
   const closeButton = document.querySelector('.close-button');
 
   playButton?.addEventListener('click', () => {
-    // Instead of hiding the video, reduce its opacity
     previewVideo?.classList.add('opacity-25');
-    // Remove the hidden class from the YouTube embed so it appears on top
     youtubeEmbed?.classList.remove('hidden');
+    // If the iframe src was cleared during close, restore it on play.
+    const iframe = youtubeEmbed?.querySelector('iframe');
+    if (iframe) {
+      iframe.src = 'https://www.youtube.com/embed/gIQZVRn5an4';
+    }
   });
 
   closeButton?.addEventListener('click', () => {
-    // Hide the YouTube embed and restore the preview video opacity
     youtubeEmbed?.classList.add('hidden');
     previewVideo?.classList.remove('opacity-25');
+
+    // Stop YouTube video playback by resetting the iframe src.
+    const iframe = youtubeEmbed?.querySelector('iframe');
+    if (iframe) {
+      //   const tempSrc = iframe.src;
+      iframe.src = '';
+      // Optional: Restore the src for future play after a brief delay.
+      //   setTimeout(() => {
+      //     iframe.src = tempSrc;
+      //   }, 100);
+    }
   });
 </script>
