@@ -6,12 +6,10 @@
 
   /* Custom colors */
   --color-primary: #01a9f0;
-  --color-secondary: #004aac;
-  --color-accent: #01a9f0;
+  --color-secondary: #4173dd;
   --color-default: rgb(16 16 16);
   --color-muted: rgb(16 16 16 / 66%);
   --color-page: rgb(255 255 255);
-  --color-autovisita: #01a9f0;
 }
 
 .dark {
