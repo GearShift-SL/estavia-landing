@@ -1,21 +1,9 @@
 export const headerData = {
   links: [
-    {
-      text: 'Descúbrelo',
-      href: '/#transformation',
-    },
-    {
-      text: 'FAQ',
-      href: '/#faq',
-    },
-    {
-      text: 'Blog',
-      href: '/blog/',
-    },
-    {
-      text: 'Precios',
-      href: '/#pricing',
-    },
+    // {
+    //   text: 'Descúbrelo',
+    //   href: '/#transformation',
+    // },
   ],
   actions: [
     {
