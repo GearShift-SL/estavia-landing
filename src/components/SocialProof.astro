@@ -1,0 +1,280 @@
+---
+// SocialProofPeople.astro
+
+import { Icon } from 'astro-icon/components';
+
+const title = 'Trusted by';
+const subtitle = 'industry experts';
+
+const testimonials = [
+  {
+    logo: 'logo-emissary',
+    quote:
+      '"Finding the right statistic hidden within thousands of pages of reports used to take me hours each day, now it is done within 30 seconds. It\'s a real game-changer!"',
+    name: 'Arber Sejdiji',
+    position: 'Consultant, BCG',
+    image: '/people/arber-sejdiji.jpg',
+  },
+  {
+    logo: 'logo-rentake',
+    quote:
+      '"Dataleap is super intuitive to use. Our market knowledge is now finally accessible to all our teams be it marketing, strategy or sales."',
+    name: 'Constantin Lindenmeyer',
+    position: 'CEO, GOLDBECK SOLAR USA & Canada',
+    image: '/people/constantin-lindenmeyer.jpg',
+  },
+  {
+    logo: 'logo-citron',
+    quote:
+      '"Dataleap supercharges market research with it\'s intuitive interface and user-curated databases. Trusted answers clearly link to high-quality sources. A powerful AI research assistant!."',
+    name: 'Benjamin Chew',
+    position: 'Global Market Intelligence Leader Raw Materials, Schneider Electrics',
+    image: '/people/benjamin-chew.jpg',
+  },
+  // Add more testimonials as needed
+];
+---
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <!-- Heading -->
+  <div class="text-center mb-16">
+    <h2 class="text-5xl font-semibold text-gray-900">
+      {title}<br /><span class="text-primary font-medium">{subtitle}</span>
+    </h2>
+  </div>
+
+  <!-- Mobile Testimonial Carousel - Two Vertically Stacked Cards -->
+  <div class="md:hidden relative overflow-hidden" id="mobile-testimonial-carousel">
+    <!-- Top Navigation Arrow for Mobile -->
+    <button
+      class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50 mt-6"
+      id="mobile-prev-btn"
+      aria-label="Previous slide"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-gray-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+      </svg>
+    </button>
+
+    <div class="flex flex-col transition-transform duration-1000 ease-in-out" id="mobile-carousel-track">
+      {
+        testimonials.map((testimonial, index) => (
+          <div class={`min-w-full px-2 ${index < 2 ? 'mb-6' : 'hidden'}`}>
+            <div class="bg-blue-50 rounded-lg p-8 h-full flex flex-col">
+              {/* Company Logo */}
+              <div class="h-8 mb-5">
+                <Icon name={testimonial.logo} class="h-full w-auto object-left" />
+              </div>
+
+              {/* Quote */}
+              <p class="text-gray-600 mb-6 flex-grow">{testimonial.quote}</p>
+
+              {/* Person Info */}
+              <div class="flex items-center">
+                <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full mr-4 object-cover" />
+                <div>
+                  <p class="font-bold text-gray-900">{testimonial.name}</p>
+                  <p class="text-gray-600 text-sm">{testimonial.position}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom Navigation Arrow for Mobile -->
+    <button
+      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50 mb-2"
+      id="mobile-next-btn"
+      aria-label="Next slide"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-gray-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Testimonial Carousel -->
+  <div class="hidden md:block relative overflow-hidden" id="testimonial-carousel">
+    <div class="flex" id="desktop-carousel-track">
+      {
+        testimonials.map((testimonial) => (
+          <div class="w-full md:w-1/3 flex-shrink-0 px-2">
+            <div class="bg-blue-50 rounded-lg p-8 h-full flex flex-col">
+              {/* Company Logo */}
+              <div class="h-8 mb-5">
+                <Icon name={testimonial.logo} class="h-full w-auto object-left" />
+              </div>
+
+              {/* Quote */}
+              <p class="text-gray-600 mb-6 flex-grow">{testimonial.quote}</p>
+
+              {/* Person Info */}
+              <div class="flex items-center">
+                <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full mr-4 object-cover" />
+                <div>
+                  <p class="font-bold text-gray-900">{testimonial.name}</p>
+                  <p class="text-gray-600 text-sm">{testimonial.position}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button
+      class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50"
+      id="desktop-prev-btn"
+      aria-label="Previous slide"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-gray-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button
+      class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50"
+      id="desktop-next-btn"
+      aria-label="Next slide"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-gray-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<script>
+  // Desktop (horizontal) carousel functionality
+  const desktopTrack = document.getElementById('desktop-carousel-track');
+  const desktopPrevBtn = document.getElementById('desktop-prev-btn');
+  const desktopNextBtn = document.getElementById('desktop-next-btn');
+
+  if (desktopTrack && desktopPrevBtn && desktopNextBtn) {
+    // Get all testimonials
+    const originalTestimonials = Array.from(desktopTrack.children);
+    const totalOriginals = originalTestimonials.length;
+
+    // Function to setup infinite scrolling
+    const setupInfiniteScroll = () => {
+      // First, clear the track
+      while (desktopTrack.firstChild) {
+        desktopTrack.removeChild(desktopTrack.firstChild);
+      }
+
+      // Clone all testimonials
+      const beforeClones = originalTestimonials.map((item) => item.cloneNode(true));
+      const visibleItems = originalTestimonials.map((item) => item.cloneNode(true));
+      const afterClones = originalTestimonials.map((item) => item.cloneNode(true));
+
+      // Add all items back to the track in order: clones + originals + more clones
+      [...beforeClones, ...visibleItems, ...afterClones].forEach((item) => {
+        desktopTrack.appendChild(item);
+      });
+
+      // Set the initial position to show the original items (skip the clones)
+      const slideWidth = getSlideWidth();
+      desktopTrack.style.transform = `translateX(-${totalOriginals * slideWidth}px)`;
+
+      return totalOriginals; // Return the position of the first original item
+    };
+
+    // Get slide width safely
+    const getSlideWidth = () => {
+      const firstSlide = desktopTrack.firstElementChild;
+      if (firstSlide) {
+        // Use getBoundingClientRect() which is more type-safe than offsetWidth
+        return firstSlide.getBoundingClientRect().width;
+      }
+      return 0;
+    };
+
+    // Setup and get starting position
+    let currentIndex = setupInfiniteScroll();
+    let isTransitioning = false;
+
+    // Function to handle smooth transitions and reset
+    const moveCarousel = (direction: string) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const slideWidth = getSlideWidth();
+
+      if (direction === 'next') {
+        currentIndex++;
+      } else {
+        currentIndex--;
+      }
+
+      // Apply transition for smooth movement
+      desktopTrack.style.transition = 'transform 500ms ease';
+      desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      // After transition completes, check if we need to reset position
+      setTimeout(() => {
+        // If we've gone past the last original slide, reset to first original
+        if (currentIndex >= 2 * totalOriginals) {
+          desktopTrack.style.transition = 'none';
+          currentIndex = totalOriginals;
+          desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+        // If we've gone before the first original slide, reset to last original
+        else if (currentIndex < totalOriginals) {
+          desktopTrack.style.transition = 'none';
+          currentIndex = 2 * totalOriginals - 1;
+          desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        isTransitioning = false;
+      }, 500);
+    };
+
+    // Setup desktop button event listeners
+    desktopPrevBtn.addEventListener('click', () => {
+      moveCarousel('prev');
+    });
+
+    desktopNextBtn.addEventListener('click', () => {
+      moveCarousel('next');
+    });
+
+    // Handle window resize to maintain correct positioning
+    window.addEventListener('resize', () => {
+      // Temporarily remove transition for immediate repositioning
+      desktopTrack.style.transition = 'none';
+      const slideWidth = getSlideWidth();
+      desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      // Re-enable transitions after a brief delay
+      setTimeout(() => {
+        desktopTrack.style.transition = 'transform 500ms ease';
+      }, 50);
+    });
+  }
+</script>
