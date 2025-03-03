@@ -45,3 +45,27 @@
   bottom: 70px !important;
   padding: 0 5px;
 }
+
+.cta-gradient {
+  @apply bg-gradient-to-r from-secondary to-primary text-white px-8 py-3 rounded-full transition-colors;
+}
+
+.cta-gradient:hover {
+  @apply bg-primary from-primary to-primary cursor-pointer;
+}
+
+.cta-primary {
+  @apply bg-primary text-white px-8 py-3 rounded-full transition-colors;
+}
+
+.cta-primary:hover {
+  @apply bg-secondary cursor-pointer;
+}
+
+.cta-secondary {
+  @apply bg-secondary text-white px-8 py-3 rounded-full transition-colors;
+}
+
+.cta-secondary:hover {
+  @apply bg-primary cursor-pointer;
+}

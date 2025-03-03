@@ -1,39 +1,41 @@
 ---
 // SocialProofPeople.astro
 
-import { Icon } from 'astro-icon/components';
+import anaPomar from '~/assets/images/ana-pomar.jpg';
+import anaGarcia from '~/assets/images/ana-garcia.jpg';
+import joseGarcia from '~/assets/images/jose-garcia.jpg';
+
 import TestimonialsDesktop from './TestimonialsDesktop.astro';
 import TestimonialsMobile from './TestimonialsMobile.astro';
 
-const title = 'Trusted by';
-const subtitle = 'industry experts';
+const title = 'Nos recomiendan';
+const subtitle = 'expertos de la industria';
 
 const testimonials = [
   {
     logo: 'logo-emissary',
     quote:
-      '"Finding the right statistic hidden within thousands of pages of reports used to take me hours each day, now it is done within 30 seconds. It\'s a real game-changer!"',
-    name: 'Arber Sejdiji',
-    position: 'Consultant, BCG',
-    image: 'https://framerusercontent.com/images/SFrseSB867IwYUm0en3D0Bs.jpeg',
+      '"Con AutoVisita nos despreocupamos de la gestión mas mundana y podemos dedicar nuestro tiempo a captar más inmuebles y a cerrar operaciones."',
+    name: 'Ana Pomar',
+    position: 'Directora, Emissary Real Estate',
+    image: anaPomar,
   },
   {
     logo: 'logo-rentake',
     quote:
-      '"Dataleap is super intuitive to use. Our market knowledge is now finally accessible to all our teams be it marketing, strategy or sales."',
-    name: 'Constantin Lindenmeyer',
-    position: 'CEO, GOLDBECK SOLAR USA & Canada',
-    image: 'https://framerusercontent.com/images/SFrseSB867IwYUm0en3D0Bs.jpeg',
+      '"Nos dedicamos al arrendamiento y AutoVisita nos permite alquilar la vivienda en menos tiempo y con menos esfuerzo."',
+    name: 'Jose García',
+    position: 'CEO, RENTAKE Inversiones Inmobiliarias',
+    image: joseGarcia,
   },
   {
-    logo: 'logo-citron',
+    logo: 'logo-evene',
     quote:
-      '"Dataleap supercharges market research with it\'s intuitive interface and user-curated databases. Trusted answers clearly link to high-quality sources. A powerful AI research assistant!."',
-    name: 'Benjamin Chew',
-    position: 'Global Market Intelligence Leader Raw Materials, Schneider Electrics',
-    image: 'https://framerusercontent.com/images/SFrseSB867IwYUm0en3D0Bs.jpeg',
+      '"Nuestras promociones están automatizadas con AutoVisita, dado que no tenemos un equipo comercial, conseguimos captar más interesados de manera mucho más sencilla."',
+    name: 'Ana García',
+    position: 'Administración, Evene Real Estate',
+    image: anaGarcia,
   },
-  // Add more testimonials as needed
 ];
 ---
 

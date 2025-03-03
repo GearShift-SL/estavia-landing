@@ -1,31 +1,43 @@
 ---
 // Features.astro
 
-const features = [
+type Feature = {
+  tag: string;
+  title: string;
+  description: string;
+  video: string;
+  ctaText: string;
+  ctaLink: string;
+  ctaNote?: string;
+};
+
+const features: Feature[] = [
   {
-    tag: 'SOURCE REFERENCING',
-    title: 'Directly view the original sources next to the answers',
+    tag: 'VISITAS AUTOMATIZADAS',
+    title: 'Del portal inmobiliario a tu agenda sin llamadas',
     description:
-      'With a single click you can see the precise page and sentence in a report where the information comes form right to the answer, so that you can confidently cite in your work.',
+      'Cada interesado que llega desde Idealista se registra automáticamente y recibe un email personalizado solicitando sus datos y preferencias de visita. Toda la información aparece organizada en tu agenda, ahorrándote 2 horas al día en llamadas.',
     video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
-    cta: 'Book a Demo',
+    ctaText: 'Solicitar prueba',
+    ctaLink: '#',
   },
   {
-    tag: 'COMPANY KNOWLEDGE BASE',
-    title: 'Seamlessly integrate your internal knowledge',
+    tag: 'BASE DE DATOS CENTRALIZADA',
+    title: 'Toda la información de tus clientes y propiedades en un solo lugar',
     description:
-      "You can drag and drop whole folders and we process the documents to make them instantly available to you and your team's next searches.",
+      'Mantén un registro completo de cada cliente, sus preferencias e historial de interacciones. Accede al instante a toda la información relevante de una propiedad y sus interesados desde cualquier dispositivo.',
     video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
-    cta: 'Book a Demo',
-    ctaNote: 'Automatic Sharepoint Integration coming soon',
+    ctaText: 'Solicitar prueba',
+    ctaLink: '#',
   },
   {
-    tag: 'DATA EXTRACTION',
-    title: 'Extract data from charts',
+    tag: 'INTELIGENCIA ARTIFICIAL',
+    title: 'Conecta automáticamente nuevas propiedades con interesados existentes',
     description:
-      'You can easily extract data from charts or tables with our AI and get them in perfectly formatted excel format ready for your own analysis.',
+      'Al añadir una propiedad a tu catálogo, nuestro sistema la cruza automáticamente con los interesados que encajan con sus características. Recibe notificaciones en tiempo real de las coincidencias y contacta a los interesados con un solo clic.',
     video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
-    cta: 'Book a Demo',
+    ctaText: 'Solicitar prueba',
+    ctaLink: '#',
   },
 ];
 ---
@@ -34,7 +46,7 @@ const features = [
   <!-- Main section title -->
   <div class="text-center mb-16">
     <h2 class="text-5xl font-semibold text-gray-900">
-      Every workflow is optimized <br /><span class="text-primary font-medium">for market research</span>
+      Optimizado para <br /><span class="text-primary font-medium">acelerar tu agencia</span>
     </h2>
   </div>
 
@@ -49,11 +61,8 @@ const features = [
             <p class="text-lg text-gray-600">{feature.description}</p>
 
             <div class="pt-4">
-              <a
-                href="#"
-                class="inline-flex items-center px-6 py-3 bg-secondary text-white font-medium rounded-full hover:bg-primary transition-colors"
-              >
-                {feature.cta}
+              <a href={feature.ctaLink} class="cta-secondary font-semibold">
+                {feature.ctaText}
               </a>
               {feature.ctaNote && <p class="text-sm text-gray-500 mt-2">{feature.ctaNote}</p>}
             </div>

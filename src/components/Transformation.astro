@@ -23,7 +23,7 @@ const problemMix = [
   },
   {
     type: 'problem',
-    name: 'mil papeles',
+    name: 'miles de papeles',
   },
   {
     type: 'problem',
@@ -48,13 +48,17 @@ const problemMix = [
   },
 ];
 
-const solutions = ['Visitas Automatizadas', 'Base de Datos de Clientes', 'Seguimiento de Propiedades'];
+const solutions = [
+  'Automatización Total de Visitas',
+  'Gestión Inteligente de Interesados',
+  'Cruce de Propiedades e Interesados',
+];
 ---
 
 <div class="max-w-6xl mx-auto px-4 py-12">
   <div class="text-center mb-16">
     <h1 class="text-5xl font-bold mb-4">Ahorra hasta 4 horas al día</h1>
-    <p class="text-4xl text-blue-500">con nuestras automatizaciones y bases de datos</p>
+    <p class="text-4xl text-primary">con nuestras automatizaciones y bases de datos</p>
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -67,7 +71,7 @@ const solutions = ['Visitas Automatizadas', 'Base de Datos de Clientes', 'Seguim
           {
             problemMix.map((item) =>
               item.type === 'problem' ? (
-                <div class="rounded-full px-4 py-2 text-xs font-medium bg-blue-500 text-white ">{item.name}</div>
+                <div class="rounded-full px-4 py-2 text-xs font-medium bg-secondary text-white ">{item.name}</div>
               ) : (
                 <div class="px-4 py-2  text-gray-600 ">
                   <Icon name={item.name} class={`w-auto h-${item.h}`} />
@@ -137,7 +141,7 @@ const solutions = ['Visitas Automatizadas', 'Base de Datos de Clientes', 'Seguim
         {
           solutions.map((solution) => (
             <div class="bg-white rounded-lg p-4 shadow flex items-center gap-3">
-              <div class="bg-blue-500 rounded-full p-1 flex-shrink-0">
+              <div class="bg-primary rounded-full p-1 flex-shrink-0">
                 <Icon name="tabler:check" class="w-5 h-5 text-white" />
               </div>
               <span class="text-lg">{solution}</span>
