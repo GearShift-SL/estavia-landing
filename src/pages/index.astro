@@ -11,15 +11,15 @@ import PageLayout from '~/layouts/PageLayout.astro';
 ---
 
 <PageLayout hasBgPattern>
-  <section>
+  <section id="hero">
     <Hero />
   </section>
 
-  <section>
+  <section id="demovideo">
     <DemoVideo />
   </section>
 
-  <section>
+  <section id="social-proof-brands">
     <Brands
       brands={[
         { name: 'Emissary', icon: 'logo-emissary' },
@@ -36,6 +36,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
   <section id="features">
     <Features />
   </section>
+
   <div>
     <div></div>
     <p>
