@@ -276,5 +276,52 @@ const testimonials = [
         desktopTrack.style.transition = 'transform 500ms ease';
       }, 50);
     });
+
+    // Auto-slide functionality
+    let autoSlideTimer: number | null = null;
+
+    const startAutoSlide = () => {
+      // Clear any existing timer
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+      }
+
+      // Set new timer to move to next slide every 5 seconds
+      autoSlideTimer = window.setInterval(() => {
+        moveCarousel('next');
+      }, 5000);
+    };
+
+    // Stop auto-sliding when user interacts with carousel
+    const stopAutoSlide = () => {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+    };
+
+    // Start auto-sliding when page loads
+    startAutoSlide();
+
+    // Pause auto-sliding when user hovers over carousel
+    desktopTrack.addEventListener('mouseenter', stopAutoSlide);
+    desktopTrack.addEventListener('touchstart', stopAutoSlide, { passive: true });
+
+    // Resume auto-sliding when user stops hovering
+    desktopTrack.addEventListener('mouseleave', startAutoSlide);
+    desktopTrack.addEventListener('touchend', startAutoSlide);
+
+    // Pause when user interacts with buttons, resume after a delay
+    desktopPrevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      // Resume auto-sliding after 10 seconds of inactivity
+      setTimeout(startAutoSlide, 10000);
+    });
+
+    desktopNextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      // Resume auto-sliding after 10 seconds of inactivity
+      setTimeout(startAutoSlide, 10000);
+    });
   }
 </script>
