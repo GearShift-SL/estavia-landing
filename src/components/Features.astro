@@ -1,0 +1,72 @@
+---
+// Features.astro
+
+const features = [
+  {
+    tag: 'SOURCE REFERENCING',
+    title: 'Directly view the original sources next to the answers',
+    description:
+      'With a single click you can see the precise page and sentence in a report where the information comes form right to the answer, so that you can confidently cite in your work.',
+    video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
+    cta: 'Book a Demo',
+  },
+  {
+    tag: 'COMPANY KNOWLEDGE BASE',
+    title: 'Seamlessly integrate your internal knowledge',
+    description:
+      "You can drag and drop whole folders and we process the documents to make them instantly available to you and your team's next searches.",
+    video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
+    cta: 'Book a Demo',
+    ctaNote: 'Automatic Sharepoint Integration coming soon',
+  },
+  {
+    tag: 'DATA EXTRACTION',
+    title: 'Extract data from charts',
+    description:
+      'You can easily extract data from charts or tables with our AI and get them in perfectly formatted excel format ready for your own analysis.',
+    video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
+    cta: 'Book a Demo',
+  },
+];
+---
+
+<section class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+  <!-- Main section title -->
+  <div class="text-center mb-16">
+    <h2 class="text-5xl font-semibold text-gray-900">
+      Every workflow is optimized <br /><span class="text-primary font-medium">for market research</span>
+    </h2>
+  </div>
+
+  <!-- Features -->
+  <div class="space-y-24">
+    {
+      features.map((feature, index) => (
+        <div class={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 items-center`}>
+          <div class="lg:w-1/2 space-y-4">
+            <p class="text-sm font-semibold text-gray-500 tracking-wider uppercase">{feature.tag}</p>
+            <h3 class="text-4xl text-gray-900">{feature.title}</h3>
+            <p class="text-lg text-gray-600">{feature.description}</p>
+
+            <div class="pt-4">
+              <a
+                href="#"
+                class="inline-flex items-center px-6 py-3 bg-secondary text-white font-medium rounded-full hover:bg-primary transition-colors"
+              >
+                {feature.cta}
+              </a>
+              {feature.ctaNote && <p class="text-sm text-gray-500 mt-2">{feature.ctaNote}</p>}
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 rounded-lg overflow-hidden shadow-lg">
+            <video autoplay loop muted playsinline class="w-full">
+              <source src={feature.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
