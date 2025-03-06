@@ -1,6 +1,9 @@
 ---
 // Features.astro
 
+import feature1Video from '../assets/videos/feature-1.mp4';
+import feature2Video from '../assets/videos/feature-2.mp4';
+
 type Feature = {
   tag: string;
   title: string;
@@ -17,7 +20,7 @@ const features: Feature[] = [
     title: 'Del portal inmobiliario a tu agenda sin llamadas',
     description:
       'Cada interesado que llega desde Idealista se registra automáticamente y recibe un email personalizado solicitando sus datos y preferencias de visita. Toda la información aparece organizada en tu agenda, ahorrándote 2 horas al día en llamadas.',
-    video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
+    video: feature1Video,
     ctaText: 'Solicitar prueba',
     ctaLink: '#',
   },
@@ -26,7 +29,7 @@ const features: Feature[] = [
     title: 'Toda la información de tus clientes y propiedades en un solo lugar',
     description:
       'Mantén un registro completo de cada cliente, sus preferencias e historial de interacciones. Accede al instante a toda la información relevante de una propiedad y sus interesados desde cualquier dispositivo.',
-    video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
+    video: feature2Video,
     ctaText: 'Solicitar prueba',
     ctaLink: '#',
   },
@@ -38,6 +41,7 @@ const features: Feature[] = [
     video: 'https://framerusercontent.com/assets/bQVGEA0OxREyEnDUon0FAfR69gM.mp4',
     ctaText: 'Solicitar prueba',
     ctaLink: '#',
+    ctaNote: 'Próximamente',
   },
 ];
 ---
@@ -64,7 +68,7 @@ const features: Feature[] = [
               <a href={feature.ctaLink} class="cta-secondary font-semibold">
                 {feature.ctaText}
               </a>
-              {feature.ctaNote && <p class="text-sm text-gray-500 mt-2">{feature.ctaNote}</p>}
+              {feature.ctaNote && <p class="text-sm text-gray-500 mt-4 ml-4">{feature.ctaNote}</p>}
             </div>
           </div>
 
