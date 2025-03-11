@@ -1,28 +1,42 @@
 ---
 // PageLayout.astro
 // This layout is used for all pages
+// Includes a header and a footer
 
-import Footer from '~/components/common/Footer.astro';
 import Layout from './Layout.astro';
-import { headerData, footerData } from '~/navigation';
 import Header from '~/components/common/Header.astro';
+import Footer from '~/components/common/Footer.astro';
+import { NAVIGATION } from '~/config';
 
 // Props
 // - hasBgPattern: boolean
+// Accept metadata props
 export interface Props {
-  hasBgPattern?: boolean;
+  metadata?: {
+    title?: string;
+    useTitleTemplate?: boolean;
+    description?: string;
+    ogImagePath?: string;
+    canonicalUrl?: string;
+    pubDatetime?: Date;
+    modDatetime?: Date;
+    author?: string;
+    index?: boolean;
+    follow?: boolean;
+  };
 }
-const { hasBgPattern = false } = Astro.props;
+
+const { metadata } = Astro.props;
 ---
 
-<Layout>
+<Layout metadata={metadata}>
   <slot name="header">
-    <Header {...headerData} isSticky />
+    <Header {...NAVIGATION.header} isSticky />
   </slot>
   <main>
     {/* Background Pattern */}
     {
-      hasBgPattern && (
+      (
         <div
           class="absolute inset-x-0 top-0 rotate-180 h-96 text-gray-500/40 dark:text-gray-300/40 opacity-60 [mask-image:linear-gradient(to_bottom,transparent,white)]"
           style="z-index: -1;"
@@ -51,6 +65,6 @@ const { hasBgPattern = false } = Astro.props;
   </main>
 
   <slot name="footer">
-    <Footer {...footerData} />
+    <Footer {...NAVIGATION.footer} />
   </slot>
 </Layout>

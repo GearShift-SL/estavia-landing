@@ -1,21 +1,3 @@
-export const headerData = {
-  links: [
-    // {
-    //   text: 'Descúbrelo',
-    //   href: '/#transformation',
-    // },
-  ],
-  actions: [
-    {
-      text: 'Pruébalo gratis',
-      variant: 'primary',
-      icon: 'tabler:rocket',
-      href: '/waitlist/',
-      // target: '_blank'
-    },
-  ],
-};
-
 export const footerData = {
   links: [
     {

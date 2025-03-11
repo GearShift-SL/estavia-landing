@@ -1,9 +1,40 @@
 ---
+import type { ImageMetadata } from 'astro';
+
 import Favicons from '~/meta/Favicons.astro';
-import SEOMetaData from '~/meta/SEOMetaData.astro';
 import '~/styles/global.css';
 import '@fontsource-variable/inter';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import { SITE } from '~/config';
+import { SEO } from 'astro-seo';
+
+import importImage from '~/utils/importImage';
+
+// Accept metadata props that can be passed from blog posts
+export interface Props {
+  metadata?: {
+    title?: string;
+    useTitleTemplate?: boolean;
+    description?: string;
+    ogImagePath?: string;
+    canonicalUrl?: string;
+    pubDatetime?: Date;
+    modDatetime?: Date;
+    author?: string;
+    index?: boolean;
+    follow?: boolean;
+  };
+}
+
+const { metadata } = Astro.props;
+
+// Import the ogImage dynamically if it's provided
+let ogImage: ImageMetadata | undefined;
+if (metadata?.ogImagePath) {
+  ogImage = await importImage(metadata?.ogImagePath);
+} else {
+  ogImage = await importImage(SITE.ogImage);
+}
 ---
 
 <!doctype html>
@@ -14,13 +45,44 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <!-- Analytics -->
+    {import.meta.env.PROD && <script defer data-domain="autovisita.es" src="https://vince.hlab.es/js/script.js" />}
+
     <!-- Favicons -->
     <Favicons />
 
     <!-- SEO stuff -->
-    <SEOMetaData />
+    <!-- Uses SITE config by default -->
+    <SEO
+      title={metadata?.title || SITE.title}
+      titleTemplate={metadata?.useTitleTemplate ? `%s - ${SITE.title}` : undefined}
+      description={metadata?.description || SITE.description}
+      canonical={metadata?.canonicalUrl || Astro.url.href}
+      noindex={metadata?.index === false}
+      nofollow={metadata?.follow === false}
+      openGraph={{
+        basic: {
+          title: metadata?.title || SITE.title,
+          type: 'website',
+          image: ogImage?.src || SITE.ogImage,
+          url: metadata?.canonicalUrl || Astro.url.href,
+        },
+        optional: {
+          locale: SITE.locale,
+          siteName: SITE.title,
+          description: metadata?.description || SITE.description,
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        site: SITE.twitter.site,
+        title: metadata?.title || SITE.title,
+        description: metadata?.description || SITE.description,
+        image: ogImage?.src || SITE.ogImage,
+      }}
+    />
   </head>
-  <body>
+  <body class="bg-page text-default transition ease duration-300">
     <slot />
     <BasicScripts />
   </body>

@@ -145,13 +145,15 @@ const currentPath = `/${new URL(Astro.url).pathname}/`;
           }
         </div>
         {
-          actions?.length ? (
-            <button class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold hover:bg-secondary hover:cursor-pointer transition-colors">
-              Solicita una prueba
-            </button>
-          ) : (
-            ''
-          )
+          actions?.length &&
+            actions.map((action) => (
+              <a
+                href={action.href}
+                class="bg-primary text-white px-4 py-3 rounded-3xl font-semibold hover:bg-secondary hover:cursor-pointer transition-colors"
+              >
+                {action.text}
+              </a>
+            ))
         }
       </div>
     </div>
