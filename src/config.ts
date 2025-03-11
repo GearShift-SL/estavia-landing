@@ -98,8 +98,8 @@ export const NAVIGATION: NavigationConfig = {
       },
     ],
     secondaryLinks: [
-      { text: 'Términos y condiciones', href: '/terms' },
-      { text: 'Política de privacidad', href: '/privacy' },
+      { text: 'Términos y condiciones', href: '/terms/' },
+      { text: 'Política de privacidad', href: '/privacy/' },
     ],
     socialLinks: [
       { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/autovisita' },
