@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Brand {
+  name: string;
+  icon: string;
+  height?: number;
+}
+
+interface Props {
+  brands: Brand[];
+  className?: string;
+}
+
+const { brands, className = '' } = Astro.props;
+---
+
+<div class={`w-full max-w-6xl mx-auto ${className}`}>
+  <!-- Title tag line -->
+  <h2 class="text-center text-xl text-gray-500 font-light">Empresas que confían en nosotros</h2>
+  <div class="flex flex-wrap items-center justify-center gap-8 py-8 px-4">
+    {
+      brands.map((brand) => (
+        <div
+          class={`text-gray-400 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 ${brand.height ? `h-${brand.height}` : 'h-14'}`}
+        >
+          <Icon name={brand.icon} class="w-full h-full" />
+        </div>
+      ))
+    }
+  </div>
+</div>

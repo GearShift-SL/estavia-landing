@@ -1,0 +1,228 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+interface Props {
+  testimonials: any;
+}
+
+const { testimonials } = Astro.props;
+---
+
+<!-- Desktop Testimonial Carousel -->
+<div class="hidden md:block relative overflow-hidden" id="testimonial-carousel">
+  <div class="flex" id="desktop-carousel-track">
+    {
+      testimonials.map((testimonial: any) => (
+        <div class="w-full md:w-1/3 flex-shrink-0 px-2">
+          <div class="bg-blue-50 rounded-lg p-8 h-full flex flex-col">
+            {/* Company Logo */}
+            <div class="h-8 mb-5">
+              <Icon name={testimonial.logo} class="h-full w-auto object-left" />
+            </div>
+
+            {/* Quote */}
+            <p class="text-gray-600 mb-6 flex-grow">{testimonial.quote}</p>
+
+            {/* Person Info */}
+            <div class="flex items-center">
+              <Image src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full mr-4 object-cover" />
+              <div>
+                <p class="font-bold text-gray-900">{testimonial.name}</p>
+                <p class="text-gray-600 text-sm">{testimonial.position}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button
+    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50"
+    id="desktop-prev-btn"
+    aria-label="Previous slide"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 text-gray-600"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+  <button
+    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50"
+    id="desktop-next-btn"
+    aria-label="Next slide"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 text-gray-600"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  // Desktop (horizontal) carousel functionality
+  const desktopTrack = document.getElementById('desktop-carousel-track');
+  const desktopPrevBtn = document.getElementById('desktop-prev-btn');
+  const desktopNextBtn = document.getElementById('desktop-next-btn');
+
+  if (desktopTrack && desktopPrevBtn && desktopNextBtn) {
+    // Get all testimonials
+    const originalTestimonials = Array.from(desktopTrack.children);
+    const totalOriginals = originalTestimonials.length;
+
+    // Function to setup infinite scrolling
+    const setupInfiniteScroll = () => {
+      // First, clear the track
+      while (desktopTrack.firstChild) {
+        desktopTrack.removeChild(desktopTrack.firstChild);
+      }
+
+      // Clone all testimonials
+      const beforeClones = originalTestimonials.map((item) => item.cloneNode(true));
+      const visibleItems = originalTestimonials.map((item) => item.cloneNode(true));
+      const afterClones = originalTestimonials.map((item) => item.cloneNode(true));
+
+      // Add all items back to the track in order: clones + originals + more clones
+      [...beforeClones, ...visibleItems, ...afterClones].forEach((item) => {
+        desktopTrack.appendChild(item);
+      });
+
+      // Set the initial position to show the original items (skip the clones)
+      const slideWidth = getSlideWidth();
+      desktopTrack.style.transform = `translateX(-${totalOriginals * slideWidth}px)`;
+
+      return totalOriginals; // Return the position of the first original item
+    };
+
+    // Get slide width safely
+    const getSlideWidth = () => {
+      const firstSlide = desktopTrack.firstElementChild;
+      if (firstSlide) {
+        // Use getBoundingClientRect() which is more type-safe than offsetWidth
+        return firstSlide.getBoundingClientRect().width;
+      }
+      return 0;
+    };
+
+    // Setup and get starting position
+    let currentIndex = setupInfiniteScroll();
+    let isTransitioning = false;
+
+    // Function to handle smooth transitions and reset
+    const moveCarousel = (direction: string) => {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const slideWidth = getSlideWidth();
+
+      if (direction === 'next') {
+        currentIndex++;
+      } else {
+        currentIndex--;
+      }
+
+      // Apply transition for smooth movement
+      desktopTrack.style.transition = 'transform 500ms ease';
+      desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      // After transition completes, check if we need to reset position
+      setTimeout(() => {
+        // If we've gone past the last original slide, reset to first original
+        if (currentIndex >= 2 * totalOriginals) {
+          desktopTrack.style.transition = 'none';
+          currentIndex = totalOriginals;
+          desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+        // If we've gone before the first original slide, reset to last original
+        else if (currentIndex < totalOriginals) {
+          desktopTrack.style.transition = 'none';
+          currentIndex = 2 * totalOriginals - 1;
+          desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        isTransitioning = false;
+      }, 500);
+    };
+
+    // Setup desktop button event listeners
+    desktopPrevBtn.addEventListener('click', () => {
+      moveCarousel('prev');
+    });
+
+    desktopNextBtn.addEventListener('click', () => {
+      moveCarousel('next');
+    });
+
+    // Handle window resize to maintain correct positioning
+    window.addEventListener('resize', () => {
+      // Temporarily remove transition for immediate repositioning
+      desktopTrack.style.transition = 'none';
+      const slideWidth = getSlideWidth();
+      desktopTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      // Re-enable transitions after a brief delay
+      setTimeout(() => {
+        desktopTrack.style.transition = 'transform 500ms ease';
+      }, 50);
+    });
+
+    // Auto-slide functionality
+    let autoSlideTimer: number | null = null;
+
+    const startAutoSlide = () => {
+      // Clear any existing timer
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+      }
+
+      // Set new timer to move to next slide every 5 seconds
+      autoSlideTimer = window.setInterval(() => {
+        moveCarousel('next');
+      }, 5000);
+    };
+
+    // Stop auto-sliding when user interacts with carousel
+    const stopAutoSlide = () => {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+    };
+
+    // Start auto-sliding when page loads
+    startAutoSlide();
+
+    // Pause auto-sliding when user hovers over carousel
+    desktopTrack.addEventListener('mouseenter', stopAutoSlide);
+    desktopTrack.addEventListener('touchstart', stopAutoSlide, { passive: true });
+
+    // Resume auto-sliding when user stops hovering
+    desktopTrack.addEventListener('mouseleave', startAutoSlide);
+    desktopTrack.addEventListener('touchend', startAutoSlide);
+
+    // Pause when user interacts with buttons, resume after a delay
+    desktopPrevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      // Resume auto-sliding after 10 seconds of inactivity
+      setTimeout(startAutoSlide, 10000);
+    });
+
+    desktopNextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      // Resume auto-sliding after 10 seconds of inactivity
+      setTimeout(startAutoSlide, 10000);
+    });
+  }
+</script>

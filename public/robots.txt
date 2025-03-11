@@ -1,0 +1,7 @@
+# robots.txt for https://autovisita.es
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://autovisita.es/sitemap-index.xml 
