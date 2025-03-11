@@ -63,7 +63,7 @@ export const NAVIGATION: NavigationConfig = {
     links: [],
     actions: [
       {
-        href: '/waitlist/',
+        href: '/bookdemo/',
         text: 'Solicita una Prueba Ahora',
         // icon: 'tabler:rocket',
       },
