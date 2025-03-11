@@ -4,8 +4,8 @@ import PageLayout from '~/layouts/PageLayout.astro';
 
 <PageLayout
   metadata={{
-    title: '404 Not Found',
-    description: 'Sorry, the page you are looking for does not exist.',
+    title: 'Reserva una demo',
+    description: 'Reserva una demo con nuestro equipo para aprender más sobre nuestros servicios.',
   }}
 >
   <section class="flex items-center h-full p-16 m-10">
@@ -56,6 +56,17 @@ import PageLayout from '~/layouts/PageLayout.astro';
         });
       </script>
       <!-- Cal inline embed code ends -->
+
+      <!-- Info message -->
+      <div class="max-w-3xl mb-8 p-4 bg-blue-50 rounded-lg border border-blue-200 text-center">
+        <p class="text-blue-800 mb-2">¿No tienes tiempo para una reunión? ¡Sin problema!</p>
+        <p class="text-blue-700">
+          Puedes dejarnos un mensaje <a
+            href="/contact/"
+            class="font-bold text-lg text-blue-600 hover:text-blue-800 underline">aquí</a
+          >.
+        </p>
+      </div>
     </div>
   </section>
 </PageLayout>
