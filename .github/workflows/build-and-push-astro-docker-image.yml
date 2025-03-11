@@ -52,14 +52,14 @@ jobs:
         id: coerce_version
         run: echo "VERSION=$(echo ${{ steps.get_version.outputs.VERSION }} | sed 's/^v//')" >> $GITHUB_OUTPUT
 
-      - name: Build and push Backend Docker image
+      - name: Build and push Landing Page Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./backend
-          file: ./backend/docker/Dockerfile
+          context: .
+          file: ./Dockerfile
           push: true
           tags: |
-            ${{ env.DOCKER_REGISTRY }}/${{ env.BE_DOCKER_IMAGE_NAME }}:${{ steps.coerce_version.outputs.VERSION }}
-            ${{ env.DOCKER_REGISTRY }}/${{ env.BE_DOCKER_IMAGE_NAME }}:latest
-          cache-from: type=registry,ref=${{ env.DOCKER_REGISTRY }}/${{ env.BE_DOCKER_IMAGE_NAME }}:buildcache
-          cache-to: type=registry,ref=${{ env.DOCKER_REGISTRY }}/${{ env.BE_DOCKER_IMAGE_NAME }}:buildcache,mode=max
+            ${{ env.DOCKER_REGISTRY }}/${{ env.LP_DOCKER_IMAGE_NAME }}:${{ steps.coerce_version.outputs.VERSION }}
+            ${{ env.DOCKER_REGISTRY }}/${{ env.LP_DOCKER_IMAGE_NAME }}:latest
+          cache-from: type=registry,ref=${{ env.DOCKER_REGISTRY }}/${{ env.LP_DOCKER_IMAGE_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.DOCKER_REGISTRY }}/${{ env.LP_DOCKER_IMAGE_NAME }}:buildcache,mode=max
