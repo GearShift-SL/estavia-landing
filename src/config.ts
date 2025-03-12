@@ -64,7 +64,7 @@ export const NAVIGATION: NavigationConfig = {
     actions: [
       {
         href: '/bookdemo/',
-        text: 'Solicita una Prueba Ahora',
+        text: 'Automatiza tu Agencia',
         // icon: 'tabler:rocket',
       },
     ],
