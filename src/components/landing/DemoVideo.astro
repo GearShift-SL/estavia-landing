@@ -1,6 +1,6 @@
 ---
 import { YouTube } from '@astro-community/astro-embed-youtube';
-import demoVideo from '~/assets/videos/demo.mp4';
+import DemoOverlay from '~/assets/videos/demo-overlay.mp4';
 import { Icon } from 'astro-icon/components';
 ---
 
@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components';
     <div id="demo-video" class="relative rounded-2xl -mt-50 shadow-xl p-2">
       <div class="video-container relative">
         <video
-          src={demoVideo}
+          src={DemoOverlay}
           loop
           muted
           playsinline
@@ -24,7 +24,7 @@ import { Icon } from 'astro-icon/components';
         >
           <Icon name="tabler:player-play-filled" />
           <span class="whitespace-nowrap">
-            <strong>Descubre AutoVisita</strong> en 4 min
+            <strong>Descubre AutoVisita</strong> en 5 min
           </span>
         </button>
 
@@ -42,7 +42,7 @@ import { Icon } from 'astro-icon/components';
           <div class="flex items-center justify-center w-full h-full md:p-15">
             <div class="w-[720px]">
               <YouTube
-                id="https://www.youtube.com/embed/gIQZVRn5an4"
+                id="https://www.youtube.com/embed/5YyeoI-4HgY"
                 posterQuality="high"
                 params="autoplay=1"
                 class="rounded-3xl"
