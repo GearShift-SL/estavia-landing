@@ -1,5 +1,5 @@
 ---
-category: guide
+category: guias
 title: '10 herramientas para automatizar visitas inmobiliarias'
 description: '¿Quieres revolucionar la forma en que tu agencia inmobiliaria gestiona las visitas a propiedades? Aquí tienes 10 herramientas imprescindibles para automatizar y optimizar tus procesos.'
 author: Daniel Garcia

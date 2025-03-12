@@ -1,5 +1,5 @@
 ---
-category: other
+category: otros
 title: '¿Es rentable invertir en software inmobiliario?'
 description: 'La inversión en software inmobiliario se ha convertido en un tema candente para las agencias y profesionales del sector. En un mundo cada vez más digitalizado, la pregunta sobre la rentabilidad de esta inversión es más relevante que nunca.'
 author: Daniel Garcia

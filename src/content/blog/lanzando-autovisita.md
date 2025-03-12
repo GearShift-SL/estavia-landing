@@ -1,5 +1,5 @@
 ---
-category: news
+category: noticias
 title: 'AutoVisita: Revolucionando el Sector Inmobiliario con Automatización e Inteligencia Artificial'
 description: 'Lanzamos AutoVisita próximamente, una herramienta que promete cambiar radicalmente la forma en que las agencias inmobiliarias gestionan sus leads y organizan las visitas a propiedades.'
 author: Daniel Garcia

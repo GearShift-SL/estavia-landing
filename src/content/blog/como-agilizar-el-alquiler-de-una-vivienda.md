@@ -1,5 +1,5 @@
 ---
-category: guide
+category: guias
 title: 'Cómo Agilizar el Alquiler de una Vivienda'
 description: 'Una guía práctica con consejos prácticos para acelerar el proceso de alquiler de una vivienda.'
 author: Daniel Garcia

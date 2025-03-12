@@ -1,5 +1,5 @@
 ---
-category: guide
+category: guias
 title: 'Implementación de un Asistente Virtual Inmobiliario: Guía Completa para Agencias'
 description: 'La tecnología está transformando el sector inmobiliario a pasos agigantados. ¿Estás listo para dar el salto y potenciar tu agencia con un asistente virtual? Esta guía te llevará paso a paso por el proceso de implementación, asegurando que aproveches al máximo esta poderosa herramienta.'
 author: Daniel Garcia
