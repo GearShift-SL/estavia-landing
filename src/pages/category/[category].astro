@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '~/layouts/PageLayout.astro';
+import PostsByCategory from '~/components/blog/PostsByCategory.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+
+  // Get unique categories
+  const categories = [...new Set(posts.map((post) => post.data.category.toLowerCase()))];
+
+  // Create a path for each category
+  return categories.map((category) => ({
+    params: { category },
+    props: { posts, category },
+  }));
+}
+
+const { category } = Astro.params;
+const { posts } = Astro.props;
+
+// Create metadata for the page
+const metadata = {
+  title: `Artículos en la categoría: ${category}`,
+  description: `Todos los artículos en la categoría: ${category}`,
+};
+---
+
+<PageLayout metadata={metadata}>
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <PostsByCategory posts={posts} category={category} />
+  </div>
+</PageLayout>

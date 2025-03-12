@@ -4,12 +4,15 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
+  category: string;
 }
 
-const { posts } = Astro.props;
+const { posts, category } = Astro.props;
 
-// Sort posts by date
-const sortedPosts = posts.sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf());
+// Filter posts by category and sort by date
+const categoryPosts = posts
+  .filter((post) => post.data.category.toLowerCase() === category.toLowerCase())
+  .sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf());
 
 // Format date function
 const formatDate = (date: Date) => {
@@ -22,13 +25,13 @@ const formatDate = (date: Date) => {
 ---
 
 <div class="space-y-8">
-  <h1 class="text-3xl font-bold mb-8">Artículos</h1>
+  <h1 class="text-3xl font-bold mb-8">Artículos en la categoría: {category}</h1>
 
-  {posts.length === 0 && <p class="text-gray-600">No posts found.</p>}
+  {categoryPosts.length === 0 && <p class="text-gray-600">No posts found in this category.</p>}
 
   <ul class="space-y-4">
     {
-      sortedPosts.map((post) => (
+      categoryPosts.map((post) => (
         <li class="group hover:bg-gray-50 rounded-lg transition-colors">
           <article class="p-4">
             <a href={`/blog/${post.id}/`} class="block">
@@ -38,15 +41,6 @@ const formatDate = (date: Date) => {
               <div class="flex items-center">
                 <Icon name="tabler:user" class="w-5 h-5 mr-1" />
                 <span>{post.data.author}</span>
-              </div>
-              <div class="flex items-center">
-                <Icon name="tabler:folder" class="w-5 h-5 mr-1" />
-                <a
-                  href={`/category/${post.data.category.toLowerCase()}/`}
-                  class="hover:text-blue-600 transition-colors"
-                >
-                  {post.data.category}
-                </a>
               </div>
               <div class="flex items-center">
                 <Icon name="tabler:calendar" class="w-5 h-5 mr-1" />
