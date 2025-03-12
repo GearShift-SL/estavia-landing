@@ -1,0 +1,60 @@
+---
+// SocialProofPeople.astro
+
+import anaPomar from '~/assets/images/ana-pomar.jpg';
+import anaGarcia from '~/assets/images/ana-garcia.jpg';
+import joseGarcia from '~/assets/images/jose-garcia.jpg';
+
+import TestimonialsDesktop from './TestimonialsDesktop.astro';
+import TestimonialsMobile from './TestimonialsMobile.astro';
+
+const title = 'Nos recomiendan';
+const subtitle = 'expertos de la industria';
+
+const testimonials = [
+  {
+    logo: 'logo-emissary',
+    quote:
+      '"Con AutoVisita nos despreocupamos de la gestión mas mundana y podemos dedicar nuestro tiempo a captar más inmuebles y a cerrar operaciones."',
+    name: 'Ana Pomar',
+    position: 'Directora, Emissary Real Estate',
+    image: anaPomar,
+  },
+  {
+    logo: 'logo-rentake',
+    quote:
+      '"Nos dedicamos al arrendamiento y AutoVisita nos permite alquilar la vivienda en menos tiempo y con menos esfuerzo."',
+    name: 'Jose García',
+    position: 'CEO, RENTAKE Inversiones Inmobiliarias',
+    image: joseGarcia,
+  },
+  {
+    logo: 'logo-evene',
+    quote:
+      '"Nuestras promociones están automatizadas con AutoVisita, dado que no tenemos un equipo comercial, conseguimos captar más interesados de manera mucho más sencilla."',
+    name: 'Ana García',
+    position: 'Administración, Evene Real Estate',
+    image: anaGarcia,
+  },
+];
+---
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <!-- Heading -->
+  <div class="text-center mb-16">
+    <h2 class="text-5xl font-semibold text-gray-900">
+      {title}<br /><span class="text-primary font-medium">{subtitle}</span>
+    </h2>
+  </div>
+
+  <!-- Desktop testimonials -->
+  <TestimonialsDesktop testimonials={testimonials} />
+
+  <!-- Mobile testimonials -->
+  <TestimonialsMobile testimonials={testimonials} />
+
+  <!-- CTA button -->
+  <div class="text-center mt-16">
+    <a href="/bookdemo/" class="cta-secondary font-semibold">Solicita una prueba</a>
+  </div>
+</section>

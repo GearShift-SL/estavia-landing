@@ -1,44 +1,48 @@
-# Landing page based on AstroWind
+# Astro Starter Kit: Basics
 
-Just clone this repo and follow the setup instructions below.
+```sh
+npm create astro@latest -- --template basics
+```
 
-## Setup
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-### 1. Config
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-1. Update the `src/config.yaml` file with the site's information.
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-### 2. Assets
+## 🚀 Project Structure
 
-1. Replace the favicons in `src/assets/favicons` with your own.
-2. Replace the `src/assets/og_image.webp` with whatever OG image you want. The size of this image should be 1200 x 628.
-3. The logo should be placed in `src/assets/icons/logos/logo.svg`.
+Inside of your Astro project, you'll see the following folders and files:
 
-#### Note on Blog cover images and assets
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-1. Cover image should be placed in `src/assets/images/blog/<blog slug>/cover.png`
-2. Subsequent images should be placed in `src/assets/images/blog/<blog slug>/` with the naming convention `image-1.png`, `image-2.png`, etc.
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-#### 3. Index
+## 🧞 Commands
 
-Update all the copy in `src/pages/index.astro`.
+All commands are run from the root of the project, from a terminal:
 
-### 4. Header & Footer
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-Go to `src/navigation.js` and update the header and footer links.
+## 👀 Want to learn more?
 
-### 5. APIs and forms
-
-There are 3 premade forms with their API endpoints. You can find the endpoints in `src/pages/api/`.
-
-Remove or add forms as needed.
-
-> Remember to update the `.env` file with the relevant API keys and variables.
-
-### 6. Personalisation
-
-Customize the brand colors in `src/components/CustomStyles.astro`.
-
-#### Note on customizing config.yaml
-
-If you want to add any variable to `config.yaml`, you will need to modify `configBuilder.ts` so that it's aware of the new variable.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

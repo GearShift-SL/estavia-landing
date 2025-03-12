@@ -1,0 +1,237 @@
+---
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
+interface Props {
+  testimonials: any;
+}
+
+const fixedCardHeightPx = 300;
+const fixedCardMarginPx = 20;
+const fixedCarouselHeightPx = fixedCardHeightPx * 2 + fixedCardMarginPx;
+console.log(`min-w-full px-2 mb-[${fixedCardMarginPx}px] h-[${fixedCardHeightPx}px]`);
+
+const { testimonials } = Astro.props;
+---
+
+<!-- Mobile Testimonial Carousel -->
+<div class="md:hidden relative overflow-hidden" id="mobile-testimonial-carousel">
+  <!-- Top Navigation Arrow for Mobile -->
+  <button
+    class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50 mt-6"
+    id="mobile-prev-btn"
+    aria-label="Previous slide"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 text-gray-600"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <div class="flex flex-col transition-transform duration-500 ease-in-out h-[620px]" id="mobile-carousel-track">
+    {
+      testimonials.map((testimonial: any) => (
+        <div class={`min-w-full px-2 mb-[${fixedCardMarginPx}px]`}>
+          <div class={`bg-blue-50 rounded-lg p-8 flex flex-col h-[300px] overflow-hidden`}>
+            {/* Company Logo */}
+            <div class="h-8 mb-5">
+              <Icon name={testimonial.logo} class="h-full w-auto object-left" />
+            </div>
+
+            {/* Quote */}
+            <p class="text-gray-600 mb-6 flex-grow">{testimonial.quote}</p>
+
+            {/* Person Info */}
+            <div class="flex items-center mt-auto">
+              <Image src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full mr-4 object-cover" />
+              <div>
+                <p class="font-bold text-gray-900">{testimonial.name}</p>
+                <p class="text-gray-600 text-sm">{testimonial.position}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Bottom Navigation Arrow for Mobile -->
+  <button
+    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 bg-white/30 rounded-full p-2 shadow-md focus:outline-none z-10 hover:cursor-pointer hover:bg-white/50 mb-2"
+    id="mobile-next-btn"
+    aria-label="Next slide"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 text-gray-600"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  // Mobile (vertical) carousel functionality
+  const mobileTrack = document.getElementById('mobile-carousel-track');
+  const mobilePrevBtn = document.getElementById('mobile-prev-btn');
+  const mobileNextBtn = document.getElementById('mobile-next-btn');
+
+  if (mobileTrack && mobilePrevBtn && mobileNextBtn) {
+    // Get all testimonials
+    const mobileOriginalTestimonials = Array.from(mobileTrack.children);
+    const mobileTotalOriginals = mobileOriginalTestimonials.length;
+
+    // Function to setup infinite scrolling for mobile
+    const setupMobileInfiniteScroll = () => {
+      // First, clear the track
+      while (mobileTrack.firstChild) {
+        mobileTrack.removeChild(mobileTrack.firstChild);
+      }
+
+      // Clone all testimonials
+      const mobileBeforeClones = mobileOriginalTestimonials.map((item) => item.cloneNode(true) as HTMLElement);
+      const mobileVisibleItems = mobileOriginalTestimonials.map((item) => item.cloneNode(true) as HTMLElement);
+      const mobileAfterClones = mobileOriginalTestimonials.map((item) => item.cloneNode(true) as HTMLElement);
+
+      // Add all items back to the track in order: clones + originals + more clones
+      [...mobileBeforeClones, ...mobileVisibleItems, ...mobileAfterClones].forEach((item) => {
+        // Make all items visible initially
+        item.classList.remove('hidden');
+        mobileTrack.appendChild(item);
+      });
+
+      // Set the initial position to show the original items (skip the clones)
+      const slideHeight = getMobileSlideHeight();
+      mobileTrack.style.transform = `translateY(-${mobileTotalOriginals * slideHeight}px)`;
+
+      return mobileTotalOriginals; // Return the position of the first original item
+    };
+
+    // Get slide height safely
+    const getMobileSlideHeight = () => {
+      const firstSlide = mobileTrack.firstElementChild;
+      if (firstSlide) {
+        // Use getBoundingClientRect() which is more reliable
+        return firstSlide.getBoundingClientRect().height + 20; // Add margin
+      }
+      return 0;
+    };
+
+    // Setup and get starting position
+    let mobileCurrentIndex = setupMobileInfiniteScroll();
+    let mobileIsTransitioning = false;
+
+    // Function to handle smooth transitions and reset
+    const moveMobileCarousel = (direction: string) => {
+      if (mobileIsTransitioning) return;
+      mobileIsTransitioning = true;
+
+      const slideHeight = getMobileSlideHeight();
+
+      if (direction === 'next') {
+        mobileCurrentIndex++;
+      } else {
+        mobileCurrentIndex--;
+      }
+
+      // Apply transition for smooth movement
+      mobileTrack.style.transition = 'transform 500ms ease';
+      mobileTrack.style.transform = `translateY(-${mobileCurrentIndex * slideHeight}px)`;
+
+      // After transition completes, check if we need to reset position
+      setTimeout(() => {
+        // If we've gone past the last original slide, reset to first original
+        if (mobileCurrentIndex >= 2 * mobileTotalOriginals) {
+          mobileTrack.style.transition = 'none';
+          mobileCurrentIndex = mobileTotalOriginals;
+          mobileTrack.style.transform = `translateY(-${mobileCurrentIndex * slideHeight}px)`;
+        }
+        // If we've gone before the first original slide, reset to last original
+        else if (mobileCurrentIndex < mobileTotalOriginals) {
+          mobileTrack.style.transition = 'none';
+          mobileCurrentIndex = 2 * mobileTotalOriginals - 1;
+          mobileTrack.style.transform = `translateY(-${mobileCurrentIndex * slideHeight}px)`;
+        }
+
+        mobileIsTransitioning = false;
+      }, 500);
+    };
+
+    // Setup mobile button event listeners
+    mobilePrevBtn.addEventListener('click', () => {
+      moveMobileCarousel('prev');
+    });
+
+    mobileNextBtn.addEventListener('click', () => {
+      moveMobileCarousel('next');
+    });
+
+    // Handle window resize to maintain correct positioning
+    window.addEventListener('resize', () => {
+      // Temporarily remove transition for immediate repositioning
+      mobileTrack.style.transition = 'none';
+      const slideHeight = getMobileSlideHeight();
+      mobileTrack.style.transform = `translateY(-${mobileCurrentIndex * slideHeight}px)`;
+
+      // Re-enable transitions after a brief delay
+      setTimeout(() => {
+        mobileTrack.style.transition = 'transform 500ms ease';
+      }, 50);
+    });
+
+    // Auto-slide functionality
+    let mobileAutoSlideTimer: number | null = null;
+
+    const startMobileAutoSlide = () => {
+      // Clear any existing timer
+      if (mobileAutoSlideTimer) {
+        clearInterval(mobileAutoSlideTimer);
+      }
+
+      // Set new timer to move to next slide every 5 seconds
+      mobileAutoSlideTimer = window.setInterval(() => {
+        moveMobileCarousel('next');
+      }, 5000);
+    };
+
+    // Stop auto-sliding when user interacts with carousel
+    const stopMobileAutoSlide = () => {
+      if (mobileAutoSlideTimer) {
+        clearInterval(mobileAutoSlideTimer);
+        mobileAutoSlideTimer = null;
+      }
+    };
+
+    // Start auto-sliding when page loads
+    startMobileAutoSlide();
+
+    // Pause auto-sliding when user interacts with carousel
+    mobileTrack.addEventListener('mouseenter', stopMobileAutoSlide);
+    mobileTrack.addEventListener('touchstart', stopMobileAutoSlide, { passive: true });
+
+    // Resume auto-sliding when user stops interacting
+    mobileTrack.addEventListener('mouseleave', startMobileAutoSlide);
+    mobileTrack.addEventListener('touchend', startMobileAutoSlide);
+
+    // Pause when user interacts with buttons, resume after a delay
+    mobilePrevBtn.addEventListener('click', () => {
+      stopMobileAutoSlide();
+      // Resume auto-sliding after 10 seconds of inactivity
+      setTimeout(startMobileAutoSlide, 10000);
+    });
+
+    mobileNextBtn.addEventListener('click', () => {
+      stopMobileAutoSlide();
+      // Resume auto-sliding after 10 seconds of inactivity
+      setTimeout(startMobileAutoSlide, 10000);
+    });
+  }
+</script>

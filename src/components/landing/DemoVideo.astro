@@ -1,0 +1,90 @@
+---
+import { YouTube } from '@astro-community/astro-embed-youtube';
+import DemoOverlay from '~/assets/videos/demo-overlay.mp4';
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="relative w-full bg-gradient-to-b from-blue-500/10 to-white">
+  <div class="max-w-3xl mx-auto px-4 pt-32 pb-16">
+    <div id="demo-video" class="relative rounded-2xl -mt-50 shadow-xl p-2">
+      <div class="video-container relative">
+        <video
+          src={DemoOverlay}
+          loop
+          muted
+          playsinline
+          autoplay
+          class="w-full rounded-2xl object-contain bg-transparent preview-video"></video>
+
+        <!-- Play button -->
+        <button
+          class="play-button absolute left-1/2 transform -translate-x-1/2 cta-secondary
+                 flex items-center justify-center gap-2
+                 shadow-lg hover:shadow-xl hover:cursor-pointer z-10 md:top-1/2 -md:translate-y-1/2"
+        >
+          <Icon name="tabler:player-play-filled" />
+          <span class="whitespace-nowrap">
+            <strong>Descubre AutoVisita</strong> en 5 min
+          </span>
+        </button>
+
+        <!-- Youtube video parent container -->
+        <div class="youtube-embed absolute inset-0 z-20 hidden">
+          <!-- Close button -->
+          <button
+            class="close-button absolute top-2 right-2 p-2 rounded
+                     hover:cursor-pointer hover:bg-gray-500 hover:text-white transition-colors duration-200"
+          >
+            <span class="font-bold text-2xl">✕</span>
+          </button>
+
+          <!-- Centered container with youtube video -->
+          <div class="flex items-center justify-center w-full h-full md:p-15">
+            <div class="w-[720px]">
+              <YouTube
+                id="https://www.youtube.com/embed/5YyeoI-4HgY"
+                posterQuality="high"
+                params="autoplay=1"
+                class="rounded-3xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Client-side JavaScript
+  const playButton = document.querySelector('.play-button');
+  const previewVideo = document.querySelector('.preview-video');
+  const youtubeEmbed = document.querySelector('.youtube-embed');
+  const closeButton = document.querySelector('.close-button');
+
+  playButton?.addEventListener('click', () => {
+    previewVideo?.classList.add('opacity-25');
+    youtubeEmbed?.classList.remove('hidden');
+    // If the iframe src was cleared during close, restore it on play.
+    const iframe = youtubeEmbed?.querySelector('iframe');
+    if (iframe) {
+      iframe.src = 'https://www.youtube.com/embed/gIQZVRn5an4';
+    }
+  });
+
+  closeButton?.addEventListener('click', () => {
+    youtubeEmbed?.classList.add('hidden');
+    previewVideo?.classList.remove('opacity-25');
+
+    // Stop YouTube video playback by resetting the iframe src.
+    const iframe = youtubeEmbed?.querySelector('iframe');
+    if (iframe) {
+      //   const tempSrc = iframe.src;
+      iframe.src = '';
+      // Optional: Restore the src for future play after a brief delay.
+      //   setTimeout(() => {
+      //     iframe.src = tempSrc;
+      //   }, 100);
+    }
+  });
+</script>

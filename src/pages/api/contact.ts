@@ -27,6 +27,20 @@ export const POST: APIRoute = async ({ request }) => {
 
     try {
       /* -------------------------------- Send NTFY ------------------------------- */
+      // Check if environment variables are available
+      const NTFY_URL = import.meta.env.NTFY_URL ?? process.env.NTFY_URL;
+      const NTFY_TOKEN = import.meta.env.NTFY_TOKEN ?? process.env.NTFY_TOKEN;
+
+      if (!NTFY_URL || !NTFY_TOKEN) {
+        console.error('Missing environment variables: NTFY_URL or NTFY_TOKEN');
+        return new Response(
+          JSON.stringify({
+            error: 'Server configuration error: Missing environment variables',
+          }),
+          { status: 500 }
+        );
+      }
+
       const ntfySent = await sendNotification({
         topic: 'autovisita-contact',
         body: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
@@ -51,15 +65,31 @@ export const POST: APIRoute = async ({ request }) => {
       } else {
         console.error('Failed to send NTFY notification');
 
-        return new Response(null, { status: 400 });
+        return new Response(
+          JSON.stringify({
+            error: 'Failed to send notification',
+          }),
+          { status: 500 }
+        );
       }
     } catch (error) {
       // An error occurred while doing the API operation
       console.error('An unexpected error occurred while adding contact:', error);
-      return new Response(null, { status: 400 });
+      return new Response(
+        JSON.stringify({
+          error: 'An unexpected error occurred',
+          details: error instanceof Error ? error.message : String(error),
+        }),
+        { status: 500 }
+      );
     }
   }
 
   // If the POST request is not a JSON request, return a 400 status to the frontend
-  return new Response(null, { status: 400 });
+  return new Response(
+    JSON.stringify({
+      error: 'Invalid content type. Expected application/json',
+    }),
+    { status: 400 }
+  );
 };

@@ -1,0 +1,154 @@
+---
+import { Icon } from 'astro-icon/components';
+
+// Create a problem mix dictionary by mixing problems and logos randomly with this structure:
+const problemMix = [
+  {
+    type: 'problem',
+    name: '50 llamadas al día',
+  },
+  {
+    type: 'logo',
+    name: 'logo-idealista',
+    h: 5,
+  },
+  {
+    type: 'logo',
+    name: 'logo-fotocasa',
+    h: 3,
+  },
+  {
+    type: 'problem',
+    name: 'visitas desorganizadas',
+  },
+  {
+    type: 'problem',
+    name: 'miles de papeles',
+  },
+  {
+    type: 'problem',
+    name: 'pérdida de feedback',
+  },
+  {
+    type: 'problem',
+    name: 'falta de comunicación',
+  },
+  {
+    type: 'logo',
+    name: 'logo-pisoscom',
+    h: 6,
+  },
+  {
+    type: 'problem',
+    name: 'coordinación de horarios',
+  },
+  {
+    type: 'problem',
+    name: 'seguimiento de interesados',
+  },
+];
+
+const solutions = [
+  'Automatización Total de Visitas',
+  'Gestión Inteligente de Interesados',
+  'Cruce de Propiedades e Interesados',
+];
+---
+
+<div class="max-w-6xl mx-auto px-4 py-12">
+  <div class="text-center mb-16">
+    <h1 class="text-5xl font-bold mb-4">Ahorra hasta 4 horas al día</h1>
+    <p class="text-4xl text-primary">con nuestras automatizaciones y bases de datos</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Problem mix -->
+    <div class="flex flex-col items-center justify-center">
+      <h2 class="text-2xl font-semibold mb-6">Problemas</h2>
+      <!-- Box -->
+      <div class="bg-white rounded-xl p-8 shadow-lg max-w-xl">
+        <div class="flex flex-wrap gap-2 items-center justify-center">
+          {
+            problemMix.map((item) =>
+              item.type === 'problem' ? (
+                <div class="rounded-full px-4 py-2 text-xs font-medium bg-secondary text-white ">{item.name}</div>
+              ) : (
+                <div class="px-4 py-2  text-gray-600 ">
+                  <Icon name={item.name} class={`w-auto h-${item.h}`} />
+                </div>
+              )
+            )
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- AutoVisita logo with arrow icons -->
+    <div class="flex items-center justify-center relative">
+      <!-- Right arrows -->
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14">
+        <div class="w-full h-full flex items-center justify-center opacity-0 lg:opacity-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100" class="w-70 h-70">
+            <defs>
+              <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#FFFFFF"></stop>
+                <stop offset="100%" style="stop-color:#2B7BFF"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M 0,0 L 80,50 L 0,100 Z" fill="url(#blueGradient)"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 -translate-x-40">
+        <div class="w-full h-full flex items-center justify-center opacity-0 lg:opacity-20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 100" class="w-70 h-70">
+            <defs>
+              <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#FFFFFF"></stop>
+                <stop offset="100%" style="stop-color:#2B7BFF"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M 0,0 L 80,50 L 0,100 Z" fill="url(#blueGradient)"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Down arrow -->
+      <div class="absolute -top-10">
+        <div class="w-full h-full flex flex-col opacity-20 lg:opacity-0">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" class="w-70 h-70">
+            <defs>
+              <linearGradient id="blueGradientDown" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFFFFF"></stop>
+                <stop offset="100%" style="stop-color:#2B7BFF"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M 0,0 L 100,0 L 50,80 Z" fill="url(#blueGradientDown)"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- AutoVisita logo -->
+      <div class="bg-white rounded-3xl p-8 shadow-lg relative z-10 my-10 lg:my-0">
+        <Icon name="autovisita-logo" class="text-xl lg:text-3xl" />
+      </div>
+    </div>
+
+    <!-- Solutions -->
+    <div class="p-8 flex justify-center flex-col items-center">
+      <h2 class="text-2xl font-semibold mb-6">Soluciones</h2>
+      <div class="space-y-4">
+        {
+          solutions.map((solution) => (
+            <div class="bg-white rounded-lg p-4 shadow flex items-center gap-3">
+              <div class="bg-primary rounded-full p-1 flex-shrink-0">
+                <Icon name="tabler:check" class="w-5 h-5 text-white" />
+              </div>
+              <span class="text-lg">{solution}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

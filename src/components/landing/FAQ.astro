@@ -1,0 +1,100 @@
+---
+// FAQ.astro
+
+const faq = [
+  {
+    question: '¿Cómo ahorra tiempo AutoVisita a mi agencia?',
+    answer:
+      'AutoVisita automatiza todo el proceso de registro de interesados y solicitudes de visitas. Cuando un interesado contacta desde portales como Idealista o Fotocasa, el sistema registra automáticamente sus datos y envía emails personalizados solicitando información adicional. Esto elimina las llamadas iniciales y ahorra hasta 4 horas diarias a tu equipo.',
+  },
+  {
+    question: '¿Es complicado implementar AutoVisita en mi agencia?',
+    answer:
+      'En absoluto. Nuestro equipo se encarga de toda la configuración inicial y la integración con tus portales inmobiliarios actuales. La mayoría de nuestros clientes están completamente operativos en menos de 48 horas, sin interrupciones en su flujo de trabajo habitual.',
+  },
+  {
+    question: '¿Cómo funciona el emparejamiento de propiedades con interesados?',
+    answer:
+      'Nuestro sistema analiza las preferencias de cada lead o interesado (ubicación, presupuesto, características) y las compara automáticamente con nuevas propiedades que se añaden a tu catálogo. Cuando hay coincidencias, recibes notificaciones para contactar a estos interesados anteriores, maximizando las oportunidades de venta sin esfuerzo adicional.',
+  },
+  {
+    question: '¿Qué portales inmobiliarios son compatibles con AutoVisita?',
+    answer:
+      'AutoVisita es compatible con los principales portales inmobiliarios en España, incluyendo Idealista, Fotocasa, Pisos.com, y muchos más. También podemos integrar AutoVisita con tu propio sitio web o cualquier otro canal de captación de leads que utilices actualmente.',
+  },
+  {
+    question: '¿Qué soporte ofrece AutoVisita?',
+    answer:
+      'Ofrecemos soporte técnico y de usuario en horario laboral extendido. Además, todos nuestros clientes tienen acceso gratuito a un gestor de cuenta que les ayuda a maximizar el valor de AutoVisita para su negocio y responde a cualquier consulta específica.',
+  },
+];
+---
+
+<div class="w-full max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+  <div class="text-center mb-12">
+    <h2 class="text-5xl font-semibold mb-2">Preguntas frecuentes</h2>
+  </div>
+
+  <div class="space-y-6">
+    {
+      faq.map((item, index) => (
+        <div class="border border-gray-200 rounded-lg overflow-hidden">
+          <button
+            class="w-full flex justify-between items-center px-6 py-4 text-left focus:outline-none"
+            id={`faq-button-${index + 1}`}
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index + 1}`}
+          >
+            <span class="text-lg font-medium">{item.question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-blue-500 transform transition-transform duration-200"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              id={`faq-icon-${index + 1}`}
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="px-6 py-4 bg-gray-50 hidden" id={`faq-answer-${index + 1}`}>
+            <p>{item.answer}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const faqButtons = document.querySelectorAll('[id^="faq-button-"]');
+
+  faqButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const controlId = button.getAttribute('aria-controls');
+
+      if (!controlId) return;
+
+      const content = document.getElementById(controlId);
+      const iconId = button.querySelector('svg')?.id;
+
+      if (!content || !iconId) return;
+
+      const icon = document.getElementById(iconId);
+      if (!icon) return;
+
+      // Toggle expanded state
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+
+      // Toggle content visibility
+      if (isExpanded) {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      } else {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+</script>

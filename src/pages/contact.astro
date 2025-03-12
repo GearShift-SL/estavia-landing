@@ -1,38 +1,139 @@
 ---
-import Layout from '~/layouts/PageLayout.astro'
-import Features2 from '~/components/widgets/Features2.astro'
-import ContactForm from '~/components/forms/ContactForm.tsx'
-
-const metadata = {
-  title: 'Contact'
-}
+import PageLayout from '~/layouts/PageLayout.astro';
 ---
 
-<Layout metadata={metadata}>
-  <ContactForm client:idle />
+<PageLayout
+  metadata={{
+    title: 'Contacto',
+    description: 'Ponte en contacto con nosotros para cualquier consulta sobre AutoVisita.',
+  }}
+>
+  <section class="w-full py-16 px-4 bg-gradient-to-b from-transparent to-blue-100">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl font-medium leading-tight mb-6">
+          Ponte en <span class="text-blue-500">contacto</span> con nosotros
+        </h1>
+        <p class="text-base md:text-lg text-gray-800 max-w-3xl mx-auto">
+          Estamos aquí para ayudarte. Rellena el formulario y nos pondremos en contacto contigo lo antes posible.
+        </p>
+      </div>
 
-  <Features2
-    title='¡Estamos aquí para ayudarte!'
-    items={[
-      {
-        title: 'Ventas',
-        description: `Si eres una empresa y quieres solicitar una cotización, tienes preguntas sobre personalización, licencias para uso comercial, o deseas información sobre una función específica, ¡envíanos un mensaje!`
-      },
-      {
-        title: 'Soporte técnico',
-        description:
-          'Consulta cualquier problema técnico que tengas, como dificultades de configuración u otros desafíos técnicos relacionados con el uso de AutoVisita.'
-      },
-      {
-        title: 'Oportunidades de colaboración',
-        description:
-          'Si eres un desarrollador, diseñador, o profesional de marketing y te gustaría colaborar con nosotros, ¡háznoslo saber!'
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <form id="contact-form" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="¿En qué podemos ayudarte?"></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="cta-gradient w-full">Enviar mensaje</button>
+          </div>
+
+          <div id="form-status" class="text-center hidden">
+            <p id="success-message" class="text-green-600 hidden">
+              ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
+            </p>
+            <p id="error-message" class="text-red-600 hidden">
+              Ha ocurrido un error al enviar el mensaje. Por favor, inténtalo de nuevo.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-form') as HTMLFormElement;
+      const formStatus = document.getElementById('form-status');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+
+      if (form && formStatus && successMessage && errorMessage) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(form);
+          const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message'),
+          };
+
+          console.log('Data', data);
+
+          try {
+            // Send data to API endpoint
+            const response = await fetch('/api/contact/', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
+
+            // Show appropriate message based on response
+            formStatus.classList.remove('hidden');
+
+            if (response.ok) {
+              // Show success message
+              successMessage.classList.remove('hidden');
+              errorMessage.classList.add('hidden');
+              form.reset();
+            } else {
+              // Show error message
+              errorMessage.classList.remove('hidden');
+              successMessage.classList.add('hidden');
+
+              // Log more detailed error information
+              const errorText = await response.text().catch(() => 'No response text');
+              console.error('Error submitting form:', {
+                status: response.status,
+                statusText: response.statusText,
+                responseText: errorText,
+              });
+            }
+          } catch (error) {
+            // Show error message
+            formStatus.classList.remove('hidden');
+            errorMessage.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+            console.error('Error submitting form:', error);
+          }
+        });
       }
-      // {
-      //   title: 'Phone',
-      //   description: '+1 (111) 111-111',
-      //   icon: 'tabler:headset',
-      // },
-    ]}
-  />
-</Layout>
+    });
+  </script>
+</PageLayout>
