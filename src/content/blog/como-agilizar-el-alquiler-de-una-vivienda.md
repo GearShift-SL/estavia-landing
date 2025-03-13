@@ -1,7 +1,7 @@
 ---
 category: guias
 title: 'Cómo Agilizar el Alquiler de una Vivienda'
-description: 'Una guía práctica con consejos prácticos para acelerar el proceso de alquiler de una vivienda.'
+description: 'Una guía con los mejores consejos para agilizar el alquiler de una vivienda en España, haciendo uso de la IA para automatizar el proceso.'
 author: Daniel Garcia
 pubDatetime: 2024-09-18T12:00:48Z
 # modDatetime:

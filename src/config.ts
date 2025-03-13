@@ -48,7 +48,8 @@ type NavigationConfig = {
 
 export const SITE: SiteConfig = {
   title: 'AutoVisita',
-  description: 'AutoVisita, el CRM que automatiza tu agencia inmobiliaria',
+  description:
+    'AutoVisita es el primer CRM inmobiliario con IA para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
   author: 'Daniel García',
   siteUrl: 'https://autovisita.es',
   ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
