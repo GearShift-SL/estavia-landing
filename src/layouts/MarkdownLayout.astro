@@ -92,18 +92,20 @@ const formatDate = (date: Date) => {
   function addHeadingLinks() {
     let headings = Array.from(document.querySelectorAll('h2, h3, h4, h5, h6'));
     for (let heading of headings) {
-      // Add ID to heading if it doesn't have one
-      if (!heading.id) {
-        // Create slug from heading text
-        const slug = heading.textContent
-          .toLowerCase()
-          .replace(/[^\w\s-]/g, '') // Remove special chars
-          .replace(/\s+/g, '-') // Replace spaces with hyphens
-          .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
-          .trim();
+      // Normalize heading ID regardless of whether it already exists
+      // Create slug from heading text
+      const slug = heading.textContent
+        .toLowerCase()
+        // Normalize accents and special characters (convert ñ to n, é to e, etc.)
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^\w\s-]/g, '') // Remove remaining special chars
+        .replace(/\s+/g, '-') // Replace spaces with hyphens
+        .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+        .trim();
 
-        heading.id = slug;
-      }
+      // Always set the ID to ensure it's normalized
+      heading.id = slug;
 
       heading.classList.add('group');
       let link = document.createElement('a');
