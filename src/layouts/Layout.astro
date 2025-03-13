@@ -45,35 +45,6 @@ if (metadata?.ogImagePath) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Force Light Mode -->
-    <script is:inline>
-      // Remove dark class if present
-      document.documentElement.classList.remove('dark');
-
-      // Override any theme initialization
-      window.initTheme = function () {
-        // Always use light mode
-        document.documentElement.classList.remove('dark');
-        localStorage.theme = 'light';
-      };
-
-      // Override theme toggle functionality
-      window.addEventListener('DOMContentLoaded', () => {
-        const toggleButtons = document.querySelectorAll('[data-aw-toggle-color-scheme]');
-        toggleButtons.forEach((button) => {
-          button.addEventListener(
-            'click',
-            (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              // Do nothing or show a message that theme switching is disabled
-            },
-            true
-          );
-        });
-      });
-    </script>
-
     <!-- Analytics -->
     {import.meta.env.PROD && <script defer data-domain="autovisita.es" src="https://vince.hlab.es/js/script.js" />}
 
