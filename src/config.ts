@@ -47,7 +47,7 @@ type NavigationConfig = {
 };
 
 export const SITE: SiteConfig = {
-  title: 'AutoVisita',
+  title: 'AutoVisita - Tu software de gestión inmobiliaria',
   description:
     'AutoVisita es el primer CRM inmobiliario con IA para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
   author: 'Daniel García',
