@@ -42,30 +42,34 @@ if (metadata?.ogImagePath) {
   <head>
     <!-- Common Metadata -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Force Light Mode -->
     <script is:inline>
       // Remove dark class if present
       document.documentElement.classList.remove('dark');
-      
+
       // Override any theme initialization
-      window.initTheme = function() {
+      window.initTheme = function () {
         // Always use light mode
         document.documentElement.classList.remove('dark');
         localStorage.theme = 'light';
       };
-      
+
       // Override theme toggle functionality
       window.addEventListener('DOMContentLoaded', () => {
         const toggleButtons = document.querySelectorAll('[data-aw-toggle-color-scheme]');
-        toggleButtons.forEach(button => {
-          button.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // Do nothing or show a message that theme switching is disabled
-          }, true);
+        toggleButtons.forEach((button) => {
+          button.addEventListener(
+            'click',
+            (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              // Do nothing or show a message that theme switching is disabled
+            },
+            true
+          );
         });
       });
     </script>
