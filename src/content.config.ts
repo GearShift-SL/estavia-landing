@@ -23,5 +23,14 @@ const blog = defineCollection({
   }),
 });
 
+// Define changelog collection
+const changelog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/changelog' }),
+  schema: z.object({
+    version: z.string(),
+    date: z.coerce.date(),
+  }),
+});
+
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { blog };
+export const collections = { blog, changelog };
