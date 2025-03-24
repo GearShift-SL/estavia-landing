@@ -86,6 +86,7 @@ export const NAVIGATION: NavigationConfig = {
         links: [
           { text: 'Cómo funciona autovisita', href: '/#features' },
           { text: 'Sobre nosotros', href: '/#about' },
+          { text: 'Actualizaciones', href: '/changelog/' },
         ],
       },
       {
