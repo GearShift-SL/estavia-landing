@@ -65,7 +65,7 @@ export const NAVIGATION: NavigationConfig = {
     actions: [
       {
         href: '/bookdemo/',
-        text: 'Automatiza tu Agencia',
+        text: 'Automatiza tu agencia',
         // icon: 'tabler:rocket',
       },
     ],

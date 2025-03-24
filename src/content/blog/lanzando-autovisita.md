@@ -14,7 +14,7 @@ tags:
 ---
 
 <div class="my-8 w-full flex justify-center">
-  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a>
+  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
 </div>
 
 ## La Transformación Digital de las Agencias Inmobiliarias
@@ -26,7 +26,7 @@ En un mundo cada vez más digitalizado, el sector inmobiliario no puede quedarse
 Tradicionalmente, los agentes inmobiliarios han dependido de llamadas telefónicas para convertir leads en visitas programadas. Este proceso, aunque personal, es tremendamente ineficiente y consume mucho tiempo. Con plataformas como Idealista generando un flujo constante de leads, los agentes se encuentran abrumados por la tarea de contactar y gestionar cada potencial cliente.
 
 <div class="my-8 w-full flex justify-center">
-  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a>
+  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
 </div>
 
 ## AutoVisita: La Solución Inteligente
@@ -48,7 +48,7 @@ La incorporación de inteligencia artificial en AutoVisita no se limita a la mer
 - **Predicción de Conversión**: Utiliza algoritmos para priorizar leads con mayor probabilidad de concretar una compra.
 
 <div class="my-8 w-full flex justify-center">
-  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a>
+  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
 </div>
 
 ## Beneficios para las Agencias Inmobiliarias
@@ -70,7 +70,7 @@ La incorporación de inteligencia artificial en AutoVisita no se limita a la mer
 Las agencias que adopten AutoVisita se posicionarán a la vanguardia del sector, ofreciendo un servicio más ágil y moderno que sus competidores.
 
 <div class="my-8 w-full flex justify-center">
-  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a>
+  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
 </div>
 
 ## El Futuro del Sector Inmobiliario
@@ -82,7 +82,7 @@ AutoVisita no es solo una herramienta; representa un cambio de paradigma en la g
 - **Asistente Virtual**: IA conversacional para responder preguntas básicas de los leads.
 
 <div class="my-8 w-full flex justify-center">
-  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a>
+  <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
 </div>
 
 ## Conclusión

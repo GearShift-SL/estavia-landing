@@ -49,7 +49,7 @@ Para ayudarte a tener una visión general rápida, aquí tienes una tabla compar
 
 En las siguientes secciones, profundizaremos en cada una de estas herramientas, explorando sus características clave y cómo pueden beneficiar a tu agencia inmobiliaria.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## Por qué las herramientas de automatización son cruciales para las agencias inmobiliarias
 
@@ -77,7 +77,7 @@ Aunque algunas de estas herramientas pueden parecer costosas, existen alternativ
 
 En resumen, las herramientas de automatización son fundamentales para las agencias inmobiliarias que buscan mantenerse competitivas en el mercado actual. Al optimizar procesos, mejorar la experiencia del cliente y aumentar la productividad, estas tecnologías no solo resuelven problemas operativos, sino que también abren nuevas oportunidades de crecimiento y éxito en el sector inmobiliario.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 1. Matterport - Software de tours virtuales
 
@@ -121,7 +121,7 @@ Para sacar el máximo provecho de Matterport:
 6. Analiza las estadísticas de visualización para entender mejor el interés de los compradores.
 7. Ofrece visitas guiadas virtuales en tiempo real utilizando la plataforma.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 2. Salesforce Real Estate Cloud - Sistema CRM para bienes raíces
 
@@ -164,7 +164,7 @@ Para sacar el máximo provecho de Salesforce Real Estate Cloud:
 8. Implementa las mejores prácticas de gestión de datos para mantener tu CRM limpio y actualizado.
 9. Explora regularmente nuevas funcionalidades y actualizaciones de Salesforce para mantenerte al día.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 3. Mailchimp - Plataforma de marketing por correo electrónico
 
@@ -215,7 +215,7 @@ Para sacar el máximo provecho de Mailchimp:
 9. Utiliza la función de predicción de mejor hora de envío para maximizar las tasas de apertura.
 10. Mantén tu lista de contactos limpia y actualizada para mejorar la entregabilidad de tus emails.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 4. Hootsuite - Herramienta de gestión de redes sociales
 
@@ -264,7 +264,7 @@ Para sacar el máximo provecho de Hootsuite:
 9. Integra Hootsuite con otras herramientas de marketing para una estrategia digital más cohesiva.
 10. Aprovecha la función de análisis de competidores para mantenerte al tanto de las estrategias de la competencia.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 5. WordPress - Constructor de sitios web para inmobiliarias
 
@@ -314,7 +314,7 @@ Para sacar el máximo provecho de WordPress:
 9. Mantén tu WordPress, temas y plugins actualizados para garantizar la seguridad y el rendimiento.
 10. Considera la integración con tu CRM para una gestión más eficiente de los leads generados a través del sitio web.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 6. BoldLeads - Software de generación de leads
 
@@ -364,7 +364,7 @@ Para sacar el máximo provecho de BoldLeads:
 9. Aprovecha el soporte y los recursos educativos proporcionados por BoldLeads para maximizar tu ROI.
 10. Mantén un presupuesto de publicidad consistente para asegurar un flujo constante de leads.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 7. DocuSign - Herramienta de firma digital
 
@@ -416,7 +416,7 @@ Para sacar el máximo provecho de DocuSign:
 9. Aprovecha los informes y análisis para identificar cuellos de botella en tus procesos.
 10. Capacita a todo tu equipo en el uso eficiente de DocuSign para maximizar la productividad.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 8. Redfin - Software de análisis de mercado e informes
 
@@ -461,7 +461,7 @@ Para sacar el máximo provecho de Redfin:
 9. Integra los datos de Redfin en tus estrategias de marketing y en la fijación de precios de propiedades.
 10. Mantente actualizado con las nuevas características y mejoras que Redfin introduce regularmente en su plataforma.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 9. Zillow Premier Agent - Aplicación móvil para agentes inmobiliarios
 
@@ -512,7 +512,7 @@ Para sacar el máximo provecho de Zillow Premier Agent:
 9. Participa activamente en la comunidad de Zillow respondiendo preguntas y proporcionando información valiosa para aumentar tu visibilidad.
 10. Mantente al día con las nuevas características y actualizaciones de la aplicación para aprovechar al máximo todas sus capacidades.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## 10. [AutoVisita](https://autovisita.es) - Automatización de visitas inmobiliarias
 
@@ -563,7 +563,7 @@ Para sacar el máximo provecho de AutoVisita:
 9. Aprovecha los datos de [AutoVisita](https://autovisita.es) para informar tus estrategias de marketing y precios de propiedades.
 10. Capacita a todo tu equipo en el uso eficiente de [AutoVisita](https://autovisita.es) para maximizar la productividad y la satisfacción del cliente.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## Eligiendo las herramientas adecuadas para el trabajo
 
@@ -614,7 +614,7 @@ Evalúa el retorno de inversión potencial de cada herramienta. Considera no sol
 
 El mercado inmobiliario y la tecnología están en constante evolución. Elige herramientas que ofrezcan flexibilidad y estén abiertas a adaptarse a las cambiantes necesidades del mercado y de tu agencia.
 
-<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu Agencia Hoy </a> </div>
+<div class="my-8 w-full flex justify-center"> <a href="/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a> </div>
 
 ## Conclusión
 
