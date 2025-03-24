@@ -4,7 +4,8 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import ChangelogCard from '~/components/changelog/ChangelogCard.astro';
 const changelogEntries = await getCollection('changelog');
 
-console.log(changelogEntries);
+// Sort the entries by date, with the newest first
+const sortedEntries = changelogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
 <PageLayout>
@@ -13,7 +14,7 @@ console.log(changelogEntries);
       <h1 class="text-4xl font-bold mb-12 text-center">Actualizaciones de AutoVisita</h1>
 
       <div class="space-y-16">
-        {changelogEntries.map((entry) => <ChangelogCard release={entry} />)}
+        {sortedEntries.map((entry) => <ChangelogCard release={entry} />)}
       </div>
     </div>
   </div>
