@@ -5,6 +5,9 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 
+import mdx from "@astrojs/mdx";
+
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -12,6 +15,6 @@ export default defineConfig({
   },
 
   site: 'https://autovisita.es',
-  integrations: [icon(), sitemap()],
+  integrations: [icon(), sitemap(), mdx()],
   trailingSlash: 'always',
 });
