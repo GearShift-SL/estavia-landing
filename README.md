@@ -1,3 +1,3 @@
 # AutoVisita Landing Page
 
-Inspired from https://www.dataleap.ai/
+Landing page for https://autovisita.es
