@@ -1,5 +1,5 @@
 ---
-version: '2.2.x'
+version: '2.4.x'
 date: 2025-05-12
 ---
 
