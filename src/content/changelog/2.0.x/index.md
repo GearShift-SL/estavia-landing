@@ -27,6 +27,6 @@ Estos estados también están disponibles en la vista general de Interesados, po
 
 ### Mejoras
 
-Hemos mejorado la funcionalidad de AutoVisita con las siguientes mejoras:
+Hemos mejorado la funcionalidad de Estavia con las siguientes mejoras:
 
-- Al aceptar una petición de visita con una hora sugerida, AutoVisita comprobará si existe alguna otra visita que coincida con esta y avisará al usuario en dicho caso.
+- Al aceptar una petición de visita con una hora sugerida, Estavia comprobará si existe alguna otra visita que coincida con esta y avisará al usuario en dicho caso.

@@ -47,15 +47,15 @@ type NavigationConfig = {
 };
 
 export const SITE: SiteConfig = {
-  title: 'AutoVisita - Tu software de gestión inmobiliaria',
+  title: 'Estavia - Tu software de gestión inmobiliaria',
   description:
-    'AutoVisita es el primer agente de IA inmobiliario para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
+    'Estavia es el primer agente de IA inmobiliario para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
   author: 'Daniel García',
-  siteUrl: 'https://autovisita.es',
+  siteUrl: 'https://estavia.ai',
   ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
   locale: 'es_ES',
   twitter: {
-    site: '@autovisita',
+    site: '@estavia',
   },
 };
 
@@ -82,9 +82,9 @@ export const NAVIGATION: NavigationConfig = {
         ],
       },
       {
-        title: 'AutoVisita',
+        title: 'Estavia',
         links: [
-          { text: 'Cómo funciona autovisita', href: '/#features' },
+          { text: 'Cómo funciona estavia', href: '/#features' },
           { text: 'Sobre nosotros', href: '/#about' },
           { text: 'Actualizaciones', href: '/changelog/' },
         ],
@@ -95,7 +95,7 @@ export const NAVIGATION: NavigationConfig = {
           { text: 'GearShift', href: 'https://gearshift.es/' },
           { text: 'postify AI', href: 'https://postifyai.com/' },
           { text: 'SynCal', href: 'https://syncal.app/' },
-          { text: 'AutoVisita', href: 'https://autovisita.es/' },
+          { text: 'Estavia', href: 'https://estavia.ai/' },
         ],
       },
     ],
@@ -104,15 +104,15 @@ export const NAVIGATION: NavigationConfig = {
       { text: 'Política de privacidad', href: '/privacy/' },
     ],
     socialLinks: [
-      { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/autovisita' },
-      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/autovisita' },
-      { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/autovisita' },
+      { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia' },
+      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/estavia' },
+      { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/estavia' },
       { ariaLabel: 'RSS', icon: 'tabler:rss', href: '/rss.xml' },
     ],
     footNote: `
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-        >© 2025 <a href="https://autovisita.es/" class="hover:underline"
-          >AutoVisita</a
+        >© 2025 <a href="https://estavia.ai/" class="hover:underline"
+          >Estavia</a
         >
       </span>
         `,

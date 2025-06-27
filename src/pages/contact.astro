@@ -4,9 +4,9 @@ import PageLayout from '~/layouts/PageLayout.astro';
 
 <PageLayout
   metadata={{
-    title: 'Contacta con el equipo de AutoVisita',
+    title: 'Contacta con el equipo de Estavia',
     description:
-      'Ponte en contacto con el equipo de AutoVisita para cualquier consulta sobre nuestra plataforma de automatización de agencias inmobiliarias.',
+      'Ponte en contacto con el equipo de Estavia para cualquier consulta sobre nuestra plataforma de automatización de agencias inmobiliarias.',
   }}
 >
   <section class="w-full py-16 px-4 bg-gradient-to-b from-transparent to-blue-100">
@@ -88,7 +88,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
           // Get form data
           const formData = new FormData(form);
           const data = {
-            contact_list_name: 'autovisita_contact',
+            contact_list_name: 'estavia_contact',
             name: formData.get('name'),
             email: formData.get('email'),
             message: formData.get('message'),

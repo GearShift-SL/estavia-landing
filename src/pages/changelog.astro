@@ -11,7 +11,7 @@ const sortedEntries = changelogEntries.sort((a, b) => b.data.date.getTime() - a.
 <PageLayout>
   <div class="container mx-auto px-4">
     <div class="max-w-3xl mx-auto py-8">
-      <h1 class="text-4xl font-bold mb-12 text-center">Actualizaciones de AutoVisita</h1>
+      <h1 class="text-4xl font-bold mb-12 text-center">Actualizaciones de Estavia</h1>
 
       <div class="space-y-16">
         {sortedEntries.map((entry) => <ChangelogCard release={entry} />)}

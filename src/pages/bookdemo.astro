@@ -6,7 +6,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
   metadata={{
     title: 'Reserva una demo',
     description:
-      'Reserva una demo con el equipo de AutoVisita para ver cómo nuestro agente de IA puede ayudarte a automatizar tu agencia inmobiliaria.',
+      'Reserva una demo con el equipo de Estavia para ver cómo nuestro agente de IA puede ayudarte a automatizar tu agencia inmobiliaria.',
   }}
 >
   <section class="flex items-center h-full p-16">
@@ -64,7 +64,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
             id="message"
             name="message"
             rows="4"
-            placeholder="Explique el motivo por el que está interesado en AutoVisita."
+            placeholder="Explique el motivo por el que está interesado en Estavia."
             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           ></textarea>
         </div>
@@ -148,7 +148,7 @@ import PageLayout from '~/layouts/PageLayout.astro';
               }
 
               const formData = {
-                contact_list_name: 'autovisita_demo',
+                contact_list_name: 'estavia_demo',
                 name: nameInput.value.trim(),
                 email: emailInput.value.trim(),
                 phone: (document.getElementById('phone') as HTMLInputElement)?.value || '',

@@ -5,26 +5,26 @@ import type { MetaData } from '~/types';
 
 // Defaults
 const {
-  title = 'AutoVisita',
+  title = 'Estavia',
   useTitleTemplate = false,
   description = 'Automatiza tu gestión inmobiliaria. Simplifica y optimiza la gestión de clientes y propiedades con nuestra plataforma inteligente.',
   canonical = Astro.url.href,
   index = true,
   follow = true,
   openGraph = {
-    title: 'AutoVisita',
+    title: 'Estavia',
     description:
       'Automatiza tu gestión inmobiliaria. Simplifica y optimiza la gestión de clientes y propiedades con nuestra plataforma inteligente.',
     type: 'website',
     image: '~/assets/images/og_image.png',
     url: canonical,
-    siteName: 'AutoVisita',
+    siteName: 'Estavia',
     locale: 'es_ES',
   },
   twitter = {
     cardType: 'summary_large_image',
-    site: '@AutoVisita',
-    title: 'AutoVisita',
+    site: '@Estavia',
+    title: 'Estavia',
     description:
       'Automatiza tu gestión inmobiliaria. Simplifica y optimiza la gestión de clientes y propiedades con nuestra plataforma inteligente.',
     image: '~/assets/images/og_image.png',
@@ -34,7 +34,7 @@ const {
 
 <SEO
   title={title}
-  titleTemplate={useTitleTemplate ? '%s - AutoVisita' : undefined}
+  titleTemplate={useTitleTemplate ? '%s - Estavia' : undefined}
   description={description}
   canonical={canonical}
   noindex={!index}

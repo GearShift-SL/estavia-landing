@@ -15,7 +15,7 @@ Esto facilita enormemente la labor de criba de nuevos interesados y el seguimien
 
 #### Crear visitas desde la app
 
-AutoVisita ahora permite crear visitas manualmente directamente desde la aplicación.
+Estavia ahora permite crear visitas manualmente directamente desde la aplicación.
 
 Útil para aquellos interesados que prefieren llamar directamente o ir en persona a la inmobiliaria:
 

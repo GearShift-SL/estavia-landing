@@ -7,7 +7,7 @@ date: 2025-04-03
 
 #### Inmuebles creados automáticamente
 
-Si llega un nuevo interesado por Idealista y el inmueble no está todavía en AutoVisita, se creará un inmueble únicamente con el título y la referencia de Idealista.
+Si llega un nuevo interesado por Idealista y el inmueble no está todavía en Estavia, se creará un inmueble únicamente con el título y la referencia de Idealista.
 
 Así se podrá cambiar el estado y completar los datos del inmueble sin tener que crearlo de cero.
 
@@ -19,8 +19,8 @@ Así se podrá cambiar el estado y completar los datos del inmueble sin tener qu
 
 Ahora los inmuebles tienen una casilla para activar o desactivar el flujo automatizado.
 
-Si se desactiva, cuando lleguen nuevos interesados de Idealista, AutoVisita no les enviará el email con petición de visita automáticamente y habrá que enviarle la petición de visita manualmente desde la aplicación o contactar con el interesado directamente por teléfono.
+Si se desactiva, cuando lleguen nuevos interesados de Idealista, Estavia no les enviará el email con petición de visita automáticamente y habrá que enviarle la petición de visita manualmente desde la aplicación o contactar con el interesado directamente por teléfono.
 
 ### Mejoras
 
-Hemos actualizado y mejorado el código de AutoVisita para que vaya aún mejor y más rápido.
+Hemos actualizado y mejorado el código de Estavia para que vaya aún mejor y más rápido.

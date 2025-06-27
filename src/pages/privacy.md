@@ -5,7 +5,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Última actualización_: 17 de septiembre, 2024
 
-Cuando utiliza AutoVisita, nos confía parte de su información. Entendemos que es una gran responsabilidad y trabajamos duro para proteger su información y darle el control.
+Cuando utiliza Estavia, nos confía parte de su información. Entendemos que es una gran responsabilidad y trabajamos duro para proteger su información y darle el control.
 
 Esta Política de privacidad pretende ayudarle a comprender qué información recopilamos, por qué la recopilamos y cómo puede actualizar, gestionar, exportar y eliminar su información.
 
@@ -61,7 +61,7 @@ Cuando Usted accede al Servicio por o a través de un dispositivo móvil, podemo
 
 También podemos recopilar información que su navegador envía cada vez que visita nuestro Servicio o cuando accede al Servicio por o a través de un dispositivo móvil.
 
-### Datos específicos de AutoVisita
+### Datos específicos de Estavia
 
 #### Registros de uso
 
@@ -73,11 +73,11 @@ Cuando Usted vincula un proveedor de calendarios externo como Google Calendar, M
 
 Cuando el proveedor del calendario lo facilita, recopilamos el nombre del calendario, su configuración, incluida la zona horaria, y el correo electrónico asociado a la cuenta. También recopilamos estadísticas generales como el número de calendarios de una cuenta o el número total de eventos y contactos de cada calendario.
 
-Para algunas funciones más avanzadas, como la activación de la disponibilidad compartida y los enlaces de programación, AutoVisita requiere un acceso continuo al estado más reciente de su calendario. En este caso, se le preguntará si desea o no conectar la cuenta a AutoVisita Cloud. Si acepta, recopilaremos las credenciales de la cuenta, que se almacenarán de forma cifrada en Nuestro centro de datos.
+Para algunas funciones más avanzadas, como la activación de la disponibilidad compartida y los enlaces de programación, Estavia requiere un acceso continuo al estado más reciente de su calendario. En este caso, se le preguntará si desea o no conectar la cuenta a Estavia Cloud. Si acepta, recopilaremos las credenciales de la cuenta, que se almacenarán de forma cifrada en Nuestro centro de datos.
 
 #### Encuestas
 
-‍Si rellena encuestas de investigación en AutoVisita, recopilamos sus respuestas a los cuestionarios. Normalmente, los resultados de estas encuestas son anónimos y no están vinculados a su perfil de AutoVisita. A veces, la encuesta puede pedirle que deje su dirección de correo electrónico. En este caso, la encuesta no es anónima y puede vincularse a su perfil de AutoVisita o a sus actividades en AutoVisita. Tenga en cuenta que la participación es siempre opcional.
+‍Si rellena encuestas de investigación en Estavia, recopilamos sus respuestas a los cuestionarios. Normalmente, los resultados de estas encuestas son anónimos y no están vinculados a su perfil de Estavia. A veces, la encuesta puede pedirle que deje su dirección de correo electrónico. En este caso, la encuesta no es anónima y puede vincularse a su perfil de Estavia o a sus actividades en Estavia. Tenga en cuenta que la participación es siempre opcional.
 
 ## Tecnologías de seguimiento y cookies
 
@@ -234,4 +234,4 @@ Le aconsejamos que revise periódicamente esta Política de Privacidad para comp
 
 Si tiene alguna pregunta sobre esta Política de Privacidad, puede ponerse en contacto con nosotros
 
-- Por correo electrónico: hola@autovisita.es
+- Por correo electrónico: hola@estavia.ai
