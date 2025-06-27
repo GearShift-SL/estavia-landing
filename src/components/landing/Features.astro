@@ -4,6 +4,8 @@
 import feature1Video from '~/assets/videos/feature-1.mp4';
 import feature2Video from '~/assets/videos/feature-2.mp4';
 import feature3Video from '~/assets/videos/feature-3.mp4';
+import feature4Video from '~/assets/videos/feature-4.mp4';
+import feature5Video from '~/assets/videos/feature-5.mp4';
 
 type Feature = {
   tag: string;
@@ -17,11 +19,29 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    tag: 'VISITAS AUTOMATIZADAS',
-    title: 'Del portal inmobiliario a tu agenda sin llamadas',
+    tag: 'GESTION INTEGRAL',
+    title: 'Atiende a tus clientes las 24h del día',
     description:
-      'Cada interesado que llega desde Idealista se registra automáticamente y recibe un email personalizado solicitando sus datos y preferencias de visita. Toda la información aparece organizada en tu agenda, ahorrándote 2 horas al día en llamadas.',
+      'Estavia gestiona tus clientes al momento de recibirlos y de forma automatizada. No te preocupes por perder oportunidades de negocio y adelántate a la competencia.',
     video: feature1Video,
+    ctaText: 'Solicita una prueba',
+    ctaLink: '/bookdemo/',
+  },
+  {
+    tag: 'ANÁLISIS FINANCIERO',
+    title: 'Filtra tus clientes en función de su potencial financiero',
+    description:
+      'Estavia se comunica con tus clientes para obtener información financiera y calificarlos en función de su potencial financiero con respecto al inmueble en el que está interesado.',
+    video: feature2Video,
+    ctaText: 'Solicita una prueba',
+    ctaLink: '/bookdemo/',
+  },
+  {
+    tag: 'VISITAS AUTOMATIZADAS',
+    title: 'Del portal de anuncios a tu agenda sin llamadas',
+    description:
+      'Estavia se encarga de agendar una visita con cada interesado que llega desde un portal de anuncios (Idealista, Fotocasa, etc.).',
+    video: feature3Video,
     ctaText: 'Solicita una prueba',
     ctaLink: '/bookdemo/',
   },
@@ -30,16 +50,16 @@ const features: Feature[] = [
     title: 'Toda la información de tus clientes y propiedades en un solo lugar',
     description:
       'Mantén un registro completo de cada cliente, sus preferencias e historial de interacciones. Accede al instante a toda la información relevante de una propiedad y sus interesados desde cualquier dispositivo.',
-    video: feature2Video,
+    video: feature4Video,
     ctaText: 'Solicita una prueba',
     ctaLink: '/bookdemo/',
   },
   {
-    tag: 'INTELIGENCIA ARTIFICIAL',
-    title: 'Conecta automáticamente nuevas propiedades con interesados existentes',
+    tag: 'CROSS-SELLING',
+    title: 'Aprovecha las oportunidades de negocio automáticamente',
     description:
-      'Al añadir una propiedad a tu catálogo, nuestro sistema la cruza automáticamente con los interesados que encajan con sus características. Recibe notificaciones en tiempo real de las coincidencias y contacta a los interesados con un solo clic.',
-    video: feature3Video,
+      'Cuando un contrato se cierra o un nuevo inmueble se añade a tu catálogo, estavia se encarga de comunicarse con los demás interesados y ofrecerles un inmueble de características similares.',
+    video: feature5Video,
     ctaText: 'Solicita una prueba',
     ctaLink: '/bookdemo/',
     ctaNote: 'Próximamente',
