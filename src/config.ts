@@ -64,7 +64,7 @@ export const NAVIGATION: NavigationConfig = {
     links: [],
     actions: [
       {
-        href: '/bookdemo/',
+        href: `bookdemo/`,
         text: 'Automatiza tu agencia',
         // icon: 'tabler:rocket',
       },
@@ -76,17 +76,17 @@ export const NAVIGATION: NavigationConfig = {
       {
         title: 'Soporte',
         links: [
-          { text: 'Contacto', href: '/contact/' },
-          { text: 'Blog', href: '/blog/' },
-          { text: 'Guías', href: '/category/guias/' },
+          { text: 'Contacto', href: 'contact/' },
+          { text: 'Blog', href: 'blog/' },
+          { text: 'Guías', href: 'category/guias/' },
         ],
       },
       {
         title: 'Estavia',
         links: [
-          { text: 'Cómo funciona estavia', href: '/#features' },
-          { text: 'Sobre nosotros', href: '/#about' },
-          { text: 'Actualizaciones', href: '/changelog/' },
+          { text: 'Cómo funciona estavia', href: '#features' },
+          { text: 'Sobre nosotros', href: '#about' },
+          { text: 'Actualizaciones', href: 'changelog/' },
         ],
       },
       {
@@ -100,8 +100,8 @@ export const NAVIGATION: NavigationConfig = {
       },
     ],
     secondaryLinks: [
-      { text: 'Términos y condiciones', href: '/terms/' },
-      { text: 'Política de privacidad', href: '/privacy/' },
+      { text: 'Términos y condiciones', href: 'terms/' },
+      { text: 'Política de privacidad', href: 'privacy/' },
     ],
     socialLinks: [
       { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia' },
