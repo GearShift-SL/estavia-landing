@@ -3,10 +3,11 @@ import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
+  lang: string;
   posts: CollectionEntry<'blog'>[];
 }
 
-const { posts } = Astro.props;
+const { lang, posts } = Astro.props;
 
 // Sort posts by date
 const sortedPosts = posts.sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf());
@@ -31,7 +32,7 @@ const formatDate = (date: Date) => {
       sortedPosts.map((post) => (
         <li class="group hover:bg-gray-50 rounded-lg transition-colors">
           <article class="p-4">
-            <a href={`/blog/${post.id}/`} class="block">
+            <a href={`/${lang}/blog/${post.id.split('/').pop()}/`} class="block">
               <h2 class="text-xl font-semibold group-hover:text-blue-600 transition-colors">{post.data.title}</h2>
             </a>
             <div class="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">

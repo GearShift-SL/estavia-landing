@@ -30,8 +30,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href="https://autovisita.es">
-            <Icon name="autovisita-logo" class="h-10 w-32" />
+          <a class="inline-block font-bold text-xl" href="https://estavia.ai">
+            <Icon name="estavia-logo" class="h-10 w-32" />
           </a>
         </div>
         <div class="text-sm text-muted flex gap-1">
@@ -71,6 +71,30 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           </div>
         ))
       }
+
+      <div id="contact-details" class="col-span-6 md:col-span-3 lg:col-span-2">
+        <div class="font-medium mb-2">Contacto</div>
+        <ul class="text-sm">
+          <li class="mb-2">
+            <a
+              href="https://maps.app.goo.gl/tb4McHigby4r5BeP7"
+              class="text-muted hover:text-gray-700 hover:underline transition duration-150 ease-in-out flex items-center gap-2"
+            >
+              <Icon name="tabler:map-pin" class="w-4 h-4 flex-shrink-0" />
+              <span>Calle Santa Leonor, 64, Edifio D, Madrid</span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a
+              href="mailto:hello@estavia.ai"
+              class="text-muted hover:text-gray-700 hover:underline transition duration-150 ease-in-out flex items-center gap-2"
+            >
+              <Icon name="tabler:mail" class="w-4 h-4 flex-shrink-0" />
+              <span>hello@estavia.ai</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       {

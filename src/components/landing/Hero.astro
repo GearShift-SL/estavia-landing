@@ -1,5 +1,5 @@
 ---
-// Hero.astro
+import { Icon } from 'astro-icon/components';
 ---
 
 <div id="hero" class="max-w-4xl mx-auto px-4 py-16 text-center relative">
@@ -14,9 +14,14 @@
     <br />
     <span class="text-primary">Inteligencia Artificial</span>
   </h1> -->
-  <h1 class="text-5xl font-bold mb-4">
+  <!-- <h1 class="text-5xl font-bold mb-4">
     Cierra operaciones <span class="hidden md:inline">inmobiliarias</span> en la
     <span class="text-primary">mitad de tiempo</span>, sin papeles ni llamadas
+  </h1> -->
+
+  <h1 class="text-5xl font-bold mb-4">
+    100 agentes inmobiliarios
+    <span class="text-primary">en la palma de tu mano</span>
   </h1>
 
   {/* Description */}
@@ -24,11 +29,12 @@
     Automatiza la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones.
   </p> -->
   <p class="text-gray-600 text-xl max-w-2xl mx-auto mb-8">
-    Automatiza con IA la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones.
+    <span class="inline-flex items-center mr-1"><Icon name="estavia-logo" class="text-md inline" /></span> es tu agente de
+    inteligencia artificial que trabaja las 24 horas del día, analizando y gestionando tus clientes, inmuebles y visitas.
   </p>
 
   {/* CTA Button */}
-  <a href="/bookdemo/" class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
+  <a href={`bookdemo/`} class="cta-gradient text-lg font-semibold"> Automatiza tu agencia hoy </a>
 
   {/* Space to allow for video overflow */}
   <div class="h-20"></div>

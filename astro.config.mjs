@@ -1,12 +1,10 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
-import sitemap from "@astrojs/sitemap";
-import icon from "astro-icon";
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
+import icon from 'astro-icon';
 
-
-import mdx from "@astrojs/mdx";
-
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,7 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  site: 'https://autovisita.es',
+  site: 'https://estavia.ai',
   integrations: [icon(), sitemap(), mdx()],
   trailingSlash: 'always',
 });

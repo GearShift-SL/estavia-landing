@@ -1,7 +1,7 @@
-# robots.txt for https://autovisita.es
+# robots.txt for https://estavia.ai
 
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://autovisita.es/sitemap-index.xml 
+Sitemap: https://estavia.ai/sitemap-index.xml 

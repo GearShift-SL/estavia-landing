@@ -9,6 +9,7 @@ import { SITE } from '~/config';
 import { SEO } from 'astro-seo';
 
 import importImage from '~/utils/importImage';
+import { getLangFromUrl } from '~/i18n/utils';
 
 // Accept metadata props that can be passed from blog posts
 export interface Props {
@@ -28,17 +29,20 @@ export interface Props {
 
 const { metadata } = Astro.props;
 
+// Get the language from the url
+const lang = getLangFromUrl(Astro.url);
+
 // Import the ogImage dynamically if it's provided
 let ogImage: ImageMetadata | undefined;
 if (metadata?.ogImagePath) {
   ogImage = await importImage(metadata?.ogImagePath);
 } else {
-  ogImage = await importImage(SITE.ogImage);
+  ogImage = await importImage(SITE(lang).ogImage);
 }
 ---
 
 <!doctype html>
-<html lang="es" dir="ltr">
+<html lang={lang} dir="ltr">
   <head>
     <!-- Common Metadata -->
     <meta charset="UTF-8" />
@@ -48,7 +52,7 @@ if (metadata?.ogImagePath) {
     <!-- Analytics -->
     {
       import.meta.env.PROD && (
-        <script defer src="https://umami.hlab.es/qfwafsimpx" data-website-id="5c779955-5d9e-441c-b2a0-b3302bef3fb0" />
+        <script defer src="https://umami.hlab.es/qfwafsimpx" data-website-id="c2c2c957-c631-4786-9f5f-cc4cbf398621" />
       )
     }
 
@@ -58,31 +62,31 @@ if (metadata?.ogImagePath) {
     <!-- SEO stuff -->
     <!-- Uses SITE config by default -->
     <SEO
-      title={metadata?.title || SITE.title}
-      titleTemplate={metadata?.useTitleTemplate ? `%s - ${SITE.title}` : undefined}
-      description={metadata?.description || SITE.description}
+      title={metadata?.title || SITE(lang).title}
+      titleTemplate={metadata?.useTitleTemplate ? `%s - ${SITE(lang).title}` : undefined}
+      description={metadata?.description || SITE(lang).description}
       canonical={metadata?.canonicalUrl || Astro.url.href}
       noindex={metadata?.index === false}
       nofollow={metadata?.follow === false}
       openGraph={{
         basic: {
-          title: metadata?.title || SITE.title,
+          title: metadata?.title || SITE(lang).title,
           type: 'website',
-          image: ogImage?.src || SITE.ogImage,
+          image: ogImage?.src || SITE(lang).ogImage,
           url: metadata?.canonicalUrl || Astro.url.href,
         },
         optional: {
-          locale: SITE.locale,
-          siteName: SITE.title,
-          description: metadata?.description || SITE.description,
+          locale: SITE(lang).locale,
+          siteName: SITE(lang).title,
+          description: metadata?.description || SITE(lang).description,
         },
       }}
       twitter={{
         card: 'summary_large_image',
-        site: SITE.twitter.site,
-        title: metadata?.title || SITE.title,
-        description: metadata?.description || SITE.description,
-        image: ogImage?.src || SITE.ogImage,
+        site: SITE(lang).twitter.site,
+        title: metadata?.title || SITE(lang).title,
+        description: metadata?.description || SITE(lang).description,
+        image: ogImage?.src || SITE(lang).ogImage,
       }}
     />
   </head>
