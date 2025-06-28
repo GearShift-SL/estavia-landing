@@ -107,7 +107,7 @@ export const NAVIGATION = (lang: string): NavigationConfig => ({
       { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia' },
       { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/estavia' },
       { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/estavia' },
-      { ariaLabel: 'RSS', icon: 'tabler:rss', href: '/rss.xml' },
+      { ariaLabel: 'RSS', icon: 'tabler:rss', href: `/${lang}/rss.xml` },
     ],
     footNote: `
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
