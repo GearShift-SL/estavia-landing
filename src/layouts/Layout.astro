@@ -9,6 +9,7 @@ import { SITE } from '~/config';
 import { SEO } from 'astro-seo';
 
 import importImage from '~/utils/importImage';
+import { getLangFromUrl } from '~/i18n/utils';
 
 // Accept metadata props that can be passed from blog posts
 export interface Props {
@@ -35,10 +36,13 @@ if (metadata?.ogImagePath) {
 } else {
   ogImage = await importImage(SITE.ogImage);
 }
+
+// Get the language from the url
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="es" dir="ltr">
+<html lang={lang} dir="ltr">
   <head>
     <!-- Common Metadata -->
     <meta charset="UTF-8" />
