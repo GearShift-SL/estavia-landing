@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '~/layouts/PageLayout.astro';
+import PostsByYear from '~/components/blog/PostsByYear.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  // Get all the unique languages from the blog posts
+  const languages = [...new Set(posts.map((post) => post.id.split('/')[0]))];
+
+  // For each language, get all the published posts
+  const paths = languages.map((lang) => {
+    const postsByLang = posts.filter((post) => post.id.split('/')[0] === lang);
+    return { params: { lang }, props: { posts: postsByLang } };
+  });
+
+  // Return the paths for each language
+  return paths;
+}
+
+const { posts } = Astro.props;
+const { lang } = Astro.params;
+
+const publishedPosts = posts.filter((post) => post.data.draft !== true);
+---
+
+<PageLayout>
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <PostsByYear lang={lang} posts={publishedPosts} />
+  </div>
+</PageLayout>
