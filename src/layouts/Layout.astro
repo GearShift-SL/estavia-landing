@@ -29,16 +29,16 @@ export interface Props {
 
 const { metadata } = Astro.props;
 
+// Get the language from the url
+const lang = getLangFromUrl(Astro.url);
+
 // Import the ogImage dynamically if it's provided
 let ogImage: ImageMetadata | undefined;
 if (metadata?.ogImagePath) {
   ogImage = await importImage(metadata?.ogImagePath);
 } else {
-  ogImage = await importImage(SITE.ogImage);
+  ogImage = await importImage(SITE(lang).ogImage);
 }
-
-// Get the language from the url
-const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
@@ -62,31 +62,31 @@ const lang = getLangFromUrl(Astro.url);
     <!-- SEO stuff -->
     <!-- Uses SITE config by default -->
     <SEO
-      title={metadata?.title || SITE.title}
-      titleTemplate={metadata?.useTitleTemplate ? `%s - ${SITE.title}` : undefined}
-      description={metadata?.description || SITE.description}
+      title={metadata?.title || SITE(lang).title}
+      titleTemplate={metadata?.useTitleTemplate ? `%s - ${SITE(lang).title}` : undefined}
+      description={metadata?.description || SITE(lang).description}
       canonical={metadata?.canonicalUrl || Astro.url.href}
       noindex={metadata?.index === false}
       nofollow={metadata?.follow === false}
       openGraph={{
         basic: {
-          title: metadata?.title || SITE.title,
+          title: metadata?.title || SITE(lang).title,
           type: 'website',
-          image: ogImage?.src || SITE.ogImage,
+          image: ogImage?.src || SITE(lang).ogImage,
           url: metadata?.canonicalUrl || Astro.url.href,
         },
         optional: {
-          locale: SITE.locale,
-          siteName: SITE.title,
-          description: metadata?.description || SITE.description,
+          locale: SITE(lang).locale,
+          siteName: SITE(lang).title,
+          description: metadata?.description || SITE(lang).description,
         },
       }}
       twitter={{
         card: 'summary_large_image',
-        site: SITE.twitter.site,
-        title: metadata?.title || SITE.title,
-        description: metadata?.description || SITE.description,
-        image: ogImage?.src || SITE.ogImage,
+        site: SITE(lang).twitter.site,
+        title: metadata?.title || SITE(lang).title,
+        description: metadata?.description || SITE(lang).description,
+        image: ogImage?.src || SITE(lang).ogImage,
       }}
     />
   </head>

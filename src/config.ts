@@ -46,17 +46,35 @@ type NavigationConfig = {
   };
 };
 
-export const SITE: SiteConfig = {
-  title: 'Estavia - Tu software de gestión inmobiliaria',
-  description:
-    'Estavia es el primer agente de IA inmobiliario para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
-  author: 'Daniel García',
-  siteUrl: 'https://estavia.ai',
-  ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
-  locale: 'es_ES',
-  twitter: {
-    site: '@estavia',
-  },
+export const SITE = (lang: string): SiteConfig => {
+  if (lang === 'en') {
+    return {
+      title: 'Estavia - Your real estate management software',
+      description:
+        'Estavia is the first AI real estate agent to automate client management, property management, and visits so you can focus on closing more deals',
+      author: 'Daniel García',
+      siteUrl: 'https://estavia.ai/en/',
+      ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
+      locale: 'en_US',
+      twitter: {
+        site: '@estavia',
+      },
+    };
+  }
+
+  // Default 'es' return
+  return {
+    title: 'Estavia - El agente de IA para tu agencia inmobiliaria',
+    description:
+      'Estavia es el primer agente de IA inmobiliario para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
+    author: 'Daniel García',
+    siteUrl: 'https://estavia.ai/',
+    ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
+    locale: 'es_ES',
+    twitter: {
+      site: '@estavia',
+    },
+  };
 };
 
 export const NAVIGATION = (lang: string): NavigationConfig => ({
@@ -111,7 +129,7 @@ export const NAVIGATION = (lang: string): NavigationConfig => ({
     ],
     footNote: `
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-        >© 2025 <a href="https://estavia.ai/" class="hover:underline"
+        >© 2025 <a href="https://estavia.ai/${lang}/" class="hover:underline"
           >Estavia</a
         >
       </span>
