@@ -1,13 +1,17 @@
-<svg x="0" y="0" width="28.842679327976626" height="27.120525931336747" filtersec="colorsb4557973159"
-    class="image-svg-svg primary" style="overflow: visible;"><svg xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 106.3499984741211 100">
-        <g d-rs="3" transform="matrix(1,0,0,-1,0,100)">
-            <path
-                d="M17.73 89.34l35.45-66.65 6.3 11.85L45 61.85 30.34 89.34zM65.51 23.2L53.18 0 26.59 50 0 100h36.74l5.66-10.66 23.11-43.45 6-11.35z"
-                fill="#01a9f0"></path>
-            <path
-                d="M78.35 70l10.27 19.34H68.08zm22.34 19.31l-16.3-30.62L79.76 50l-1.41-2.66L76.94 50l-4.62 8.69L56 89.34 50.35 100h56z"
-                fill="#333"></path>
-        </g>
-    </svg>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="144.46" height="135.83"><svg id="SvgjsSvg1001" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.46 135.83">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+      }
+
+      .cls-2 {
+        fill: #01a9f0;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M120.38,121.35L72.22,30.82l-8.56,16.1,19.67,37.1,19.91,37.34h17.13ZM55.47,31.51L72.22,0l36.12,67.92,36.12,67.92h-49.91l-7.69-14.48-31.39-59.02-8.15-15.42,8.15-15.4Z"></path>
+  <path class="cls-1" d="M38.03,95.08l-13.95,26.27h27.9l-13.95-26.27ZM7.69,121.31l22.14-41.59,6.29-11.8,1.92-3.61,1.92,3.61,6.28,11.8,22.17,41.63,7.67,14.48H0l7.69-14.52Z"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
