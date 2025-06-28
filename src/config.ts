@@ -59,12 +59,12 @@ export const SITE: SiteConfig = {
   },
 };
 
-export const NAVIGATION: NavigationConfig = {
+export const NAVIGATION = (lang: string): NavigationConfig => ({
   header: {
     links: [],
     actions: [
       {
-        href: `bookdemo/`,
+        href: `/${lang}/bookdemo/`,
         text: 'Automatiza tu agencia',
         // icon: 'tabler:rocket',
       },
@@ -76,17 +76,17 @@ export const NAVIGATION: NavigationConfig = {
       {
         title: 'Soporte',
         links: [
-          { text: 'Contacto', href: 'contact/' },
-          { text: 'Blog', href: 'blog/' },
-          { text: 'Guías', href: 'category/guias/' },
+          { text: 'Contacto', href: `/${lang}/contact/` },
+          { text: 'Blog', href: `/${lang}/blog/` },
+          { text: 'Guías', href: `/${lang}/category/guias/` },
         ],
       },
       {
         title: 'Estavia',
         links: [
-          { text: 'Cómo funciona estavia', href: '#features' },
-          { text: 'Sobre nosotros', href: '#about' },
-          { text: 'Actualizaciones', href: 'changelog/' },
+          { text: 'Cómo funciona estavia', href: `/${lang}/#features` },
+          { text: 'Sobre nosotros', href: `/${lang}/#about` },
+          { text: 'Actualizaciones', href: `/${lang}/changelog/` },
         ],
       },
       {
@@ -100,8 +100,8 @@ export const NAVIGATION: NavigationConfig = {
       },
     ],
     secondaryLinks: [
-      { text: 'Términos y condiciones', href: 'terms/' },
-      { text: 'Política de privacidad', href: 'privacy/' },
+      { text: 'Términos y condiciones', href: `/${lang}/terms/` },
+      { text: 'Política de privacidad', href: `/${lang}/privacy/` },
     ],
     socialLinks: [
       { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia' },
@@ -117,4 +117,4 @@ export const NAVIGATION: NavigationConfig = {
       </span>
         `,
   },
-};
+});
