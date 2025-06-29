@@ -1,5 +1,7 @@
 ---
+import { getLangFromUrl } from '~/i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!-- Contact Form -->
@@ -61,7 +63,7 @@
       />
     </div>
     <label for="privacy" class="ml-2 text-sm font-medium text-gray-900">
-      Acepto la <a href="/privacy/" class="text-blue-600 hover:underline">política de privacidad</a>
+      Acepto la <a href={`/${lang}/privacy/`} class="text-blue-600 hover:underline">política de privacidad</a>
       <span class="text-red-600">*</span>
     </label>
   </div>
