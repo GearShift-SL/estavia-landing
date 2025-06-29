@@ -66,7 +66,7 @@ export const SITE = (lang: string): SiteConfig => {
   return {
     title: 'Estavia - El agente de IA para tu agencia inmobiliaria',
     description:
-      'Estavia es el primer agente de IA inmobiliario para automatizar la gestión de clientes, propiedades y visitas para que puedas centrarte en cerrar más operaciones',
+      'Automatiza clientes, propiedades y visitas con Estavia, el primer agente de IA para inmobiliarias. Céntrate en cerrar más operaciones.',
     author: 'Daniel García',
     siteUrl: 'https://estavia.ai/',
     ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
