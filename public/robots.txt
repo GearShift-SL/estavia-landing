@@ -1,6 +1,7 @@
 # robots.txt for https://estavia.ai
 
 User-agent: *
+Disallow: /cdn-cgi/
 Allow: /
 
 # Sitemaps
