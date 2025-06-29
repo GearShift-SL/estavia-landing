@@ -2,6 +2,9 @@
 import PageLayout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
+import { getLangFromUrl } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
 
 // Define the props type
 export interface Props {
@@ -61,7 +64,7 @@ const formatDate = (date: Date) => {
 
             <div class="flex items-center">
               <Icon name="tabler:folder" class="w-5 h-5 mr-1" />
-              <a href={`/category/${category.toLowerCase()}/`} class="hover:text-blue-600 transition-colors">
+              <a href={`/${lang}/category/${category.toLowerCase()}/`} class="hover:text-blue-600 transition-colors">
                 {category}
               </a>
             </div>
