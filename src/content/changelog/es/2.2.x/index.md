@@ -7,11 +7,11 @@ date: 2025-04-07
 
 #### Mejoras en la subida de imágenes
 
-Ahora se pueden subir hasta 100 imágenes, de 20MB cada una del tirón. Simplemente arrastra las imágenes de cualquier carpeta en tu ordenador a Estavia.
+Ahora se pueden subir hasta 100 imágenes, de 20MB cada una del tirón. Simplemente arrastra las imágenes de cualquier carpeta en tu ordenador a AutoVisita.
 
 ![Nueva subida de imágenes](./image-upload.png)
 
-Estavia optimizará las imágenes una a una para ofrecer la mejor experience a tus clientes.
+AutoVisita optimizará las imágenes una a una para ofrecer la mejor experience a tus clientes.
 
 #### Separación del estado "contactado"
 
@@ -20,7 +20,7 @@ Hemos dividido el estado "Contactado" en:
 - Contactado Manualmente
 - Contactado Automáticamente
 
-Para diferenciar claramente cuando un interesado ha sido contactado por Estavia o por un comercial:
+Para diferenciar claramente cuando un interesado ha sido contactado por AutoVisita o por un comercial:
 
 ![Nuevos estados contactado](./contacted-status.png)
 

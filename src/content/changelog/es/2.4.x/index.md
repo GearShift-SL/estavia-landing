@@ -7,9 +7,9 @@ date: 2025-05-12
 
 #### WhatsApp
 
-Estavia ahora es capaz de enviar mensajes personalizados a tus interesados directamente desde el WhatsApp de la inmobiliaria.
+AutoVisita ahora es capaz de enviar mensajes personalizados a tus interesados directamente desde el WhatsApp de la inmobiliaria.
 
-Para activar esta funcionalidad solo tienes que enlazar tu cuenta de WhatsApp Business con Estavia en la página de ajustes de tu cuenta.
+Para activar esta funcionalidad solo tienes que enlazar tu cuenta de WhatsApp Business con AutoVisita en la página de ajustes de tu cuenta.
 
 ![WhatsApp](./whatsapp.png)
 
@@ -21,7 +21,7 @@ Hemos introducido una nueva vista de calendario para ver las visitas programadas
 
 #### Auditoría de visitas
 
-Estavia ahora registra todas las visitas programadas, así como todas las cancelaciones, como una nota interna en el interesado.
+AutoVisita ahora registra todas las visitas programadas, así como todas las cancelaciones, como una nota interna en el interesado.
 
 De esta manera es mucho más fácil ver cuándo se ha programado una visita a un interesado.
 

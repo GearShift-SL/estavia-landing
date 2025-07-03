@@ -3,9 +3,9 @@ version: '1.0.x'
 date: 2025-02-24
 ---
 
-### Lanzamos Estavia!
+### Lanzamos AutoVisita!
 
-Despues de trabajar tres meses sin descanso hoy lanzamos la primera versión de Estavia.
+Despues de trabajar tres meses sin descanso hoy lanzamos la primera versión de AutoVisita.
 
 <!-- ### Otros
 
@@ -15,7 +15,7 @@ Despues de trabajar tres meses sin descanso hoy lanzamos la primera versión de 
 
 ### Mejoras
 
-- Mejoras internas que nos permitirán lanzar nuevas versiones de Estavia de manera más efectiva
+- Mejoras internas que nos permitirán lanzar nuevas versiones de AutoVisita de manera más efectiva
 
 ### Arreglos
 

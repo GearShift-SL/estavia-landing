@@ -5,7 +5,7 @@ date: 2025-02-26
 
 ### Información de contacto personalizada y mejoras en los datos de los interesados
 
-Días despues de lanzar Estavia hemos recibido suficiente feedback para mejorar el flujo automático:
+Días despues de lanzar AutoVisita hemos recibido suficiente feedback para mejorar el flujo automático:
 
 #### Información de contacto personalizada en emails
 

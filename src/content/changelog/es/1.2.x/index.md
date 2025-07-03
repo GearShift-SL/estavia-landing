@@ -24,7 +24,7 @@ Este dato se mostrará en las peticiones de visita de inmuebles con esta opción
 
 <!-- ### Mejoras
 
-- Mejoras internas que nos permitirán lanzar nuevas versiones de Estavia de manera más efectiva -->
+- Mejoras internas que nos permitirán lanzar nuevas versiones de AutoVisita de manera más efectiva -->
 
 ### Arreglos
 
