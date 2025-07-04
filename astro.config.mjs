@@ -6,6 +6,8 @@ import icon from 'astro-icon';
 
 import mdx from '@astrojs/mdx';
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -13,6 +15,6 @@ export default defineConfig({
   },
 
   site: 'https://estavia.ai',
-  integrations: [icon(), sitemap(), mdx()],
+  integrations: [icon(), sitemap(), mdx(), react()],
   trailingSlash: 'always',
 });
