@@ -105,6 +105,7 @@ export const NAVIGATION = (lang: string): NavigationConfig => ({
           { text: 'Cómo funciona estavia', href: `/${lang}/#features` },
           { text: 'Sobre nosotros', href: `/${lang}/#about` },
           { text: 'Actualizaciones', href: `/${lang}/changelog/` },
+          { text: 'Consultoría', href: `/${lang}/consulting/` },
         ],
       },
       {
