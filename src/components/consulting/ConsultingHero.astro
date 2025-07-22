@@ -1,63 +1,47 @@
 ---
 import { Icon } from 'astro-icon/components';
 import ConsultingContactForm from './ConsultingContactForm.astro';
+import CTAButton from './CTAButton.astro';
 ---
 
 <div class="max-w-7xl mx-auto px-4 py-16">
-  <div class="grid lg:grid-cols-2 gap-12 items-center">
-    {/* Left Column - Main Content */}
-    <div class="text-center lg:text-left">
-      <div class="inline-flex items-center bg-blue-100 text-blue-800 text-md font-medium px-3 py-1 rounded-full mb-6">
-        <Icon name="estavia-logo" class="w-15 mr-2" />
-        Consulting
+  <div class="text-center max-w-4xl mx-auto">
+    {/* Main Content */}
+    <div class="inline-flex items-center bg-blue-100 text-blue-800 text-md font-medium px-3 py-1 rounded-full mb-6">
+      <Icon name="estavia-logo" class="w-15 mr-2" />
+      Consulting
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+      Soluciones de IA
+      <span class="text-primary block">personalizadas para su inmobiliaria</span>
+    </h1>
+
+    <p class="text-gray-600 text-xl max-w-2xl mx-auto mb-8">
+      Implementamos funcionalidades avanzadas y personalizadas para grandes empresas inmobiliarias que necesitan ir más
+      allá de las soluciones estándar.
+    </p>
+
+    {/* Key Benefits */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto">
+      <div class="flex items-center justify-center md:justify-start">
+        <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+        <span class="text-gray-700">Integraciones personalizadas</span>
       </div>
-
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-        Soluciones de IA
-        <span class="text-primary block">personalizadas para su inmobiliaria</span>
-      </h1>
-
-      <p class="text-gray-600 text-xl max-w-2xl mb-8">
-        Implementamos funcionalidades avanzadas y personalizadas para grandes empresas inmobiliarias que necesitan ir
-        más allá de las soluciones estándar.
-      </p>
-
-      {/* Key Benefits */}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        <div class="flex items-center">
-          <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-          <span class="text-gray-700">Integraciones personalizadas</span>
-        </div>
-        <div class="flex items-center">
-          <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-          <span class="text-gray-700">Soporte dedicado 24/7</span>
-        </div>
-        <div class="flex items-center">
-          <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-          <span class="text-gray-700">Workflows customizados</span>
-        </div>
-        <div class="flex items-center">
-          <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
-          <span class="text-gray-700">Escalabilidad enterprise</span>
-        </div>
+      <div class="flex items-center justify-center md:justify-start">
+        <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+        <span class="text-gray-700">Soporte dedicado 24/7</span>
+      </div>
+      <div class="flex items-center justify-center md:justify-start">
+        <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+        <span class="text-gray-700">Workflows customizados</span>
+      </div>
+      <div class="flex items-center justify-center md:justify-start">
+        <div class="w-2 h-2 bg-primary rounded-full mr-3"></div>
+        <span class="text-gray-700">Escalabilidad enterprise</span>
       </div>
     </div>
 
-    {/* Right Column - Contact Form */}
-    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-      <div class="text-center mb-6">
-        <h3 class="text-2xl font-bold text-gray-900 mb-2">Hablemos de su proyecto</h3>
-        <p class="text-gray-600">Solicite una consulta personalizada sin compromiso</p>
-      </div>
-
-      <ConsultingContactForm />
-
-      <div class="mt-6 pt-6 border-t border-gray-100">
-        <div class="flex items-center justify-center text-sm text-gray-500">
-          <Icon name="tabler:shield-check" class="w-4 h-4 mr-2" />
-          <span>Respuesta garantizada en menos de 24 horas</span>
-        </div>
-      </div>
-    </div>
+    <CTAButton />
   </div>
 </div>

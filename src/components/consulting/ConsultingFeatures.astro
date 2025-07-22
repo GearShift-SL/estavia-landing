@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import CTAButton from './CTAButton.astro';
 ---
 
 <section class="max-w-7xl mx-auto px-4 py-16">
@@ -177,19 +178,6 @@ import { Icon } from 'astro-icon/components';
       Desarrollamos soluciones completamente personalizadas para su empresa. Desde integraciones complejas hasta
       funcionalidades únicas de su sector.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a
-        href="#consulting-hero"
-        class="cta-gradient font-semibold px-8 py-3 rounded-lg hover:shadow-lg transition-shadow"
-      >
-        Hablemos de tu proyecto
-      </a>
-      <!-- <a
-        href="tel:+34900000000"
-        class="text-white border border-white/30 hover:border-white/60 font-semibold px-8 py-3 rounded-lg transition-colors"
-      >
-        Llamar ahora
-      </a> -->
-    </div>
+    <CTAButton />
   </div>
 </section>
