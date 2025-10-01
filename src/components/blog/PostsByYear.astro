@@ -72,7 +72,7 @@ const images = await Promise.all(
       sortedPosts.map((post, index) => (
         <li class="group hover:bg-gray-50 rounded-lg transition-colors">
           <article class="p-4">
-            <a href={`/blog/${post.id.split('/').pop()}/`} class="block">
+            <a href={`/${lang}/blog/${post.id.split('/').pop()}/`} class="block">
               <div class="flex gap-4 items-start">
                 {images[index] && (
                   <div class="flex-shrink-0">
@@ -96,7 +96,10 @@ const images = await Promise.all(
               </div>
               <div class="flex items-center">
                 <Icon name="tabler:folder" class="w-5 h-5 mr-1" />
-                <a href={`/${post.data.category.toLowerCase()}/`} class="hover:text-blue-600 transition-colors">
+                <a
+                  href={`/${lang}/category/${post.data.category.toLowerCase()}/`}
+                  class="hover:text-blue-600 transition-colors"
+                >
                   {post.data.category}
                 </a>
               </div>
