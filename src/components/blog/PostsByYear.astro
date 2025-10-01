@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
 import importImage from '~/utils/importImage';
 import { Image } from 'astro:assets';
+import resolveCoverImagePathFromId from '~/utils/resolveCoverImagePath';
 
 interface Props {
   lang: string;
@@ -51,11 +52,16 @@ const getH1Title = () => {
 
 const h1Title = getH1Title();
 
-// Get the images for the post in order and add them to a list so we can use them in the component
+// Get the images for the posts via resolver
 const images = await Promise.all(
   sortedPosts.map(async (post) => {
-    if (post.data.ogImage) {
-      return await importImage(post.data.ogImage);
+    const path = await resolveCoverImagePathFromId(post.id);
+    if (path) {
+      try {
+        return await importImage(path);
+      } catch {
+        return null;
+      }
     }
     return null;
   })

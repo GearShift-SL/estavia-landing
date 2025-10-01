@@ -1,7 +1,6 @@
 ---
 import PageLayout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
-import type { CollectionEntry } from 'astro:content';
 
 // Data from the markdown frontmater
 // same as a blog post except for the category
@@ -12,7 +11,6 @@ export interface Props {
     author?: string;
     pubDatetime?: Date;
     modDatetime?: Date;
-    ogImage?: string;
     canonicalUrl?: string;
   };
 }
@@ -20,7 +18,7 @@ export interface Props {
 const { frontmatter } = Astro.props;
 
 // Extract the post data
-const { title, description, author, pubDatetime, modDatetime, ogImage, canonicalUrl } = frontmatter;
+const { title, description, author, pubDatetime, modDatetime, canonicalUrl } = frontmatter;
 
 // Create metadata object to pass to PageLayout
 const metadata = {
@@ -29,7 +27,6 @@ const metadata = {
   author: author,
   pubDatetime: pubDatetime,
   modDatetime: modDatetime,
-  ogImagePath: ogImage,
   canonicalUrl: canonicalUrl,
 };
 // Format dates
