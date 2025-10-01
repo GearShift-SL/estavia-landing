@@ -10,10 +10,13 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    host: true, // or '0.0.0.0'
+    // port: 4321,     // optional
+  },
   vite: {
     plugins: [tailwindcss()],
   },
-
   site: 'https://estavia.ai',
   integrations: [icon(), sitemap(), mdx(), react()],
   trailingSlash: 'always',

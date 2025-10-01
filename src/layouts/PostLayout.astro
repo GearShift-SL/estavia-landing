@@ -3,6 +3,8 @@ import PageLayout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
 import { getLangFromUrl } from '~/i18n/utils';
+import importImage from '~/utils/importImage';
+import { Image } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -15,7 +17,7 @@ export interface Props {
 const { post } = Astro.props;
 
 // Extract the post data
-const { title, description, author, pubDatetime, modDatetime, ogImage, canonicalUrl, category } = post?.data;
+const { title, description, author, pubDatetime, modDatetime, ogImage, canonicalUrl, category, tags } = post?.data;
 
 // Create metadata object to pass to PageLayout
 const metadata = {
@@ -27,6 +29,7 @@ const metadata = {
   ogImagePath: ogImage,
   canonicalUrl: canonicalUrl,
 };
+
 // Format dates
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('es-ES', {
@@ -35,6 +38,12 @@ const formatDate = (date: Date) => {
     day: 'numeric',
   });
 };
+
+// Import the ogImage dynamically if it's provided
+let ogImageImage: ImageMetadata | undefined;
+if (ogImage) {
+  ogImageImage = await importImage(ogImage);
+}
 ---
 
 <PageLayout metadata={metadata}>
@@ -84,6 +93,18 @@ const formatDate = (date: Date) => {
         )
       }
 
+      {
+        ogImageImage && (
+          <div class="mb-6">
+            <Image
+              src={ogImageImage}
+              alt={`Cover image for ${title}`}
+              class="rounded-lg w-full max-h-[400px] object-cover shadow-md"
+            />
+          </div>
+        )
+      }
+
       <div
         class="prose max-w-none
       prose-h1:font-bold prose-h1:text-xl
@@ -92,6 +113,15 @@ const formatDate = (date: Date) => {
       prose-headings:underline"
       >
         <slot />
+      </div>
+
+      <!-- Separator -->
+      <div class="my-8 h-px bg-gray-200"></div>
+
+      <!-- Show tags -->
+      <div class="flex flex-wrap gap-2 mt-8 items-center">
+        <span class="text-sm text-gray-600">Tags:</span>
+        {tags.map((tag) => <a class="bg-gray-100 rounded-md px-2 py-1 text-sm">{tag}</a>)}
       </div>
     </div>
   </div>
