@@ -8,10 +8,10 @@ interface EmailSignupCTAProps {
 }
 
 const EmailSignupCTA = ({
-  titleText = 'Quieres empezar a cerrar más operaciones?',
-  descriptionText = 'Descubre cómo la IA puede ayudarte a cerrar operaciones en la mitad de tiempo',
-  buttonText = 'Prueba Estavia Gratis',
-  placeholder = 'Introduce tu email',
+  titleText = 'Automatiza tus operaciones de leads con IA',
+  descriptionText = 'Estavia es un agente AI para agencias inmobiliarias en España: capta, cualifica y agenda visitas automáticamente.',
+  buttonText = 'Empezar con Estavia',
+  placeholder = 'Tu email profesional',
 }: EmailSignupCTAProps) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
@@ -37,7 +37,7 @@ const EmailSignupCTA = ({
 
       if (response.ok) {
         setStatus('success');
-        setMessage('Thanks for joining the newsletter!');
+        setMessage('Gracias. Te contactaremos para activar Estavia.');
         setEmail('');
       } else {
         const errorData = await response.json();
@@ -45,7 +45,7 @@ const EmailSignupCTA = ({
       }
     } catch (error) {
       setStatus('error');
-      setMessage(error instanceof Error ? error.message : 'Failed to join newsletter. Please try again.');
+      setMessage(error instanceof Error ? error.message : 'No hemos podido procesar tu solicitud. Inténtalo de nuevo.');
     }
   };
 
@@ -93,7 +93,7 @@ const EmailSignupCTA = ({
               disabled={status === 'loading'}
               className="px-4 py-2 bg-blue-400 text-white font-medium rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed hover:cursor-pointer"
             >
-              {status === 'loading' ? 'Submitting...' : buttonText}
+              {status === 'loading' ? 'Enviando…' : buttonText}
             </button>
           </form>
 
