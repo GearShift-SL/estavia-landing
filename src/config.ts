@@ -64,7 +64,7 @@ export const NAVIGATION: NavigationConfig = {
     links: [],
     actions: [
       {
-        href: '/bookdemo/',
+        href: '/reservar-demostracion/',
         text: 'Automatiza tu agencia',
         // icon: 'tabler:rocket',
       },
@@ -76,18 +76,19 @@ export const NAVIGATION: NavigationConfig = {
       {
         title: 'Soporte',
         links: [
-          { text: 'Contacto', href: '/contact/' },
+          { text: 'Contacto', href: '/contacto/' },
           { text: 'Blog', href: '/blog/' },
-          { text: 'Guías', href: '/category/guias/' },
+          { text: 'Guías', href: '/categorias/guias/' },
         ],
       },
       {
         title: 'Estavia',
         links: [
-          { text: 'Cómo funciona estavia', href: '/#features' },
-          { text: 'Sobre nosotros', href: '/#about' },
+          { text: 'Cómo funciona estavia', href: '/#funcionalidades' },
+          { text: 'Sobre nosotros', href: '/#sobre-nosotros' },
           { text: 'Actualizaciones', href: '/actualizaciones/' },
-          { text: 'Consultoría', href: '/consulting/' },
+          { text: 'Consultoría', href: '/consultoria/' },
+          { text: 'CRM', href: '/crm/' },
         ],
       },
       {
@@ -101,8 +102,8 @@ export const NAVIGATION: NavigationConfig = {
       },
     ],
     secondaryLinks: [
-      { text: 'Términos y condiciones', href: '/terms/' },
-      { text: 'Política de privacidad', href: '/privacy/' },
+      { text: 'Términos y condiciones', href: '/terminos-y-condiciones/' },
+      { text: 'Política de privacidad', href: '/politica-de-privacidad/' },
     ],
     socialLinks: [
       { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/estavia-ai/' },

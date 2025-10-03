@@ -3,7 +3,7 @@ title: 'Política de Privacidad'
 layout: '@/layouts/MarkdownLayout.astro'
 ---
 
-_Última actualización_: 17 de septiembre, 2024
+_Última actualización_: 3 de octubre, 2025
 
 Cuando utiliza Estavia, nos confía parte de su información. Entendemos que es una gran responsabilidad y trabajamos duro para proteger su información y darle el control.
 
@@ -140,27 +140,22 @@ La Empresa puede utilizar sus Datos para los siguientes fines:
 
 **No vendemos sus datos a nadie y nunca lo haremos.** Tampoco compartimos sus datos con terceros. Sin embargo, los datos que recopilamos se almacenan y procesan en infraestructuras en la nube proporcionadas por Nuestros socios (los procesadores de datos en términos de GDPR). Nuestros centros de datos se encuentran en Suiza o en la Unión Europea. Nuestros socios son:
 
-### 1. Brevo
+### 1. Loops
 
-Confiamos en Brevo para alimentar nuestros formularios de contacto. Para obtener más información sobre la política de privacidad de Brevo, visite
-https://www.brevo.com/legal/privacypolicy/
+Confiamos en Loops para gestionar los envios de email. Para obtener más información sobre la política de privacidad de Loops, visite
+https://loops.so/privacy
 
-### 2. Paddle.com Market Limited
+### 2. WhatsApp Business
 
-Confiamos en Paddle para el funcionamiento de nuestro sistema de pago y suscripción. Para más información sobre la Política de Privacidad de Paddle, por favor visite https://paddle.com/privacy
+Usamos WhatsApp Business como servicio de mensajería para nuestros usuarios. Puede consultar su política de privacidad en https://www.whatsapp.com/legal/business-app-privacy-policy
 
-<!-- ### 1. Google Inc.
+### 3. OpenAI
 
-Utilizamos Google Cloud Platform para impulsar nuestros servicios backend y para alojar y procesar algunos datos. La seguridad líder del sector de Google Cloud, las auditorías y certificaciones de terceros, la documentación y los compromisos legales nos ayudan a garantizar la seguridad de Sus datos. Para obtener más información sobre la seguridad de Google Cloud, visite https://cloud.google.com/security.
+Usamos OpenAI como proveedor de LLMs. Puede consultar la política de privacidad de Stripe en https://openai.com/policies/row-privacy-policy/
 
-### 2. Typeform, SL.
+### 4. Stripe
 
-Confiamos en Typeform para realizar nuestras encuestas y alojar las respuestas relacionadas. Para obtener más información sobre la política de privacidad de Typeform, visite
-https://www.typeform.com/help/what-happens-to-my-data
-
-### 3. Paddle.com Market Limited
-
-Confiamos en Paddle para el funcionamiento de nuestro sistema de pago y suscripción. Para más información sobre la Política de Privacidad de Paddle, por favor visite https://paddle.com/privacy -->
+Confiamos en Stripe para el funcionamiento de nuestro sistema de pago y suscripción. Para más información sobre la Política de Privacidad de Stripe, por favor visite https://stripe.com/es-es/privacy
 
 ## Conservación de sus datos personales
 

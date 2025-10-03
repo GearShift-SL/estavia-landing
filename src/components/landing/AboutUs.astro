@@ -1,0 +1,88 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-5xl font-semibold text-gray-900">
+      Sobre <span class="text-primary font-medium">nosotros</span>
+    </h2>
+    <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+      Estavia fue creada por uno de nuestros fundadoes, <a
+        href="https://linkedin.com/in/gsdaniel"
+        target="_blank"
+        class="text-primary">Daniel Garcia</a
+      >, al ver como las inmobiliarias en 2024 seguían trabajando de manera manual e ineficiente, incluso con CRMs.
+      <br /><br />
+      Hemos construido agentes de inteligencia artificial, que trabajan las 24 horas del día, para que tu equipo se concentre
+      en lo importante: <span class="font-bold">Captar más inmuebles y cerrar mejores operaciones</span>.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <!-- Story -->
+    <div class="lg:col-span-2 space-y-4">
+      <h3 class="text-2xl font-semibold text-gray-900">Nuestra misión</h3>
+      <p class="text-gray-700 text-lg">
+        <span class="font-bold"
+          >Automatizar el trabajo repetitivo del sector inmobiliario con IA fiable, segura y simple de usar</span
+        >. Integramos datos, automatizamos las comunicaciones y los procesos, y ofrecemos información accionable para
+        acelerar cada operación.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div class="bg-white rounded-xl p-5 shadow border border-gray-100">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-primary/10 rounded-full p-2">
+              <Icon name="tabler:sparkles" class="w-5 h-5 text-primary" />
+            </div>
+            <span class="font-semibold">Simplicidad</span>
+          </div>
+          <p class="text-gray-600">Implementación rápida sin fricción ni curvas de aprendizaje.</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 shadow border border-gray-100">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-primary/10 rounded-full p-2">
+              <Icon name="tabler:shield-check" class="w-5 h-5 text-primary" />
+            </div>
+            <span class="font-semibold">Confianza</span>
+          </div>
+          <p class="text-gray-600">Automatizaciones transparentes, auditables y orientadas a resultados.</p>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 shadow border border-gray-100">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="bg-primary/10 rounded-full p-2"><Icon name="tabler:rocket" class="w-5 h-5 text-primary" /></div>
+            <span class="font-semibold">Velocidad</span>
+          </div>
+          <p class="text-gray-600">Procesos más ágiles, menos esperas y más cierres.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team snapshot / stats -->
+    <div class="space-y-4">
+      <h3 class="text-2xl font-semibold text-gray-900">Hechos rápidos</h3>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3">
+          <Icon name="tabler:clock" class="w-5 h-5 text-primary mt-1" />
+          <span class="text-gray-700">Hasta 4 horas ahorradas al día por agente</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <Icon name="tabler:tools" class="w-5 h-5 text-primary mt-1" />
+          <span class="text-gray-700">Integración con portales líderes y herramientas existentes</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <Icon name="tabler:lock" class="w-5 h-5 text-primary mt-1" />
+          <span class="text-gray-700">Privacidad y seguridad como principios de diseño</span>
+        </li>
+      </ul>
+
+      <div class="mt-6 bg-gray-50 rounded-xl p-5 border border-gray-200">
+        <p class="text-sm text-gray-600">¿Quieres conocernos mejor?</p>
+        <a href="reservar-demostracion/" class="cta-secondary font-semibold inline-block mt-3">Habla con nosotros</a>
+      </div>
+    </div>
+  </div>
+</section>
