@@ -1,13 +1,10 @@
 ---
-import PageLayout from '~/layouts/PageLayout.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
-import { getLangFromUrl } from '~/i18n/utils';
-import importImage from '~/utils/importImage';
+import importImage from '@/utils/importImage';
 import { Image } from 'astro:assets';
-import resolveCoverImagePathFromId from '~/utils/resolveCoverImagePath';
-
-const lang = getLangFromUrl(Astro.url);
+import resolveCoverImagePathFromId from '@/utils/resolveCoverImagePath';
 
 // Define the props type
 export interface Props {
@@ -80,7 +77,7 @@ if (resolvedOgPath) {
 
             <div class="flex items-center">
               <Icon name="tabler:folder" class="w-5 h-5 mr-1" />
-              <a href={`/${lang}/category/${category.toLowerCase()}/`} class="hover:text-blue-600 transition-colors">
+              <a href={`/category/${category.toLowerCase()}/`} class="hover:text-blue-600 transition-colors">
                 {category}
               </a>
             </div>

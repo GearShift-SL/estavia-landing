@@ -4,10 +4,9 @@
 // Includes a header and a footer
 
 import Layout from './Layout.astro';
-import Header from '~/components/common/Header.astro';
-import Footer from '~/components/common/Footer.astro';
-import { NAVIGATION } from '~/config';
-import { getLangFromUrl } from '~/i18n/utils';
+import Header from '@/components/common/Header.astro';
+import Footer from '@/components/common/Footer.astro';
+import { NAVIGATION } from '@/config';
 
 // Props
 // - hasBgPattern: boolean
@@ -27,15 +26,13 @@ export interface Props {
   };
 }
 
-const lang = getLangFromUrl(Astro.url);
-
 const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
   <div class="flex flex-col min-h-screen">
     <slot name="header">
-      <Header {...NAVIGATION(lang).header} />
+      <Header {...NAVIGATION.header} />
     </slot>
     <main class="flex-grow">
       {/* Background Pattern */}
@@ -69,7 +66,7 @@ const { metadata } = Astro.props;
     </main>
 
     <slot name="footer">
-      <Footer {...NAVIGATION(lang).footer} />
+      <Footer {...NAVIGATION.footer} />
     </slot>
   </div>
 </Layout>

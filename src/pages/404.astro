@@ -1,8 +1,5 @@
 ---
-import PageLayout from '~/layouts/PageLayout.astro';
-import { getLangFromUrl } from '~/i18n/utils';
-
-const lang = getLangFromUrl(Astro.url);
+import PageLayout from '@/layouts/PageLayout.astro';
 ---
 
 <PageLayout
@@ -27,7 +24,7 @@ const lang = getLangFromUrl(Astro.url);
         </p>
 
         <!--  -->
-        <a rel="noopener noreferrer" href={`/${lang}/`} class="cta-primary">Volver a la página de inicio</a>
+        <a rel="noopener noreferrer" href={`/`} class="cta-primary">Volver a la página de inicio</a>
       </div>
     </div>
   </section>

@@ -1,7 +1,7 @@
 ---
 import { SEO } from 'astro-seo';
 
-import type { MetaData } from '~/types';
+import type { MetaData } from '@/types';
 
 // Defaults
 const {
@@ -16,7 +16,7 @@ const {
     description:
       'Automatiza tu gestión inmobiliaria. Simplifica y optimiza la gestión de clientes y propiedades con nuestra plataforma inteligente.',
     type: 'website',
-    image: '~/assets/images/og_image.png',
+    image: '@/assets/images/og_image.png',
     url: canonical,
     siteName: 'Estavia',
     locale: 'es_ES',
@@ -27,7 +27,7 @@ const {
     title: 'Estavia',
     description:
       'Automatiza tu gestión inmobiliaria. Simplifica y optimiza la gestión de clientes y propiedades con nuestra plataforma inteligente.',
-    image: '~/assets/images/og_image.png',
+    image: '@/assets/images/og_image.png',
   },
 }: MetaData = Astro.props;
 ---

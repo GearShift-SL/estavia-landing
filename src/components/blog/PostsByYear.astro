@@ -1,18 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
-import importImage from '~/utils/importImage';
+import importImage from '@/utils/importImage';
 import { Image } from 'astro:assets';
-import resolveCoverImagePathFromId from '~/utils/resolveCoverImagePath';
+import resolveCoverImagePathFromId from '@/utils/resolveCoverImagePath';
 
 interface Props {
-  lang: string;
   posts: CollectionEntry<'blog'>[];
   category?: string;
   tag?: string;
 }
 
-const { lang, posts, category, tag } = Astro.props;
+const { posts, category, tag } = Astro.props;
 
 let filteredPosts = posts;
 
@@ -78,7 +77,7 @@ const images = await Promise.all(
       sortedPosts.map((post, index) => (
         <li class="group hover:bg-gray-50 rounded-lg transition-colors">
           <article class="p-4">
-            <a href={`/${lang}/blog/${post.id.split('/').pop()}/`} class="block">
+            <a href={`/blog/${post.id.split('/').pop()}/`} class="block">
               <div class="flex gap-4 items-start">
                 {images[index] && (
                   <div class="flex-shrink-0">
@@ -103,7 +102,7 @@ const images = await Promise.all(
               <div class="flex items-center">
                 <Icon name="tabler:folder" class="w-5 h-5 mr-1" />
                 <a
-                  href={`/${lang}/category/${post.data.category.toLowerCase()}/`}
+                  href={`/category/${post.data.category.toLowerCase()}/`}
                   class="hover:text-blue-600 transition-colors"
                 >
                   {post.data.category}

@@ -1,1 +1,59 @@
-<meta http-equiv="refresh" content="0;url=/es/" />
+---
+import Brands from '@/components/landing/Brands.astro';
+import DemoVideo from '@/components/landing/DemoVideo.astro';
+import FAQ from '@/components/landing/FAQ.astro';
+import Features from '@/components/landing/Features.astro';
+import FooterHero from '@/components/landing/FooterHero.astro';
+import Hero from '@/components/landing/Hero.astro';
+import Testimonials from '@/components/landing/Testimonials.astro';
+import Transformation from '@/components/landing/Transformation.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+---
+
+<PageLayout>
+  <section id="hero">
+    <Hero />
+  </section>
+
+  <section id="demovideo">
+    <DemoVideo />
+  </section>
+
+  <div class="w-80 max-w-7xl mx-auto px-4 my-4">
+    <hr class="border-gray-200" />
+  </div>
+
+  <section id="social-proof-brands">
+    <Brands
+      brands={[
+        // { name: 'VoHome', icon: 'logo-vohome', width: 120 },
+        { name: 'Emissary', icon: 'logo-emissary', width: 120 },
+        { name: 'Rentake', icon: 'logo-rentake', width: 120 },
+      ]}
+    />
+  </section>
+
+  <div class="w-80 max-w-7xl mx-auto px-4 my-4">
+    <hr class="border-gray-200" />
+  </div>
+
+  <section id="transformation">
+    <Transformation />
+  </section>
+
+  <section id="features">
+    <Features />
+  </section>
+
+  <section id="social-proof">
+    <Testimonials />
+  </section>
+
+  <section id="faq">
+    <FAQ />
+  </section>
+
+  <section id="footer-hero">
+    <FooterHero />
+  </section>
+</PageLayout>

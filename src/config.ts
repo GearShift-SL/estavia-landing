@@ -46,43 +46,25 @@ type NavigationConfig = {
   };
 };
 
-export const SITE = (lang: string): SiteConfig => {
-  if (lang === 'en') {
-    return {
-      title: 'Estavia - Your real estate management software',
-      description:
-        'Estavia is the first AI real estate agent to automate client management, property management, and visits so you can focus on closing more deals',
-      author: 'Daniel García',
-      siteUrl: 'https://estavia.ai/en/',
-      ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
-      locale: 'en_US',
-      twitter: {
-        site: '@estavia',
-      },
-    };
-  }
-
-  // Default 'es' return
-  return {
-    title: 'Estavia - El agente de IA para tu agencia inmobiliaria',
-    description:
-      'Automatiza clientes, propiedades y visitas con Estavia, el primer agente de IA para inmobiliarias. Céntrate en cerrar más operaciones.',
-    author: 'Daniel García',
-    siteUrl: 'https://estavia.ai/',
-    ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
-    locale: 'es_ES',
-    twitter: {
-      site: '@estavia',
-    },
-  };
+export const SITE: SiteConfig = {
+  title: 'Estavia - El agente de IA para tu agencia inmobiliaria',
+  description:
+    'Automatiza clientes, propiedades y visitas con Estavia, el primer agente de IA para inmobiliarias. Céntrate en cerrar más operaciones.',
+  author: 'Daniel García',
+  siteUrl: 'https://estavia.ai/',
+  ogImage: '/src/assets/images/og-image.webp', // Needs to be an absolute path /src/...
+  locale: 'es_ES',
+  twitter: {
+    site: '@estavia',
+  },
 };
 
-export const NAVIGATION = (lang: string): NavigationConfig => ({
+export const NAVIGATION: NavigationConfig = {
   header: {
     links: [],
     actions: [
       {
-        href: `/${lang}/bookdemo/`,
+        href: '/bookdemo/',
         text: 'Automatiza tu agencia',
         // icon: 'tabler:rocket',
       },
@@ -94,18 +76,18 @@ export const NAVIGATION = (lang: string): NavigationConfig => ({
       {
         title: 'Soporte',
         links: [
-          { text: 'Contacto', href: `/${lang}/contact/` },
-          { text: 'Blog', href: `/${lang}/blog/` },
-          { text: 'Guías', href: `/${lang}/category/guias/` },
+          { text: 'Contacto', href: '/contact/' },
+          { text: 'Blog', href: '/blog/' },
+          { text: 'Guías', href: '/category/guias/' },
         ],
       },
       {
         title: 'Estavia',
         links: [
-          { text: 'Cómo funciona estavia', href: `/${lang}/#features` },
-          { text: 'Sobre nosotros', href: `/${lang}/#about` },
-          { text: 'Actualizaciones', href: `/${lang}/changelog/` },
-          { text: 'Consultoría', href: `/${lang}/consulting/` },
+          { text: 'Cómo funciona estavia', href: '/#features' },
+          { text: 'Sobre nosotros', href: '/#about' },
+          { text: 'Actualizaciones', href: '/actualizaciones/' },
+          { text: 'Consultoría', href: '/consulting/' },
         ],
       },
       {
@@ -119,21 +101,22 @@ export const NAVIGATION = (lang: string): NavigationConfig => ({
       },
     ],
     secondaryLinks: [
-      { text: 'Términos y condiciones', href: `/${lang}/terms/` },
-      { text: 'Política de privacidad', href: `/${lang}/privacy/` },
+      { text: 'Términos y condiciones', href: '/terms/' },
+      { text: 'Política de privacidad', href: '/privacy/' },
     ],
     socialLinks: [
-      { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia' },
-      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/estavia' },
-      { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/estavia' },
-      { ariaLabel: 'RSS', icon: 'tabler:rss', href: `/${lang}/rss.xml` },
+      { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/estavia-ai/' },
+      { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia_ai/' },
+      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'instagram.com/estavia_ai' },
+      { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/estaviaai' },
+      { ariaLabel: 'RSS', icon: 'tabler:rss', href: '/rss.xml' },
     ],
     footNote: `
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
-        >© 2025 <a href="/${lang}/" class="hover:underline"
+        >© 2025 <a href="/" class="hover:underline"
           >Estavia</a
         >
       </span>
         `,
   },
-});
+};
