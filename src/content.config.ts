@@ -13,6 +13,8 @@ const blog = defineCollection({
     category: z.enum(['guias', 'noticias', 'otros']),
     title: z.string(),
     description: z.string(),
+    metaTitle: z.string().optional(),
+    metaDescription: z.string().optional(),
     author: z.string(),
     pubDatetime: z.coerce.date(),
     modDatetime: z.coerce.date().optional(),
