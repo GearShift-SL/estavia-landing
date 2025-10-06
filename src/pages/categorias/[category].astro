@@ -8,35 +8,21 @@ export async function getStaticPaths() {
     return data.draft !== true;
   });
 
-  // Get all the unique languages from the blog posts
-  const languages = [...new Set(posts.map((post) => post.id.split('/')[0]))];
+  // Get unique categories from all posts
+  const categories = [...new Set(posts.map((post) => post.data.category.toLowerCase()))];
 
-  // Create a flat array of paths for each language and category combination
-  const paths: Array<{
-    params: { lang: string; category: string };
-    props: { posts: any[] };
-  }> = [];
-
-  languages.forEach((lang) => {
-    const postsByLang = posts.filter((post) => post.id.split('/')[0] === lang);
-
-    // Get unique categories for this language
-    const categories = [...new Set(postsByLang.map((post) => post.data.category.toLowerCase()))];
-
-    // Add paths for each category in this language
-    categories.forEach((category) => {
-      const postsForCategory = postsByLang.filter((post) => post.data.category.toLowerCase() === category);
-      paths.push({
-        params: { lang, category: category.toLowerCase() },
-        props: { posts: postsForCategory },
-      });
-    });
+  // Generate paths for each category
+  const paths = categories.map((category) => {
+    return {
+      params: { category: category.toLowerCase() },
+      props: { posts: posts.filter((post) => post.data.category.toLowerCase() === category) },
+    };
   });
 
   return paths;
 }
 
-const { category, lang } = Astro.params;
+const { category } = Astro.params;
 const { posts } = Astro.props;
 
 // Create metadata for the page
@@ -48,6 +34,6 @@ const metadata = {
 
 <PageLayout metadata={metadata}>
   <div class="max-w-3xl mx-auto px-4 py-16">
-    <PostsByCategory posts={posts} category={category} lang={lang} />
+    <PostsByCategory posts={posts} category={category} />
   </div>
 </PageLayout>
