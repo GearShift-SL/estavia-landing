@@ -108,7 +108,7 @@ export const NAVIGATION: NavigationConfig = {
     socialLinks: [
       { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/estavia-ai/' },
       { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia_ai/' },
-      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'instagram.com/estavia_ai' },
+      { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/estavia_ai' },
       { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/estaviaai' },
       { ariaLabel: 'RSS', icon: 'tabler:rss', href: '/rss.xml' },
     ],
