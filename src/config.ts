@@ -103,7 +103,7 @@ export const NAVIGATION: NavigationConfig = {
     ],
     secondaryLinks: [
       { text: 'Términos y condiciones', href: '/terminos-y-condiciones/' },
-      { text: 'Política de privacidad', href: '/politica-de-privacidad/' },
+      { text: 'Política de privacidad', href: '/privacidad/' },
     ],
     socialLinks: [
       { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/estavia-ai/' },
