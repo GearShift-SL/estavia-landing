@@ -10,9 +10,7 @@ export async function GET(context: any) {
     return data.draft !== true;
   });
 
-  const postsByLang = unsortedPosts.filter((post) => post.id.split('/')[0] === 'es');
-
-  const posts = getSortedPosts(postsByLang);
+  const posts = getSortedPosts(unsortedPosts);
   return rss({
     // `<title>` field in output xml
     title: SITE.title,
@@ -27,9 +25,9 @@ export async function GET(context: any) {
       title: data.title,
       description: data.description,
       pubDate: new Date(data.modDatetime ?? data.pubDatetime),
-      link: `/es/blog/${id.split('/')[1]}/`,
+      link: `/blog/${id.split('/')[1]}/`,
     })),
     // (optional) inject custom xml
-    customData: `<language>es</language>`,
+    // customData: `<language>es</language>`,
   });
 }
