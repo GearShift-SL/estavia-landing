@@ -139,6 +139,7 @@ const currentPath = `/${new URL(Astro.url).pathname}/`;
               <a
                 href={action.href}
                 class="cta-gradient font-bold py-2 px-4 rounded-lg inline-block text-center bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                data-umami-event="header-cta-button"
               >
                 {action.text}
               </a>
