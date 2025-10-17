@@ -4,35 +4,84 @@ import DemoVideo from '@/components/landing/DemoVideo.astro';
 import FAQ from '@/components/landing/FAQ.astro';
 import Features from '@/components/landing/Features.astro';
 import FooterHero from '@/components/landing/FooterHero.astro';
-import Hero from '@/components/landing/Hero.astro';
 import Testimonials from '@/components/landing/Testimonials.astro';
 import Transformation from '@/components/landing/Transformation.astro';
 import AboutUs from '@/components/landing/AboutUs.astro';
 import PageLayout from '@/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+import AsSeenOn from '@/components/landing/AsSeenOn.astro';
 ---
 
 <PageLayout>
   <section id="hero">
-    <Hero />
+    <div id="hero" class="max-w-4xl mx-auto px-4 py-16 text-center relative">
+      {/* Main Heading */}
+      <!-- <h1 class="text-5xl font-bold mb-4">
+        Gestiona tu inmobiliaria
+        <br />
+        <span class="text-primary">en piloto automático</span>
+      </h1> -->
+      <!-- <h1 class="text-5xl font-bold mb-4">
+        Potencia tu Agencia Inmobiliaria con
+        <br />
+        <span class="text-primary">Inteligencia Artificial</span>
+      </h1> -->
+      <!-- <h1 class="text-5xl font-bold mb-4">
+        Cierra operaciones <span class="hidden md:inline">inmobiliarias</span> en la
+        <span class="text-primary">mitad de tiempo</span>, sin papeles ni llamadas
+      </h1> -->
+
+      <h1 class="text-5xl font-bold mb-4">
+        Tu nuevo
+        <span class="text-primary">agente inmobiliario</span> de inteligencia artificial
+      </h1>
+
+      <p class="text-gray-600 text-xl max-w-2xl mx-auto mb-8">
+        <span class="inline-flex items-center mr-1">
+          <Icon name="estavia-logo" class="text-md inline" />
+        </span>
+        analiza y califica automáticamente cada lead que entra en tu agencia inmobiliaria, identificando a los clientes con
+        mayor probabilidad de compra y liberándote del trabajo manual.
+      </p>
+
+      <a href={`/reservar-demostracion/`} class="cta-gradient text-lg font-semibold">
+        Descubre cómo calificar tus leads con IA
+      </a>
+
+      {/* Space to allow for video overflow */}
+      <div class="h-20"></div>
+    </div>
   </section>
 
   <section id="demovideo">
     <DemoVideo />
   </section>
 
-  <div class="w-80 max-w-7xl mx-auto px-4 my-4">
-    <hr class="border-gray-200" />
-  </div>
-
-  <section id="social-proof-brands">
-    <Brands
-      brands={[
-        // { name: 'VoHome', icon: 'logo-vohome', width: 120 },
-        { name: 'Emissary', icon: 'logo-emissary', width: 120 },
-        { name: 'Rentake', icon: 'logo-rentake', width: 120 },
+  <section id="social-proof">
+    <AsSeenOn
+      logoLists={[
+        {
+          title: 'visto en',
+          logos: [
+            { name: 'El Referente', icon: 'logo-elreferente', height: 8 },
+            { name: 'Idealista', icon: 'logo-idealista', height: 12 },
+            { name: 'Gearshift', icon: 'logo-gearshift', height: 8 },
+          ],
+        },
+        {
+          title: 'usado por',
+          logos: [
+            { name: 'Rentake', icon: 'logo-rentake', height: 12 },
+            { name: 'Emissary', icon: 'logo-emissary', height: 12 },
+          ],
+        },
       ]}
     />
   </section>
+
+  <div class="w-80 max-w-7xl mx-auto px-4 my-4">
+    <hr class="border-gray-200" />
+  </div>
 
   <div class="w-80 max-w-7xl mx-auto px-4 my-4">
     <hr class="border-gray-200" />

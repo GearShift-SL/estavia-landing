@@ -88,15 +88,14 @@ export const NAVIGATION: NavigationConfig = {
           { text: 'Sobre nosotros', href: '/#sobre-nosotros' },
           { text: 'Actualizaciones', href: '/actualizaciones/' },
           { text: 'Consultoría', href: '/consultoria/' },
-          { text: 'CRM', href: '/crm/' },
         ],
       },
       {
         title: 'Universo GearShift',
         links: [
+          { text: 'AutoIPC', href: 'https://autoipc.es/' },
           { text: 'GearShift', href: 'https://gearshift.es/' },
-          { text: 'postify AI', href: 'https://postifyai.com/' },
-          { text: 'SynCal', href: 'https://syncal.app/' },
+          { text: 'miseo AI', href: 'https://miseo.ai/' },
           { text: 'Estavia', href: 'https://estavia.ai/' },
         ],
       },
@@ -110,6 +109,11 @@ export const NAVIGATION: NavigationConfig = {
       { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/estavia_ai/' },
       { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/estavia_ai' },
       { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/estaviaai' },
+      {
+        ariaLabel: 'Crunchbase',
+        icon: 'tabler:brand-crunchbase',
+        href: 'https://www.crunchbase.com/organization/estavia',
+      },
       { ariaLabel: 'RSS', icon: 'tabler:rss', href: '/rss.xml' },
     ],
     footNote: `
